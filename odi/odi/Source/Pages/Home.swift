@@ -9,42 +9,45 @@
 import SwiftUI
 
 struct MenuBtns: View{
+    var screenWidth = UIScreen.main.bounds.size.width
+    var screenHeight = UIScreen.main.bounds.size.height
+    
     var body: some View{
         VStack{
-            HStack{
+            HStack(spacing: 0){
                 Button("Button"){}
-                .frame(width:80, height:80)
+                    .frame(width:screenWidth/4.5, height:screenWidth/4.5)
                     .background(Color.blue)
                     .foregroundColor(Color.white)
                 Button("Button"){}
-                .frame(width:80, height:80)
+                    .frame(width:screenWidth/4.5, height:screenWidth/4.5)
                 .background(Color.blue)
                 .foregroundColor(Color.white)
                 Button("Button"){}
-                .frame(width:80, height:80)
+                    .frame(width:screenWidth/4.5, height:screenWidth/4.5)
                 .background(Color.blue)
                 .foregroundColor(Color.white)
                 Button("Button"){}
-                .frame(width:80, height:80)
+                    .frame(width:screenWidth/4.5, height:screenWidth/4.5)
                 .background(Color.blue)
                 .foregroundColor(Color.white)
-            }
+                }.frame(maxWidth: .infinity)
             
-            HStack{
+            HStack(spacing: 0){
                 Button("Button"){}
-                    .frame(width:80, height:80)
+                    .frame(width:screenWidth/4.5, height:screenWidth/4.5)
                 .background(Color.blue)
                 .foregroundColor(Color.white)
                 Button("Button"){}
-                .frame(width:80, height:80)
+                .frame(width:screenWidth/4.5, height:screenWidth/4.5)
                 .background(Color.blue)
                 .foregroundColor(Color.white)
                 Button("Button"){}
-                .frame(width:80, height:80)
+                .frame(width:screenWidth/4.5, height:screenWidth/4.5)
                 .background(Color.blue)
                 .foregroundColor(Color.white)
                 Button("Button"){}
-                .frame(width:80, height:80)
+                .frame(width:screenWidth/4.5, height:screenWidth/4.5)
                 .background(Color.blue)
                 .foregroundColor(Color.white)
             }
@@ -55,9 +58,7 @@ struct MenuBtns: View{
 struct Home: View{
     var body: some View{
         VStack{
-            HStack{
-                Text("ODI").frame(maxWidth: .infinity, alignment: .leading).font(.title)
-            }
+            TopBar(title:"ODI")
             Image("cafeImg").resizable()
                 .aspectRatio(contentMode: .fit)
             Button("Button"){

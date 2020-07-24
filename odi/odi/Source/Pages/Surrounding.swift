@@ -8,12 +8,10 @@
 
 import SwiftUI
 
-struct MyLocation: View {
+struct Surrounding: View {
     var body: some View {
     VStack{
-            HStack{
-                Text("ODI").frame(maxWidth: .infinity, alignment: .leading).font(.title)
-            }
+            TopBar(title:"내주변")
             Image("cafeImg").resizable()
                 .aspectRatio(contentMode: .fit)
             Button("Button"){
@@ -29,9 +27,9 @@ struct MyLocation: View {
                 alignment: .topLeading)
     }
 }
-//
-//struct MyLocation_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MyLocation()
-//    }
-//}
+
+struct Surrounding_Previews: PreviewProvider {
+    static var previews: some View {
+        Surrounding()
+    }
+}

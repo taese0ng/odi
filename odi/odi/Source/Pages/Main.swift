@@ -19,25 +19,25 @@ struct ContentView: View {
                     Text("Home")
             }
             
-            MyLocation()
+            Surrounding()
                 .tabItem {
                     Image(systemName:"location.fill")
                     Text("내주변")
             }
             
-            MyLocation()
+            Location()
                 .tabItem{
                     Image(systemName: "map.fill")
                     Text("지역")
             }
             
-            MyLocation()
+            Surrounding()
                 .tabItem{
                     Image(systemName: "heart.fill")
                     Text("좋아요")
             }
             
-            MyLocation()
+            Surrounding()
                 .tabItem{
                     Image(systemName: "person.crop.circle.fill")
                     Text("My")
