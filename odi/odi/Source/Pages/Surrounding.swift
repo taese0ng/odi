@@ -9,22 +9,33 @@
 import SwiftUI
 
 struct Surrounding: View {
+    @ObservedObject var store = Store()
     var body: some View {
-    VStack{
-            TopBar(title:"내주변")
-            Image("cafeImg").resizable()
-                .aspectRatio(contentMode: .fit)
-            Button("Button"){
-                print("Button1")
+        NavigationView{
+            VStack{
+                TopBar(title:"내주변")
+                Image("cafeImg").resizable()
+                    .aspectRatio(contentMode: .fit)
+                Button("Button"){
+                    print("Button1")
+                }
+                
+                Text("이번 주 HOT 카페dd").frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.title)
+            }.frame(minWidth:0,
+                    maxWidth: .infinity,
+                    minHeight: 0,
+                    maxHeight: .infinity,
+                    alignment: .topLeading)
+            .navigationBarTitle("")
+            .navigationBarHidden(self.store.isNavigationBarHidden)
+            .onAppear(){
+                self.store.isNavigationBarHidden=true
             }
-            
-            Text("이번 주 HOT 카페dd").frame(maxWidth: .infinity, alignment: .leading)
-                .font(.title)
-        }.frame(minWidth:0,
-                maxWidth: .infinity,
-                minHeight: 0,
-                maxHeight: .infinity,
-                alignment: .topLeading)
+            .onDisappear(){
+                self.store.isNavigationBarHidden=false
+            }
+        }
     }
 }
 

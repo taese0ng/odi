@@ -7,40 +7,42 @@
 //
 
 import SwiftUI
+class Store: ObservableObject{
+    @Published var isNavigationBarHidden:Bool = true
+}
 
 struct ContentView: View {
     
     var body: some View {
-        
         TabView{
             Home()
-                .tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
+            .tabItem {
+                Image(systemName: "house.fill")
+                Text("Home")
             }
             
             Surrounding()
-                .tabItem {
-                    Image(systemName:"location.fill")
-                    Text("내주변")
+            .tabItem {
+                Image(systemName:"location.fill")
+                Text("내주변")
             }
             
             Location()
-                .tabItem{
-                    Image(systemName: "map.fill")
-                    Text("지역")
+            .tabItem{
+                Image(systemName: "map.fill")
+                Text("지역")
             }
             
             Surrounding()
-                .tabItem{
-                    Image(systemName: "heart.fill")
-                    Text("좋아요")
+            .tabItem{
+                Image(systemName: "heart.fill")
+                Text("좋아요")
             }
             
             Surrounding()
-                .tabItem{
-                    Image(systemName: "person.crop.circle.fill")
-                    Text("My")
+            .tabItem{
+                Image(systemName: "person.crop.circle.fill")
+                Text("My")
             }
         }
     }

@@ -56,22 +56,31 @@ struct MenuBtns: View{
 }
 
 struct Home: View{
+    @ObservedObject var store = Store()
     var body: some View{
-        VStack{
-            TopBar(title:"ODI")
-            Image("cafeImg").resizable()
-                .aspectRatio(contentMode: .fit)
-            Button("Button"){
-                print("Button1")
+        NavigationView{
+            VStack{
+                TopBar(title:"ODI")
+                Image("cafeImg").resizable()
+                    .aspectRatio(contentMode: .fit)
+                MenuBtns()
+                Text("이번 주 HOT 카페")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.title)
+            }.frame(minWidth:0,
+            maxWidth: .infinity,
+            minHeight: 0,
+            maxHeight: .infinity,
+            alignment: .topLeading)
+            .navigationBarTitle("")
+            .navigationBarHidden(self.store.isNavigationBarHidden)
+            .onAppear(){
+                self.store.isNavigationBarHidden=true
             }
-            MenuBtns()
-            Text("이번 주 HOT 카페").frame(maxWidth: .infinity, alignment: .leading)
-                .font(.title)
-        }.frame(minWidth:0,
-                maxWidth: .infinity,
-                minHeight: 0,
-                maxHeight: .infinity,
-                alignment: .topLeading)
+            .onDisappear(){
+                self.store.isNavigationBarHidden=false
+            }
+        }
     }
 }
 

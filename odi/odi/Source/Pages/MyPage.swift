@@ -11,25 +11,36 @@ import SwiftUI
 struct MyPage: View {
     var screenWidth = UIScreen.main.bounds.size.width
     var screenHeight = UIScreen.main.bounds.size.height
+    @ObservedObject var store = Store()
     
     var body: some View {
-        VStack{
-            TopBar(title:"내정보")
-            Image("map")
-                .resizable()
-                .frame(width: screenWidth/2, height: screenWidth/2)
-                .cornerRadius(100)
-                .background(Color.red)
-            HStack{
-                Button("로그인"){}
-                Text(" / ")
-                Button("회원가입하기 >"){}
+        NavigationView{
+            VStack{
+                TopBar(title:"내정보")
+                Image("map")
+                    .resizable()
+                    .frame(width: screenWidth/2, height: screenWidth/2)
+                    .cornerRadius(100)
+                    .background(Color.red)
+                HStack{
+                    Button("로그인"){}
+                    Text(" / ")
+                    Button("회원가입하기 >"){}
+                }
+            }.frame(minWidth:0,
+            maxWidth: .infinity,
+            minHeight: 0,
+            maxHeight: .infinity,
+            alignment: .topLeading)
+            .navigationBarTitle("")
+            .navigationBarHidden(self.store.isNavigationBarHidden)
+            .onAppear(){
+                self.store.isNavigationBarHidden=true
             }
-        }.frame(minWidth:0,
-        maxWidth: .infinity,
-        minHeight: 0,
-        maxHeight: .infinity,
-        alignment: .topLeading)
+            .onDisappear(){
+                self.store.isNavigationBarHidden=false
+            }
+        }
     }
 }
 

@@ -8,12 +8,29 @@
 
 import SwiftUI
 
+struct Search: View {
+    var body: some View{
+        VStack{
+            Text("dd")
+        }.navigationBarTitle(Text("카페찾기"), displayMode: .inline)
+    }
+}
+
 struct TopBar: View {
     var title:String
-    
     var body: some View {
         HStack{
-            Text(title).frame(maxWidth: .infinity, alignment: .leading).font(.title)
+            Text(title)
+            .frame(
+                maxWidth: .infinity,
+                alignment: .leading
+            )
+            .font(.title)
+            NavigationLink(destination: Search()){
+                Image(systemName:"magnifyingglass")
+                .font(.title)
+                .foregroundColor(.black)
+            }
         }
     }
 }
