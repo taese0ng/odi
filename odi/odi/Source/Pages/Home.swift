@@ -55,17 +55,50 @@ struct MenuBtns: View{
     }
 }
 
+struct HotCafe:View{
+    var body: some View{
+        ScrollView(.horizontal, showsIndicators: false){
+            HStack{
+                ForEach((1...5).reversed(), id:\.self){_ in
+                    Image("cafeImg")
+                }
+            }
+        }
+    }
+}
+
+struct RecentCafe:View{
+    var body: some View{
+        ScrollView(.horizontal, showsIndicators: false){
+            HStack{
+                ForEach((1...5).reversed(), id:\.self){_ in
+                    Image("cafeImg")
+                }
+            }
+        }
+    }
+}
+
 struct Home: View{
     var body: some View{
         NavigationView{
             VStack{
-                TopBar(title:"ODI")
-                Image("cafeImg").resizable()
-                    .aspectRatio(contentMode: .fit)
-                MenuBtns()
-                Text("이번 주 HOT 카페")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.title)
+                ScrollView{
+                    TopBar(title:"ODI")
+                    Image("cafeImg").resizable()
+                        .aspectRatio(contentMode: .fit)
+                    MenuBtns()
+                    
+                    Text("이번 주 HOT 카페")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.title)
+                    HotCafe()
+                    
+                    Text("최근 본 카페")
+                        .frame(maxWidth:.infinity, alignment: .leading)
+                        .font(.title)
+                    RecentCafe()
+                }
             }.frame(minWidth:0,
             maxWidth: .infinity,
             minHeight: 0,
@@ -73,6 +106,7 @@ struct Home: View{
             alignment: .topLeading)
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarColor(.white)
+
 //            .navigationBarTitle("")
 //            .navigationBarHidden(self.store.isNavigationBarHidden)
 //            .onAppear(){

@@ -55,24 +55,37 @@ struct Search: View {
     }
 }
 
+struct LeadingNaviView: View{
+    var title: String
+    var body: some View{
+        Text(title)
+        .frame(
+            maxWidth: .infinity,
+            alignment: .leading
+        )
+        .font(.title)
+        .foregroundColor(.black)
+    }
+}
+
+struct TrailingNaviView: View{
+    var body: some View{
+        NavigationLink(destination: Search()){
+            Image(systemName:"magnifyingglass")
+            .font(.title)
+            .foregroundColor(.black)
+        }
+    }
+}
+
 struct TopBar: View {
     var title:String
     var body: some View {
         Text("")
             .navigationBarItems(leading:
-                Text(title)
-                .frame(
-                    maxWidth: .infinity,
-                    alignment: .leading
-                )
-                .font(.title)
-                .foregroundColor(.black)
+                LeadingNaviView(title: title)
             , trailing:
-                NavigationLink(destination: Search()){
-                    Image(systemName:"magnifyingglass")
-                    .font(.title)
-                    .foregroundColor(.black)
-                }
+                TrailingNaviView()
         )
     }
 }
