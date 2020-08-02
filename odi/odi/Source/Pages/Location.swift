@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct Location: View {
-    @ObservedObject var store = Store()
     var body: some View {
         NavigationView{
             VStack{
@@ -25,15 +24,8 @@ struct Location: View {
                     maxWidth: .infinity,
                     minHeight: 0,
                     maxHeight: .infinity,
-                    alignment: .topLeading)
-            .navigationBarTitle("")
-            .navigationBarHidden(self.store.isNavigationBarHidden)
-            .onAppear(){
-                self.store.isNavigationBarHidden=true
-            }
-            .onDisappear(){
-                self.store.isNavigationBarHidden=false
-            }
+                    alignment: .top)
+            .navigationBarTitle("", displayMode: .inline)
         }
     }
 }

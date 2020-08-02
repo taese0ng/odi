@@ -11,7 +11,6 @@ import SwiftUI
 struct MyPage: View {
     var screenWidth = UIScreen.main.bounds.size.width
     var screenHeight = UIScreen.main.bounds.size.height
-    @ObservedObject var store = Store()
     
     var body: some View {
         NavigationView{
@@ -31,15 +30,8 @@ struct MyPage: View {
             maxWidth: .infinity,
             minHeight: 0,
             maxHeight: .infinity,
-            alignment: .topLeading)
-            .navigationBarTitle("")
-            .navigationBarHidden(self.store.isNavigationBarHidden)
-            .onAppear(){
-                self.store.isNavigationBarHidden=true
-            }
-            .onDisappear(){
-                self.store.isNavigationBarHidden=false
-            }
+            alignment: .top)
+            .navigationBarTitle("", displayMode: .inline)
         }
     }
 }

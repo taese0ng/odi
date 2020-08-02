@@ -7,9 +7,6 @@
 //
 
 import SwiftUI
-class Store: ObservableObject{
-    @Published var isNavigationBarHidden:Bool = true
-}
 
 struct ContentView: View {
     
@@ -39,7 +36,7 @@ struct ContentView: View {
                 Text("좋아요")
             }
             
-            Surrounding()
+            MyPage()
             .tabItem{
                 Image(systemName: "person.crop.circle.fill")
                 Text("My")

@@ -9,34 +9,80 @@
 import SwiftUI
 
 struct Search: View {
+    @State private var SearchValue:String = ""
+    var popularBtnList = ["디저트", "감성카페", "애견카페", "노키즈존"]
+    var screenWidth = UIScreen.main.bounds.size.width
     var body: some View{
         VStack{
-            Text("dd")
+            HStack{
+                Image(systemName:"magnifyingglass").padding(.trailing).font(.title)
+                VStack{
+                    TextField("카페명 또는 태그를 입력하세요.", text: $SearchValue)
+                        .font(.custom("custom", size: 20))
+                    Divider()
+                }.frame(width:screenWidth-100)
+            }.padding([.horizontal, .bottom])
+            
+            Text("인기")
+                .frame(maxWidth:.infinity, alignment: .leading)
+                .padding(.horizontal)
+                .padding(.bottom, 7.0)
+            HStack{
+                ForEach(popularBtnList, id:\.self){
+                    item in
+                    Button(item){}
+                    .font(.footnote)
+                    .foregroundColor(.white)
+                    .padding(.all, 6.0)
+                        .background(Color(red:191/255, green:191/255, blue:191/255))
+                    .cornerRadius(10)
+                }
+            }
+            .frame(maxWidth:.infinity,
+                   alignment: .leading)
+                .padding([.leading, .bottom])
+            
+            Text("최근")
+                .frame(maxWidth:.infinity, alignment: .leading)
+                .padding([.horizontal, .top])
+                .padding(.bottom, 7.0)
         }.navigationBarTitle(Text("카페찾기"), displayMode: .inline)
+        .frame(minWidth:0,
+        maxWidth: .infinity,
+        minHeight: 0,
+        maxHeight: .infinity,
+        alignment: .topLeading)
+        
     }
 }
 
 struct TopBar: View {
     var title:String
     var body: some View {
-        HStack{
-            Text(title)
-            .frame(
-                maxWidth: .infinity,
-                alignment: .leading
-            )
-            .font(.title)
-            NavigationLink(destination: Search()){
-                Image(systemName:"magnifyingglass")
+        Text("")
+            .navigationBarItems(leading:
+                Text(title)
+                .frame(
+                    maxWidth: .infinity,
+                    alignment: .leading
+                )
                 .font(.title)
                 .foregroundColor(.black)
-            }
-        }
+            , trailing:
+                NavigationLink(destination: Search()){
+                    Image(systemName:"magnifyingglass")
+                    .font(.title)
+                    .foregroundColor(.black)
+                }
+        )
     }
 }
 
 struct TopBar_Previews: PreviewProvider {
     static var previews: some View {
-        TopBar(title:"내주변")
+        VStack{
+            TopBar(title:"내주변")
+            Search()
+        }
     }
 }

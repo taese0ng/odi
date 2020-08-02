@@ -56,7 +56,6 @@ struct MenuBtns: View{
 }
 
 struct Home: View{
-    @ObservedObject var store = Store()
     var body: some View{
         NavigationView{
             VStack{
@@ -72,14 +71,15 @@ struct Home: View{
             minHeight: 0,
             maxHeight: .infinity,
             alignment: .topLeading)
-            .navigationBarTitle("")
-            .navigationBarHidden(self.store.isNavigationBarHidden)
-            .onAppear(){
-                self.store.isNavigationBarHidden=true
-            }
-            .onDisappear(){
-                self.store.isNavigationBarHidden=false
-            }
+            .navigationBarTitle("", displayMode: .inline)
+//            .navigationBarTitle("")
+//            .navigationBarHidden(self.store.isNavigationBarHidden)
+//            .onAppear(){
+//                self.store.isNavigationBarHidden=true
+//            }
+//            .onDisappear(){
+//                self.store.isNavigationBarHidden=false
+//            }
         }
     }
 }
