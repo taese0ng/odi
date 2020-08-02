@@ -24,6 +24,7 @@ struct Surrounding: View {
                     maxHeight: .infinity,
                     alignment: .topLeading)
             .navigationBarTitle("", displayMode: .inline)
+            .navigationBarColor(.white)
         }
     }
 }

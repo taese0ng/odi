@@ -10,6 +10,8 @@
 		0D34496D24CAAAA000FDF046 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34496C24CAAAA000FDF046 /* Location.swift */; };
 		0D34496F24CAAB5600FDF046 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34496E24CAAB5600FDF046 /* TopBar.swift */; };
 		0D34497124CAAE0300FDF046 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34497024CAAE0300FDF046 /* MyPage.swift */; };
+		0D5B1A8A24D6B11B00703DC3 /* ColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D5B1A8924D6B11B00703DC3 /* ColorPalette.xcassets */; };
+		0D5B1A8E24D6B37A00703DC3 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5B1A8D24D6B37A00703DC3 /* NavigationBarModifier.swift */; };
 		0DAF3C5924C97DF4008B4B82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C5824C97DF4008B4B82 /* AppDelegate.swift */; };
 		0DAF3C5B24C97DF4008B4B82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C5A24C97DF4008B4B82 /* SceneDelegate.swift */; };
 		0DAF3C5D24C97DF4008B4B82 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C5C24C97DF4008B4B82 /* Main.swift */; };
@@ -43,6 +45,8 @@
 		0D34496C24CAAAA000FDF046 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		0D34496E24CAAB5600FDF046 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		0D34497024CAAE0300FDF046 /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
+		0D5B1A8924D6B11B00703DC3 /* ColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorPalette.xcassets; sourceTree = "<group>"; };
+		0D5B1A8D24D6B37A00703DC3 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		0D61BC9324CD56BA009FDE6B /* odi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = odi.entitlements; sourceTree = "<group>"; };
 		0DAF3C5524C97DF4008B4B82 /* odi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = odi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DAF3C5824C97DF4008B4B82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +91,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D5B1A8B24D6B35700703DC3 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				0D5B1A8C24D6B36800703DC3 /* Modifiers */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		0D5B1A8C24D6B36800703DC3 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				0D5B1A8D24D6B37A00703DC3 /* NavigationBarModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
 		0DAF3C4C24C97DF4008B4B82 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +169,7 @@
 		0DAF3C8A24C984FB008B4B82 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				0D5B1A8B24D6B35700703DC3 /* Elements */,
 				0DAF3C9224C9A485008B4B82 /* Components */,
 				0DAF3C8C24C9851C008B4B82 /* Pages */,
 				0DAF3C8B24C98507008B4B82 /* Application */,
@@ -181,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				0DAF3C5E24C97DF8008B4B82 /* Assets.xcassets */,
+				0D5B1A8924D6B11B00703DC3 /* ColorPalette.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -300,6 +322,7 @@
 				0DAF3C6524C97DF8008B4B82 /* LaunchScreen.storyboard in Resources */,
 				0DAF3C6224C97DF8008B4B82 /* Preview Assets.xcassets in Resources */,
 				0DAF3C5F24C97DF8008B4B82 /* Assets.xcassets in Resources */,
+				0D5B1A8A24D6B11B00703DC3 /* ColorPalette.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +349,7 @@
 			files = (
 				0D34496F24CAAB5600FDF046 /* TopBar.swift in Sources */,
 				0DAF3C5924C97DF4008B4B82 /* AppDelegate.swift in Sources */,
+				0D5B1A8E24D6B37A00703DC3 /* NavigationBarModifier.swift in Sources */,
 				0D34497124CAAE0300FDF046 /* MyPage.swift in Sources */,
 				0DAF3C5B24C97DF4008B4B82 /* SceneDelegate.swift in Sources */,
 				0DAF3C9124C9A3BB008B4B82 /* Home.swift in Sources */,

@@ -72,6 +72,7 @@ struct Home: View{
             maxHeight: .infinity,
             alignment: .topLeading)
             .navigationBarTitle("", displayMode: .inline)
+            .navigationBarColor(.white)
 //            .navigationBarTitle("")
 //            .navigationBarHidden(self.store.isNavigationBarHidden)
 //            .onAppear(){

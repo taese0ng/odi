@@ -34,7 +34,7 @@ struct Search: View {
                     .font(.footnote)
                     .foregroundColor(.white)
                     .padding(.all, 6.0)
-                        .background(Color(red:191/255, green:191/255, blue:191/255))
+                        .background(Color("LightGray"))
                     .cornerRadius(10)
                 }
             }
@@ -52,7 +52,6 @@ struct Search: View {
         minHeight: 0,
         maxHeight: .infinity,
         alignment: .topLeading)
-        
     }
 }
 

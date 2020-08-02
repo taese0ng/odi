@@ -26,6 +26,7 @@ struct Location: View {
                     maxHeight: .infinity,
                     alignment: .top)
             .navigationBarTitle("", displayMode: .inline)
+            .navigationBarColor(.white)
         }
     }
 }
