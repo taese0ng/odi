@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CardView: View {
     @State private var hashTags = ["#감성", "#연인", "#데이트", "#디저트"]
-    @State private var isLike:Color = Color.white
+    @State private var isLike:Bool = false
     var address:String
     var screenWidth = UIScreen.main.bounds.size.width
     
@@ -28,16 +28,17 @@ struct CardView: View {
                     .position(x:60, y:60)
                 
                 Button(action:{
-                    if (self.isLike == Color.red){
-                        self.isLike = Color.white
-                    }else{
-                        self.isLike = Color.red
-                    }
+                    self.isLike.toggle()
                 }){
-                    Image(systemName: "heart")
+                    if(self.isLike){
+                        Image(systemName: "heart.fill")
+                    }
+                    else{
+                        Image(systemName: "heart")
+                    }
                 }
                 .font(.title)
-                .foregroundColor(self.isLike)
+                .foregroundColor(Color.white)
                 .position(x:screenWidth-30, y:30)
             }
             
@@ -81,7 +82,7 @@ struct CardView: View {
             HStack{
                 ForEach(hashTags, id:\.self){
                     tag in Text("\(tag)")
-                        .foregroundColor(.yellow)
+                        .foregroundColor(Color("Brown"))
                 }
             }.frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 10.0)

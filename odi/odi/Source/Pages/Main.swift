@@ -9,39 +9,50 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var Selected:Int = 1
     
     var body: some View {
-        TabView{
+        TabView(selection: $Selected){
             Home()
             .tabItem {
                 Image(systemName: "house.fill")
-                Text("Home")
-            }
+                if(Selected == 1){
+                    Text("Home")
+                }
+            }.tag(1)
             
             Surrounding()
             .tabItem {
                 Image(systemName:"location.fill")
-                Text("내주변")
-            }
+                if(Selected == 2){
+                    Text("내주변")
+                }
+            }.tag(2)
             
             Location()
             .tabItem{
                 Image(systemName: "map.fill")
-                Text("지역")
-            }
+                if(Selected == 3){
+                    Text("지역")
+                }
+            }.tag(3)
             
-            Surrounding()
+            Like()
             .tabItem{
                 Image(systemName: "heart.fill")
-                Text("좋아요")
-            }
+                if(Selected == 4){
+                    Text("좋아요")
+                }
+            }.tag(4)
             
             MyPage()
             .tabItem{
                 Image(systemName: "person.crop.circle.fill")
-                Text("My")
-            }
-        }
+                if(Selected == 5){
+                    Text("My")
+                }
+            }.tag(5)
+        }.accentColor(Color("Brown"))
     }
 }
 
