@@ -83,8 +83,8 @@ struct Home: View{
     var body: some View{
         NavigationView{
             VStack{
+                TopBar(title:"ODI")
                 ScrollView{
-                    TopBar(title:"ODI")
                     Image("cafeImg").resizable()
                         .aspectRatio(contentMode: .fit)
                     MenuBtns()
@@ -115,7 +115,7 @@ struct Home: View{
 //            .onDisappear(){
 //                self.store.isNavigationBarHidden=false
 //            }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

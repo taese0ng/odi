@@ -34,7 +34,7 @@ struct Search: View {
                     .font(.footnote)
                     .foregroundColor(.white)
                     .padding(.all, 6.0)
-                        .background(Color("LightGray"))
+                    .background(Color("LightGray"))
                     .cornerRadius(10)
                 }
             }

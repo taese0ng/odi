@@ -33,7 +33,7 @@ struct MyPage: View {
             alignment: .top)
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarColor(.white)
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

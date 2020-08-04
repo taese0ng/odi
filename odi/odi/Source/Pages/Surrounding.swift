@@ -9,15 +9,46 @@
 import SwiftUI
 
 struct Surrounding: View {
+    var cafeList = ["대구광역시 중구 동덕로1길","대구광역시 중구 동덕로2길","대구광역시 중구 동덕로3길","대구광역시 중구 동덕로4길","대구광역시 중구 동덕로5길","대구광역시 중구 동덕로6길"]
+    
+    var category = ["디저트", "베이커리", "브런치", "애견동반", "주택개조/한옥", "루프탑", "뷰", "포토존"]
+    
+    var place:String = "대구광역시 중구"
+    
     var body: some View {
         NavigationView{
             VStack{
                 TopBar(title:"내주변")
-                Image("cafeImg").resizable()
-                    .aspectRatio(contentMode: .fit)
-                
-                Text("이번 주 HOT 카페dd").frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.title)
+                ScrollView{
+                    HStack{
+                        Image("place")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                        Text("\(place)")
+                    }
+                    
+                    ScrollView(.horizontal, showsIndicators: false){
+                        HStack{
+                            ForEach(category, id:\.self){
+                                item in
+                                Button("\(item)"){
+                                    
+                                }
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
+                                .foregroundColor(.black)
+                            }
+                        }
+                    }
+                    
+                    ForEach(cafeList, id:\.self){
+                        item in
+                        NavigationLink(destination: CafeDetail(propsText: item)){
+                            CardView(address: item)
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                    }
+                }
             }.frame(minWidth:0,
                     maxWidth: .infinity,
                     minHeight: 0,
@@ -25,7 +56,7 @@ struct Surrounding: View {
                     alignment: .topLeading)
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarColor(.white)
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

@@ -27,7 +27,7 @@ struct Location: View {
                     alignment: .top)
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarColor(.white)
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
