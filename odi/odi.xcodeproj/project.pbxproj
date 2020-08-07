@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D115A0624DD15DF009025C8 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D115A0524DD15DF009025C8 /* DetailView.swift */; };
 		0D13F00A24D8F8CD00C109B7 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13F00924D8F8CD00C109B7 /* Like.swift */; };
 		0D34496D24CAAAA000FDF046 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34496C24CAAAA000FDF046 /* Location.swift */; };
 		0D34496F24CAAB5600FDF046 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34496E24CAAB5600FDF046 /* TopBar.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D115A0524DD15DF009025C8 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		0D13F00924D8F8CD00C109B7 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		0D34496C24CAAAA000FDF046 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		0D34496E24CAAB5600FDF046 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				0D34497024CAAE0300FDF046 /* MyPage.swift */,
 				0DAFF5E624D88E1000569F0C /* CafeDetail.swift */,
 				0D13F00924D8F8CD00C109B7 /* Like.swift */,
+				0D115A0524DD15DF009025C8 /* DetailView.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				0DAFF5E524D87D3800569F0C /* CardView.swift in Sources */,
 				0DAF3C5B24C97DF4008B4B82 /* SceneDelegate.swift in Sources */,
 				0D13F00A24D8F8CD00C109B7 /* Like.swift in Sources */,
+				0D115A0624DD15DF009025C8 /* DetailView.swift in Sources */,
 				0DAF3C9124C9A3BB008B4B82 /* Home.swift in Sources */,
 				0DAFF5E724D88E1000569F0C /* CafeDetail.swift in Sources */,
 				0DAF3C8F24C9A068008B4B82 /* Surrounding.swift in Sources */,
