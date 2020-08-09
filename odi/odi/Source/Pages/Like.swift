@@ -22,7 +22,7 @@ struct Like: View {
                 ScrollView{
                     ForEach(cafeList, id:\.self){
                         item in
-                        NavigationLink(destination: CafeDetail(propsText: item)){
+                        NavigationLink(destination: DetailView(address: item)){
                             CardView(address: item)
                         }
                         .buttonStyle(PlainButtonStyle())

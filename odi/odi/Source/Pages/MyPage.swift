@@ -26,6 +26,7 @@ struct MyPage: View {
                     Text(" / ")
                     Button("회원가입하기 >"){}
                 }
+                
             }.frame(minWidth:0,
             maxWidth: .infinity,
             minHeight: 0,
