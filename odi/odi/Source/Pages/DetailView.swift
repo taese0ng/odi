@@ -28,21 +28,21 @@ struct Main : View {
     
     var body : some View{
         
-        VStack(spacing: 0){
+        VStack{
             
             appBar(address: self.address, index: self.$index,show: self.$show)
             
             ZStack{
                 
-                Chats(show: self.$show).opacity(self.index == 0 ? 1 : 0)
+                CafeInfo().opacity(self.index == 0 ? 1 : 0)
                 
                 CafeReview(show: self.$show).opacity(self.index == 1 ? 1 : 0)
                 
-                Calls().opacity(self.index == 2 ? 1 : 0)
+                CafeStory().opacity(self.index == 2 ? 1 : 0)
             }
 
             
-        }.edgesIgnoringSafeArea(.top)
+        }
     }
 }
 
@@ -123,71 +123,71 @@ struct appBar : View {
                         }
                     }
                 }
-            }.padding(.bottom, 10)
+            }
         }
-        .padding(.top, self.Padding)
 //        .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 10)
     }
 }
 
-struct Chats : View {
-    
-    @Binding var show : Bool
-    
-    var body : some View{
-        
-        List(0...25,id: \.self){i in
-            
-            if i == 0{
-                
-                CellView()
-                .onAppear {
-                       
-                    withAnimation {
-                        
-                        self.show = true
-                    }
-                    
-                }
-                .onDisappear {
-                    
-                    withAnimation {
-                        
-                        self.show = false
-                    }
-                }
-            }
-            else{
-                
-               CellView()
-            }
-            
-        }
-    }
-}
+//struct Chats : View {
+//
+//    @Binding var show : Bool
+//
+//    var body : some View{
+//
+//        List(0...25,id: \.self){i in
+//
+//            if i == 0{
+//
+//                CellView()
+//                .onAppear {
+//
+//                    withAnimation {
+//
+//                        self.show = true
+//                    }
+//
+//                }
+//                .onDisappear {
+//
+//                    withAnimation {
+//
+//                        self.show = false
+//                    }
+//                }
+//            }
+//            else{
+//
+//               CellView()
+//            }
+//
+//        }
+//    }
+//}
+//
+//struct CellView : View {
+//
+//    var body : some View{
+//
+//        HStack{
+//
+//            Image("cafeImg")
+//            .resizable()
+//            .frame(width: 55, height: 55)
+//
+//            VStack(alignment: .leading, spacing: 10) {
+//
+//                Text("Elisa")
+//
+//                Text("Msg").font(.caption)
+//            }
+//        }
+//        .padding(.vertical, 4)
+//    }
+//}
 
-struct CellView : View {
-    
-    var body : some View{
-        
-        HStack{
-            
-            Image("cafeImg")
-            .resizable()
-            .frame(width: 55, height: 55)
-            
-            VStack(alignment: .leading, spacing: 10) {
-                
-                Text("Elisa")
-                
-                Text("Msg").font(.caption)
-            }
-        }
-        .padding(.vertical, 4)
-    }
-}
-
-//struct Status : View {
+//
+//struct Calls : View {
 //
 //    var body : some View{
 //
@@ -195,30 +195,16 @@ struct CellView : View {
 //
 //            VStack{
 //
-//                Text("Status")
+//                Text("Calls")
 //            }
 //        }
 //    }
 //}
 
-struct Calls : View {
-    
-    var body : some View{
-        
-        GeometryReader{_ in
-            
-            VStack{
-                
-                Text("Calls")
-            }
-        }
-    }
-}
-
 class Host : UIHostingController<ContentView>{
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle{
-        
+
         return .lightContent
     }
 }

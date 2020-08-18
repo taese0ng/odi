@@ -19,14 +19,47 @@ struct MyPage: View {
                 Image("map")
                     .resizable()
                     .frame(width: screenWidth/2, height: screenWidth/2)
-                    .cornerRadius(100)
                     .background(Color.red)
+                    .cornerRadius(100.0)
                 HStack{
-                    Button("로그인"){}
+                    Button(action:{}){
+                        NavigationLink(destination: Login()){
+                            Text("로그인")
+                        }
+                    }
+                    .foregroundColor(.black)
                     Text(" / ")
                     Button("회원가입하기 >"){}
+                    .foregroundColor(.black)
+                }.padding(30)
+                
+                Button(action:{}){
+                    NavigationLink(destination: MyReview()){
+                        Text("내가 작성한 리뷰")
+                        .frame(maxWidth:.infinity, alignment:.leading)
+                        .padding(.vertical, 10)
+                        .padding(.horizontal,20)
+                        .foregroundColor(.black)
+                    }
                 }
                 
+                Button(action:{}){
+                    NavigationLink(destination: MyRecentCafe()){
+                        Text("최근 본 카페")
+                        .frame(maxWidth:.infinity, alignment:.leading)
+                        .padding(.vertical, 10)
+                        .padding(.horizontal,20)
+                        .foregroundColor(.black)
+                    }
+                }
+                
+                Button(action:{}){
+                    Text("더보기")
+                    .frame(maxWidth:.infinity, alignment:.leading)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal,20)
+                    .foregroundColor(.black)
+                }
             }.frame(minWidth:0,
             maxWidth: .infinity,
             minHeight: 0,

@@ -12,7 +12,7 @@ struct CafeStory: View {
     var screenWidth = UIScreen.main.bounds.size.width
     var body: some View {
         VStack{
-            ForEach(0...2, id: \.self){
+            List(0...2, id: \.self){
                 item in
                 VStack{
                     HStack{
