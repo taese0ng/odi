@@ -21,28 +21,27 @@ struct Login: View {
             SecureField("비밀번호 (최소 8자 이상)", text: self.$PW)
                 .padding(.horizontal, 50)
             Divider()
-            .padding(.horizontal, 50)
-            
+                .padding(.horizontal, 50)
+
             HStack{
                 Button(action:{}){
                     Text("로그인")
                 }
-                
                 Button(action: {}){
                     Text("회원가입")
                 }
-            }
+            }.padding(.top, 70)
             
             Button(action:{}){
                 Text("비밀번호를 잊으셨나요?")
                 .foregroundColor(Color("Brown"))
             }
+            
         }.navigationBarTitle(Text("로그인"), displayMode: .inline)
         .frame(minWidth:0,
         maxWidth: .infinity,
         minHeight: 0,
-        maxHeight: .infinity,
-        alignment: .topLeading)
+        maxHeight: .infinity)
     }
 }
 

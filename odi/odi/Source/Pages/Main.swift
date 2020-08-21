@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $Selected){
-            Home()
+            Home(Selection: $Selected)
             .tabItem {
                 Image(systemName: "house.fill")
                 if(Selected == 1){

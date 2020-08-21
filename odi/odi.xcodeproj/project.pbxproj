@@ -17,6 +17,9 @@
 		0D34497124CAAE0300FDF046 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34497024CAAE0300FDF046 /* MyPage.swift */; };
 		0D5B1A8A24D6B11B00703DC3 /* ColorPalette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D5B1A8924D6B11B00703DC3 /* ColorPalette.xcassets */; };
 		0D5B1A8E24D6B37A00703DC3 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5B1A8D24D6B37A00703DC3 /* NavigationBarModifier.swift */; };
+		0D686F7F24EFF4FB001ED6E6 /* LocationProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 0D686F7E24EFF4FB001ED6E6 /* LocationProvider */; };
+		0D686F8124EFFCCA001ED6E6 /* CafeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D686F8024EFFCCA001ED6E6 /* CafeCard.swift */; };
+		0D686F8324F006C7001ED6E6 /* CafeBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D686F8224F006C7001ED6E6 /* CafeBanner.swift */; };
 		0DAF3C5924C97DF4008B4B82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C5824C97DF4008B4B82 /* AppDelegate.swift */; };
 		0DAF3C5B24C97DF4008B4B82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C5A24C97DF4008B4B82 /* SceneDelegate.swift */; };
 		0DAF3C5D24C97DF4008B4B82 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C5C24C97DF4008B4B82 /* Main.swift */; };
@@ -65,6 +68,8 @@
 		0D5B1A8924D6B11B00703DC3 /* ColorPalette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorPalette.xcassets; sourceTree = "<group>"; };
 		0D5B1A8D24D6B37A00703DC3 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		0D61BC9324CD56BA009FDE6B /* odi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = odi.entitlements; sourceTree = "<group>"; };
+		0D686F8024EFFCCA001ED6E6 /* CafeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeCard.swift; sourceTree = "<group>"; };
+		0D686F8224F006C7001ED6E6 /* CafeBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeBanner.swift; sourceTree = "<group>"; };
 		0DAF3C5524C97DF4008B4B82 /* odi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = odi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DAF3C5824C97DF4008B4B82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DAF3C5A24C97DF4008B4B82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D686F7F24EFF4FB001ED6E6 /* LocationProvider in Frameworks */,
 				0DF0E24324DEA6E90044C547 /* SlidingTabView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +252,8 @@
 				0DF0E24424DEC2560044C547 /* CafeInfo.swift */,
 				0DF0E24624DEC4A70044C547 /* CafeReview.swift */,
 				0DF0E24924DECB9E0044C547 /* CafeStory.swift */,
+				0D686F8024EFFCCA001ED6E6 /* CafeCard.swift */,
+				0D686F8224F006C7001ED6E6 /* CafeBanner.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -268,6 +276,7 @@
 			name = odi;
 			packageProductDependencies = (
 				0DF0E24224DEA6E90044C547 /* SlidingTabView */,
+				0D686F7E24EFF4FB001ED6E6 /* LocationProvider */,
 			);
 			productName = odi;
 			productReference = 0DAF3C5524C97DF4008B4B82 /* odi.app */;
@@ -343,6 +352,7 @@
 			mainGroup = 0DAF3C4C24C97DF4008B4B82;
 			packageReferences = (
 				0DF0E24124DEA6E90044C547 /* XCRemoteSwiftPackageReference "SlidingTabView" */,
+				0D686F7D24EFF4FB001ED6E6 /* XCRemoteSwiftPackageReference "LocationProvider" */,
 			);
 			productRefGroup = 0DAF3C5624C97DF4008B4B82 /* Products */;
 			projectDirPath = "";
@@ -396,9 +406,11 @@
 				0D34497124CAAE0300FDF046 /* MyPage.swift in Sources */,
 				0DAFF5E524D87D3800569F0C /* CardView.swift in Sources */,
 				0D04D94624EBA9BA007ABDB3 /* SignUp.swift in Sources */,
+				0D686F8324F006C7001ED6E6 /* CafeBanner.swift in Sources */,
 				0DAF3C5B24C97DF4008B4B82 /* SceneDelegate.swift in Sources */,
 				0DF0E24724DEC4A70044C547 /* CafeReview.swift in Sources */,
 				0D13F00A24D8F8CD00C109B7 /* Like.swift in Sources */,
+				0D686F8124EFFCCA001ED6E6 /* CafeCard.swift in Sources */,
 				0DD45C0624E007FD006038EA /* DetailView.swift in Sources */,
 				0D04D94824EBAA57007ABDB3 /* MyReview.swift in Sources */,
 				0DF0E24524DEC2560044C547 /* CafeInfo.swift in Sources */,
@@ -736,6 +748,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0D686F7D24EFF4FB001ED6E6 /* XCRemoteSwiftPackageReference "LocationProvider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/himbeles/LocationProvider.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
 		0DF0E24124DEA6E90044C547 /* XCRemoteSwiftPackageReference "SlidingTabView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/QuynhNguyen/SlidingTabView.git";
@@ -747,6 +767,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0D686F7E24EFF4FB001ED6E6 /* LocationProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0D686F7D24EFF4FB001ED6E6 /* XCRemoteSwiftPackageReference "LocationProvider" */;
+			productName = LocationProvider;
+		};
 		0DF0E24224DEA6E90044C547 /* SlidingTabView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0DF0E24124DEA6E90044C547 /* XCRemoteSwiftPackageReference "SlidingTabView" */;

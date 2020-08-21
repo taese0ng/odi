@@ -52,6 +52,7 @@ struct Search: View {
         minHeight: 0,
         maxHeight: .infinity,
         alignment: .topLeading)
+            .padding(.top, 10)
     }
 }
 

@@ -11,58 +11,48 @@ import SwiftUI
 struct MenuBtns: View{
     var screenWidth = UIScreen.main.bounds.size.width
     var screenHeight = UIScreen.main.bounds.size.height
+    @Binding var Selection : Int
     
     var body: some View{
         VStack{
             HStack(spacing: 0){
-                Button("Button"){}
-                    .frame(width:screenWidth/4.5, height:screenWidth/4.5)
-                    .background(Color.blue)
-                    .foregroundColor(Color.white)
-                Button("Button"){}
-                    .frame(width:screenWidth/4.5, height:screenWidth/4.5)
-                .background(Color.blue)
-                .foregroundColor(Color.white)
-                Button("Button"){}
-                    .frame(width:screenWidth/4.5, height:screenWidth/4.5)
-                .background(Color.blue)
-                .foregroundColor(Color.white)
-                Button("Button"){}
-                    .frame(width:screenWidth/4.5, height:screenWidth/4.5)
-                .background(Color.blue)
-                .foregroundColor(Color.white)
-                }.frame(maxWidth: .infinity)
-            
+                ForEach((1...4).reversed(), id:\.self){item in
+                    Button(action:{
+                        self.Selection = 2
+                    }){
+                        Text("Button")
+                    }
+                    .frame(width:self.screenWidth/4.5, height:self.screenWidth/4.5)
+                        .background(Color.blue)
+                        .foregroundColor(Color.white)
+                }
+            }
             HStack(spacing: 0){
-                Button("Button"){}
-                    .frame(width:screenWidth/4.5, height:screenWidth/4.5)
-                .background(Color.blue)
-                .foregroundColor(Color.white)
-                Button("Button"){}
-                .frame(width:screenWidth/4.5, height:screenWidth/4.5)
-                .background(Color.blue)
-                .foregroundColor(Color.white)
-                Button("Button"){}
-                .frame(width:screenWidth/4.5, height:screenWidth/4.5)
-                .background(Color.blue)
-                .foregroundColor(Color.white)
-                Button("Button"){}
-                .frame(width:screenWidth/4.5, height:screenWidth/4.5)
-                .background(Color.blue)
-                .foregroundColor(Color.white)
+                ForEach((1...4).reversed(), id:\.self){item in
+                    Button(action:{
+                        self.Selection = 2
+                    }){
+                        Text("Button")
+                    }
+                    .frame(width:self.screenWidth/4.5, height:self.screenWidth/4.5)
+                        .background(Color.red)
+                        .foregroundColor(Color.white)
+                }
             }
         }
+        .padding(.vertical, 30)
     }
 }
 
 struct HotCafe:View{
+    var screenWidth = UIScreen.main.bounds.size.width
     var body: some View{
         ScrollView(.horizontal, showsIndicators: false){
             HStack{
-                ForEach((1...5).reversed(), id:\.self){_ in
-                    Image("cafeImg")
+                ForEach((1...5).reversed(), id:\.self){item in
+                    CafeCard(cafeName: String(item))
                 }
-            }
+            }.padding(.horizontal,8)
         }
     }
 }
@@ -71,15 +61,26 @@ struct RecentCafe:View{
     var body: some View{
         ScrollView(.horizontal, showsIndicators: false){
             HStack{
-                ForEach((1...5).reversed(), id:\.self){_ in
-                    Image("cafeImg")
+                ForEach((1...5).reversed(), id:\.self){item in
+                    CafeCard(cafeName: String(item))
                 }
+            }.padding(.horizontal,8)
+        }
+    }
+}
+
+struct BannerList: View{
+    var body: some View{
+        ScrollView{
+            ForEach((1...5), id:\.self){
+                item in CafeBanner()
             }
         }
     }
 }
 
 struct Home: View{
+    @Binding var Selection:Int
     var body: some View{
         NavigationView{
             VStack{
@@ -87,7 +88,7 @@ struct Home: View{
                 ScrollView{
                     Image("cafeImg").resizable()
                         .aspectRatio(contentMode: .fit)
-                    MenuBtns()
+                    MenuBtns(Selection : $Selection)
                     
                     Text("이번 주 HOT 카페")
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -98,6 +99,8 @@ struct Home: View{
                         .frame(maxWidth:.infinity, alignment: .leading)
                         .font(.title)
                     RecentCafe()
+                    
+                    BannerList()
                 }
             }.frame(minWidth:0,
             maxWidth: .infinity,
@@ -119,8 +122,8 @@ struct Home: View{
     }
 }
 
-struct Home_Previews: PreviewProvider {
-    static var previews: some View {
-        Home()
-    }
-}
+//struct Home_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Home()
+//    }
+//}
