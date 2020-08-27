@@ -23,11 +23,11 @@ struct DetailTabView: View{
                 }
                 
                 else if self.selectedTabIndex == 1{
-//                    CafeReview()
+//                    CafeReview(show: true)
                 }
                 
                 else{
-                    CafeStory()
+//                    CafeStory()
                 }
 //            }
             Spacer()
@@ -35,27 +35,27 @@ struct DetailTabView: View{
     }
 }
 
-struct DetailBtns: View{
-    var body: some View{
-        HStack{
-            Button(action:{}){
-                Text("메뉴보기")
-                .foregroundColor(Color("Brown"))
-            }
-            
-            Button(action:{}){
-                Text("ognimemo")
-                .foregroundColor(Color("Brown"))
-            }
-            
-            Button(action:{}){
-                Text("전화걸기")
-                .foregroundColor(Color("Brown"))
-            }
-            
-        }
-    }
-}
+//struct DetailBtns: View{
+//    var body: some View{
+//        HStack{
+//            Button(action:{}){
+//                Text("메뉴보기")
+//                .foregroundColor(Color("Brown"))
+//            }
+//            
+//            Button(action:{}){
+//                Text("ognimemo")
+//                .foregroundColor(Color("Brown"))
+//            }
+//            
+//            Button(action:{}){
+//                Text("전화걸기")
+//                .foregroundColor(Color("Brown"))
+//            }
+//            
+//        }
+//    }
+//}
 
 struct CafeDetail: View {
     @State private var hashTags = ["#감성", "#연인", "#데이트", "#디저트"]

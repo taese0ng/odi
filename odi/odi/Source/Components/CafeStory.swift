@@ -8,33 +8,54 @@
 
 import SwiftUI
 
-struct CafeStory: View {
+struct Story:View{
     var screenWidth = UIScreen.main.bounds.size.width
-    var body: some View {
+    var body:some View{
         VStack{
-            List(0...2, id: \.self){
-                item in
+            HStack{
+                Image("place")
                 VStack{
-                    HStack{
-                        Image("place")
-                        VStack{
-                            Text("얼죽아")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            Text("2020년 1월 1일")
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                    Text("얼죽아")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    Text("2020년 1월 1일")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+            }
+            Image("cafeImg")
+            .resizable()
+            .frame(width:self.screenWidth, height: 300)
+        }
+    }
+}
+
+struct CafeStory: View {
+    @Binding var shows : Bool
+    var body: some View {
+        List(0...5, id: \.self){
+            item in
+            if item == 0{
+                Story()
+                    .onAppear{
+                        withAnimation{
+                            self.shows = true
                         }
                     }
-                    Image("cafeImg")
-                    .resizable()
-                    .frame(width:self.screenWidth, height: 300)
-                }
+                    .onDisappear{
+                        withAnimation{
+                            self.shows = false
+                        }
+                    }
+            }
+            
+            else{
+                Story()
             }
         }
     }
 }
 
-struct CafeStory_Previews: PreviewProvider {
-    static var previews: some View {
-        CafeStory()
-    }
-}
+//struct CafeStory_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CafeStory()
+//    }
+//}

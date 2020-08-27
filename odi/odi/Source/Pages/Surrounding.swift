@@ -44,7 +44,7 @@ struct Surrounding: View {
                     ForEach(cafeList, id:\.self){
                         item in
                         NavigationLink(destination: DetailView(address: item)){
-                            CardView(address: item)
+                            CardView(address: item, surrounding: true)
                         }
                         .buttonStyle(PlainButtonStyle())
                     }

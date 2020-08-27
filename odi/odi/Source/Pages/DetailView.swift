@@ -8,6 +8,28 @@
 
 import SwiftUI
 
+struct DetailBtns: View{
+    var body: some View{
+        HStack{
+            Button(action:{}){
+                Text("메뉴보기")
+                .foregroundColor(Color("Brown"))
+            }
+            
+            Button(action:{}){
+                Text("ognimemo")
+                .foregroundColor(Color("Brown"))
+            }
+            
+            Button(action:{}){
+                Text("전화걸기")
+                .foregroundColor(Color("Brown"))
+            }
+            
+        }
+    }
+}
+
 struct DetailView: View {
     var address : String
     var body: some View {
@@ -25,23 +47,26 @@ struct Main : View {
     var address : String
     @State var index = 0
     @State var show = true
-    
+    @State var modal = true
     var body : some View{
-        
-        VStack{
-            
-            appBar(address: self.address, index: self.$index,show: self.$show)
-            
-            ZStack{
+        ZStack{
+            VStack{
+                appBar(address: self.address, index: self.$index,show: self.$show)
                 
-                CafeInfo().opacity(self.index == 0 ? 1 : 0)
-                
-                CafeReview(show: self.$show).opacity(self.index == 1 ? 1 : 0)
-                
-                CafeStory().opacity(self.index == 2 ? 1 : 0)
+                ZStack{
+                    
+                    CafeInfo().opacity(self.index == 0 ? 1 : 0)
+                    
+                    CafeReview(show: self.$show).opacity(self.index == 1 ? 1 : 0)
+                    
+                    CafeStory(shows: self.$show).opacity(self.index == 2 ? 1 : 0)
+                }
             }
-
             
+            Menu()
+                .frame(maxWidth:.infinity, maxHeight: .infinity)
+            .background(Color.black)
+                .opacity(self.modal ? 0.6 : 0)
         }
     }
 }

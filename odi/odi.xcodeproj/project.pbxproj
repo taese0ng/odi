@@ -32,6 +32,7 @@
 		0DAF3C9124C9A3BB008B4B82 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C9024C9A3BB008B4B82 /* Home.swift */; };
 		0DAFF5E524D87D3800569F0C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAFF5E424D87D3800569F0C /* CardView.swift */; };
 		0DD45C0624E007FD006038EA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD45C0524E007FD006038EA /* DetailView.swift */; };
+		0DECA21124F7A879005ACBC7 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DECA21024F7A879005ACBC7 /* Menu.swift */; };
 		0DF0E24324DEA6E90044C547 /* SlidingTabView in Frameworks */ = {isa = PBXBuildFile; productRef = 0DF0E24224DEA6E90044C547 /* SlidingTabView */; };
 		0DF0E24524DEC2560044C547 /* CafeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0E24424DEC2560044C547 /* CafeInfo.swift */; };
 		0DF0E24724DEC4A70044C547 /* CafeReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0E24624DEC4A70044C547 /* CafeReview.swift */; };
@@ -88,6 +89,7 @@
 		0DAF3C9024C9A3BB008B4B82 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		0DAFF5E424D87D3800569F0C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		0DD45C0524E007FD006038EA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		0DECA21024F7A879005ACBC7 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		0DF0E24424DEC2560044C547 /* CafeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeInfo.swift; sourceTree = "<group>"; };
 		0DF0E24624DEC4A70044C547 /* CafeReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeReview.swift; sourceTree = "<group>"; };
 		0DF0E24924DECB9E0044C547 /* CafeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeStory.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				0DF0E24924DECB9E0044C547 /* CafeStory.swift */,
 				0D686F8024EFFCCA001ED6E6 /* CafeCard.swift */,
 				0D686F8224F006C7001ED6E6 /* CafeBanner.swift */,
+				0DECA21024F7A879005ACBC7 /* Menu.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				0D13F00A24D8F8CD00C109B7 /* Like.swift in Sources */,
 				0D686F8124EFFCCA001ED6E6 /* CafeCard.swift in Sources */,
 				0DD45C0624E007FD006038EA /* DetailView.swift in Sources */,
+				0DECA21124F7A879005ACBC7 /* Menu.swift in Sources */,
 				0D04D94824EBAA57007ABDB3 /* MyReview.swift in Sources */,
 				0DF0E24524DEC2560044C547 /* CafeInfo.swift in Sources */,
 				0D115A0624DD15DF009025C8 /* CafeDetail.swift in Sources */,

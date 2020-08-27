@@ -14,6 +14,7 @@ struct Login: View {
     
     var body: some View {
         VStack{
+            Spacer()
             TextField("아이디", text: self.$ID)
                 .padding(.horizontal, 50)
             Divider()
@@ -26,12 +27,20 @@ struct Login: View {
             HStack{
                 Button(action:{}){
                     Text("로그인")
+                        .foregroundColor(Color("LightGray"))
+                        .font(.custom("login", size: 23))
+                        .frame(width:150)
                 }
                 Button(action: {}){
-                    Text("회원가입")
+                    NavigationLink(destination: SignUp()){
+                        Text("회원가입")
+                            .foregroundColor(Color("LightGray"))
+                            .font(.custom("signUp", size: 23))
+                            .frame(width: 150)
+                    }
                 }
             }.padding(.top, 70)
-            
+            Spacer()
             Button(action:{}){
                 Text("비밀번호를 잊으셨나요?")
                 .foregroundColor(Color("Brown"))

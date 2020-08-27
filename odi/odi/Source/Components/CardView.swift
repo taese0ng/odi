@@ -13,6 +13,7 @@ struct CardView: View {
     @State private var isLike:Bool = false
     var address:String
     var screenWidth = UIScreen.main.bounds.size.width
+    var surrounding:Bool
     
     var body: some View {
         VStack{
@@ -21,11 +22,13 @@ struct CardView: View {
                 .aspectRatio(contentMode: .fit)
                 .foregroundColor(.none)
                 
-                Text("DAY OFF")
-                    .frame(width:100, height: 100)
-                    .font(.title)
-                    .background(Color.white)
-                    .position(x:60, y:60)
+                if(surrounding){
+                    Text("DAY OFF")
+                        .frame(width:100, height: 100)
+                        .font(.title)
+                        .background(Color.white)
+                        .position(x:60, y:60)
+                }
                 
                 Button(action:{
                     self.isLike.toggle()
@@ -96,6 +99,6 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(address:"대구광역시 중구 동덕로6길")
+        CardView(address:"대구광역시 중구 동덕로6길", surrounding: true)
     }
 }
