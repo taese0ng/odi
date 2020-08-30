@@ -10,9 +10,13 @@ import SwiftUI
 
 struct DetailBtns: View{
     @Binding var modal:Bool
+    @Binding var modalMenu:String
     var body: some View{
         HStack{
-            Button(action:{self.modal.toggle()}){
+            Button(action:{
+                self.modalMenu = "cafeMenu"
+                self.modal.toggle()
+            }){
                 Text("메뉴보기")
                 .foregroundColor(Color("Brown"))
             }
@@ -49,11 +53,12 @@ struct Main : View {
     @State var index = 0
     @State var show = true
     @State var modal = false
+    @State var modalMenu:String = ""
     var body : some View{
         ZStack{
             VStack{
                 appBar(address: self.address, index: self.$index,show: self.$show,
-                       modal: self.$modal)
+                       modal: self.$modal, modalMenu: self.$modalMenu)
                 
                 ZStack{
                     
@@ -72,8 +77,14 @@ struct Main : View {
                     .background(Color.black.opacity(0.5))
                 }
                 
-                Menu()
-                .frame(maxWidth:.infinity, maxHeight: .infinity)
+                if(self.modalMenu == "cafeMenu"){
+                    Menu()
+                    .frame(maxWidth:.infinity, maxHeight: .infinity)
+                }
+                
+                else if(self.modalMenu == "coupon"){
+                    Coupon()
+                }
                 
                 
             }
@@ -89,6 +100,7 @@ struct appBar : View {
     @Binding var index : Int
     @Binding var show : Bool
     @Binding var modal : Bool
+    @Binding var modalMenu : String
     @State private var Padding:CGFloat = 0
     var body : some View{
         
@@ -107,7 +119,10 @@ struct appBar : View {
                          .frame(maxWidth:.infinity, alignment: .leading)
                          .padding(.leading, 10.0)
                          
-                         Button(action:{}){
+                         Button(action:{
+                            self.modalMenu = "coupon"
+                            self.modal.toggle()
+                         }){
                              Text("10% 할인쿠폰")
                                  .font(.caption)
                                  .padding(.vertical, 4)
@@ -131,7 +146,7 @@ struct appBar : View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 10.0)
                      
-                    DetailBtns(modal: self.$modal)
+                    DetailBtns(modal: self.$modal, modalMenu: self.$modalMenu)
                      .frame(maxWidth:.infinity, alignment: .trailing)
                 }
                 .frame(maxWidth:.infinity)
