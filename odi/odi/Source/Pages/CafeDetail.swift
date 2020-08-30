@@ -99,7 +99,7 @@ struct CafeDetail: View {
                .frame(maxWidth: .infinity, alignment: .leading)
                .padding(.leading, 10.0)
                 
-                DetailBtns()
+//                DetailBtns()
                 .frame(maxWidth:.infinity, alignment: .trailing)
                 
                 DetailTabView()

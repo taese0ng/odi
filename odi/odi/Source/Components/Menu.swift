@@ -10,31 +10,46 @@ import SwiftUI
 
 struct menu{
     var types:String;
-    var items:Array<String>;
+    var items:Array<menuInfo>;
+}
+
+struct menuInfo{
+    var name:String;
+    var price:Int;
 }
 
 struct Menu: View {
-    var menus = [menu(types:"음료", items:["아이스 아메리카노","아이스 아메리카노","아이스 아메리카노"]),
-    menu(types:"음료", items:["아이스 아메리카노","아이스 아메리카노","아이스 아메리카노"]),
-    menu(types:"음료", items:["아이스 아메리카노","아이스 아메리카노","아이스 아메리카노"]),
-    menu(types:"음료", items:["아이스 아메리카노","아이스 아메리카노","아이스 아메리카노"])]
+    var menus = [menu(types:"음료", items:[menuInfo(name:"아이스 아메리카노", price:3000),menuInfo(name:"아이스 아메리카노", price:3000),menuInfo(name:"아이스 아메리카노", price:3000)]),
+                 menu(types:"음료", items:[menuInfo(name:"아이스 아메리카노", price:3000),menuInfo(name:"아이스 아메리카노", price:3000),menuInfo(name:"아이스 아메리카노", price:3000)]),
+    menu(types:"음료", items:[menuInfo(name:"아이스 아메리카노", price:3000),menuInfo(name:"아이스 아메리카노", price:3000),menuInfo(name:"아이스 아메리카노", price:3000)]),
+    menu(types:"음료", items:[menuInfo(name:"아이스 아메리카노", price:3000),menuInfo(name:"아이스 아메리카노", price:3000),menuInfo(name:"아이스 아메리카노", price:3000)]),menu(types:"음료", items:[menuInfo(name:"아이스 아메리카노", price:3000),menuInfo(name:"아이스 아메리카노", price:3000),menuInfo(name:"아이스 아메리카노", price:3000)]),menu(types:"음료", items:[menuInfo(name:"아이스 아메리카노", price:3000),menuInfo(name:"아이스 아메리카노", price:3000),menuInfo(name:"아이스 아메리카노", price:3000)]),]
     var body: some View {
-        VStack{
+        ScrollView{
             Text("MENU")
             .foregroundColor(Color("Brown"))
                 .font(.title)
-            
             ForEach(self.menus, id:\.types){
                 menu in
                 VStack{
                     Text(menu.types)
-                    ForEach(menu.items, id:\.self){
+                        .padding(.bottom, 10)
+                    ForEach(menu.items, id:\.name){
                         item in
-                        Text(item)
+                        HStack{
+                            Spacer()
+                            Text(item.name)
+                            Spacer()
+                            Text("\(item.price)")
+                            Spacer()
+                        }
                     }
                 }
+                .padding(.top, 20)
             }
-        }.background(Color.white)
+        }
+        .frame(maxWidth:300, maxHeight:700 , alignment: .top)
+        .background(Color.white)
+    .opacity(1)
     }
 }
 

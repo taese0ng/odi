@@ -9,9 +9,10 @@
 import SwiftUI
 
 struct DetailBtns: View{
+    @Binding var modal:Bool
     var body: some View{
         HStack{
-            Button(action:{}){
+            Button(action:{self.modal.toggle()}){
                 Text("메뉴보기")
                 .foregroundColor(Color("Brown"))
             }
@@ -47,11 +48,12 @@ struct Main : View {
     var address : String
     @State var index = 0
     @State var show = true
-    @State var modal = true
+    @State var modal = false
     var body : some View{
         ZStack{
             VStack{
-                appBar(address: self.address, index: self.$index,show: self.$show)
+                appBar(address: self.address, index: self.$index,show: self.$show,
+                       modal: self.$modal)
                 
                 ZStack{
                     
@@ -63,10 +65,19 @@ struct Main : View {
                 }
             }
             
-            Menu()
+            ZStack{
+                Button(action:{self.modal = false}){
+                    Text("")
+                        .frame(maxWidth:.infinity, maxHeight: .infinity)
+                    .background(Color.black.opacity(0.5))
+                }
+                
+                Menu()
                 .frame(maxWidth:.infinity, maxHeight: .infinity)
-            .background(Color.black)
-                .opacity(self.modal ? 0.6 : 0)
+                
+                
+            }
+            .opacity(self.modal ? 1 : 0)
         }
     }
 }
@@ -77,6 +88,7 @@ struct appBar : View {
     var tabs = ["카페정보", "리뷰", "스토리"]
     @Binding var index : Int
     @Binding var show : Bool
+    @Binding var modal : Bool
     @State private var Padding:CGFloat = 0
     var body : some View{
         
@@ -119,7 +131,7 @@ struct appBar : View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 10.0)
                      
-                     DetailBtns()
+                    DetailBtns(modal: self.$modal)
                      .frame(maxWidth:.infinity, alignment: .trailing)
                 }
                 .frame(maxWidth:.infinity)
