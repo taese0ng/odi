@@ -28,6 +28,7 @@ struct DetailBtns: View{
             
             Button(action:{
                 PhoneNumber(extractFrom: "+1-(800)-123-4567")?.makeACall()
+                //https://stackoverflow.com/questions/40078370/how-to-make-phone-call-in-ios-10-using-swift
             }){
                 Text("전화걸기")
                 .foregroundColor(Color("Brown"))

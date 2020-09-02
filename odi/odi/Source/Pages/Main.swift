@@ -8,10 +8,9 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView:View{
     @State private var Selected:Int = 1
-    
-    var body: some View {
+    var body: some View{
         TabView(selection: $Selected){
             Home(Selection: $Selected)
             .tabItem {
@@ -53,6 +52,28 @@ struct ContentView: View {
                 }
             }.tag(5)
         }.accentColor(Color("Brown"))
+    }
+}
+
+struct ContentView: View {
+    @State private var isActive:Bool = false
+    
+    var body: some View{
+        VStack{
+            if self.isActive{
+                MainView()
+            }
+            else{
+                Image(systemName:"location.fill")
+            }
+        }
+        .onAppear{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                withAnimation {
+                    self.isActive = true
+                }
+            }
+        }
     }
 }
 
