@@ -64,7 +64,7 @@ struct ContentView: View {
                 MainView()
             }
             else{
-                Image(systemName:"location.fill")
+                Image("SplashImage")
             }
         }
         .onAppear{

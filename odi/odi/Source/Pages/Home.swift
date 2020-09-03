@@ -12,31 +12,45 @@ struct MenuBtns: View{
     var screenWidth = UIScreen.main.bounds.size.width
     var screenHeight = UIScreen.main.bounds.size.height
     @Binding var Selection : Int
+    var menuImg1 = ["디저트","베이커리","브런치","애견동반"]
+    var menuImg2 = ["주택개조,한옥", "루프탑", "뷰", "포토존"]
     
     var body: some View{
         VStack{
             HStack(spacing: 0){
-                ForEach((1...4).reversed(), id:\.self){item in
+                ForEach(menuImg1, id:\.self){item in
                     Button(action:{
                         self.Selection = 2
                     }){
-                        Text("Button")
+                        VStack{
+                            Image("\(item)")
+                            .renderingMode(.original)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            
+                            Text("\(item)")
+                            .font(.caption)
+                        }
                     }
                     .frame(width:self.screenWidth/4.5, height:self.screenWidth/4.5)
-                        .background(Color.blue)
-                        .foregroundColor(Color.white)
                 }
             }
             HStack(spacing: 0){
-                ForEach((1...4).reversed(), id:\.self){item in
+                ForEach(menuImg2, id:\.self){item in
                     Button(action:{
                         self.Selection = 2
                     }){
-                        Text("Button")
+                        VStack{
+                            Image("\(item)")
+                            .renderingMode(.original)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            
+                            Text("\(item)")
+                            .font(.caption)
+                        }
                     }
                     .frame(width:self.screenWidth/4.5, height:self.screenWidth/4.5)
-                        .background(Color.red)
-                        .foregroundColor(Color.white)
                 }
             }
         }
