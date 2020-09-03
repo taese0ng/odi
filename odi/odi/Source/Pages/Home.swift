@@ -30,6 +30,7 @@ struct MenuBtns: View{
                             
                             Text("\(item)")
                             .font(.caption)
+                            .foregroundColor(Color.black)
                         }
                     }
                     .frame(width:self.screenWidth/4.5, height:self.screenWidth/4.5)
@@ -48,6 +49,7 @@ struct MenuBtns: View{
                             
                             Text("\(item)")
                             .font(.caption)
+                            .foregroundColor(Color.black)
                         }
                     }
                     .frame(width:self.screenWidth/4.5, height:self.screenWidth/4.5)
