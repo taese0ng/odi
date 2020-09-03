@@ -21,6 +21,7 @@
 		0D686F7F24EFF4FB001ED6E6 /* LocationProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 0D686F7E24EFF4FB001ED6E6 /* LocationProvider */; };
 		0D686F8124EFFCCA001ED6E6 /* CafeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D686F8024EFFCCA001ED6E6 /* CafeCard.swift */; };
 		0D686F8324F006C7001ED6E6 /* CafeBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D686F8224F006C7001ED6E6 /* CafeBanner.swift */; };
+		0D8DF8422501378F009BA5BF /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8DF8412501378F009BA5BF /* Carousel.swift */; };
 		0DAF3C5924C97DF4008B4B82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C5824C97DF4008B4B82 /* AppDelegate.swift */; };
 		0DAF3C5B24C97DF4008B4B82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C5A24C97DF4008B4B82 /* SceneDelegate.swift */; };
 		0DAF3C5D24C97DF4008B4B82 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C5C24C97DF4008B4B82 /* Main.swift */; };
@@ -73,6 +74,7 @@
 		0D6315E824FB8DC900BE8922 /* Coupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		0D686F8024EFFCCA001ED6E6 /* CafeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeCard.swift; sourceTree = "<group>"; };
 		0D686F8224F006C7001ED6E6 /* CafeBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeBanner.swift; sourceTree = "<group>"; };
+		0D8DF8412501378F009BA5BF /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
 		0DAF3C5524C97DF4008B4B82 /* odi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = odi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DAF3C5824C97DF4008B4B82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DAF3C5A24C97DF4008B4B82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				0D686F8224F006C7001ED6E6 /* CafeBanner.swift */,
 				0DECA21024F7A879005ACBC7 /* Menu.swift */,
 				0D6315E824FB8DC900BE8922 /* Coupon.swift */,
+				0D8DF8412501378F009BA5BF /* Carousel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				0DAF3C8F24C9A068008B4B82 /* Surrounding.swift in Sources */,
 				0D34496D24CAAAA000FDF046 /* Location.swift in Sources */,
 				0DAF3C5D24C97DF4008B4B82 /* Main.swift in Sources */,
+				0D8DF8422501378F009BA5BF /* Carousel.swift in Sources */,
 				0D04D94A24EBAAA9007ABDB3 /* MyRecentCafe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

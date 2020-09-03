@@ -102,8 +102,27 @@ struct Home: View{
             VStack{
                 TopBar(title:"ODI")
                 ScrollView{
-                    Image("cafeImg").resizable()
-                        .aspectRatio(contentMode: .fit)
+                    //자동 가로 배너
+                    GeometryReader { geometry in
+                        Carousel(numberOfImages: 3) {
+                            Image("cafeImg")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: geometry.size.width, height: geometry.size.height)
+                                .clipped()
+                            Image("rateReview")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: geometry.size.width, height: geometry.size.height)
+                                .clipped()
+                            Image("cafeImg")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: geometry.size.width, height: geometry.size.height)
+                                .clipped()
+                        }
+                    }.frame(width: UIScreen.main.bounds.width, height: 300, alignment: .center)
+                    
                     MenuBtns(Selection : $Selection)
                     
                     Text("이번 주 HOT 카페")
