@@ -32,7 +32,7 @@ struct Login: View {
                         .frame(width:150)
                 }
                 Button(action: {}){
-                    NavigationLink(destination: SignUp()){
+                    NavigationLink(destination: SignUpOne()){
                         Text("회원가입")
                             .foregroundColor(Color("LightGray"))
                             .font(.custom("signUp", size: 23))
@@ -44,6 +44,7 @@ struct Login: View {
             Button(action:{}){
                 Text("비밀번호를 잊으셨나요?")
                 .foregroundColor(Color("Brown"))
+                    .padding(.bottom, 30)
             }
             
         }.navigationBarTitle(Text("로그인"), displayMode: .inline)
