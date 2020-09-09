@@ -9,9 +9,10 @@
 import SwiftUI
 
 struct MyReview: View {
+    @State private var show:Bool = false
     var body: some View {
         VStack{
-            Text("헬로월드")
+            CafeReview(show:self.$show)
         }
     }
 }

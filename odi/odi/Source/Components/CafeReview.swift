@@ -28,23 +28,37 @@ struct StarRate : View{
 struct Review : View{
     var body : some View{
         HStack{
-            Image("place")
-                .resizable()
-                .frame(width: 60, height: 60)
-                
             VStack{
-                Text("얼죽아")
-                StarRate()
-                
+                Image("place")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                Spacer()
+            }
+            VStack{
                 HStack{
-                    ForEach(0...3, id:\.self){
-                        img in
-                        Image("cafeImg")
-                        .resizable()
-                            .frame(width:60, height: 50)
+                    Text("얼죽아")
+                        .frame(maxWidth:.infinity, alignment: .leading)
+                    Spacer()
+                    Text("오그니메모")
+                }
+                HStack{
+                    StarRate()
+                        .frame(maxWidth:.infinity, alignment: .leading)
+                    Spacer()
+                    Text("2020년 1월 1일")
+                }
+                ScrollView(.horizontal, showsIndicators: false){
+                    HStack{
+                        ForEach(0...5, id:\.self){
+                            img in
+                            Image("cafeImg")
+                            .resizable()
+                                .frame(width:60, height: 50)
+                        }
                     }
                 }
                 Text("커피 정말 맛있어요!!!")
+                    .frame(maxWidth:.infinity, alignment: .leading)
             }
         }
     }

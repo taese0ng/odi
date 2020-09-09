@@ -108,11 +108,13 @@ struct SignUpOne: View {
             
             Button(action:{}){
                 if(self.service && self.personal){
-                    Text("다음")
-                        .frame(width:300, height: 50)
-                        .background(Color("Brown"))
-                        .foregroundColor(.white)
-                        .cornerRadius(5)
+                    NavigationLink(destination: SignUpTwo()){
+                        Text("다음")
+                            .frame(width:300, height: 50)
+                            .background(Color("Brown"))
+                            .foregroundColor(.white)
+                            .cornerRadius(5)
+                    }
                 }
                 else{
                     Text("다음")
@@ -125,6 +127,7 @@ struct SignUpOne: View {
             Spacer()
         }
         .padding(.horizontal, 30)
+        .navigationBarTitle(Text("회원가입 1/3"), displayMode: .inline)
     }
 }
 

@@ -11,13 +11,19 @@ import SwiftUI
 struct SignUpThree: View {
     @State private var callNum:String = ""
     @State private var cerify:String = ""
-    
+    var answer:String = "123"
+    func check()->Bool{
+        if(self.answer == self.cerify){
+            return true
+        }
+        return false
+    }
     var body: some View {
         VStack{
             Spacer()
             
             Text("본인인증")
-            
+                .padding(.bottom, 50)
             HStack{
                 VStack{
                     TextField("휴대폰 번호", text: self.$callNum)
@@ -41,16 +47,26 @@ struct SignUpThree: View {
             Spacer()
             
             Button(action:{}){
-                Text("회원가입 완료")
+                if(self.check()){
+                    Text("회원가입 완료")
+                        .frame(width:300, height: 50)
+                        .foregroundColor(.white)
+                        .background(Color("Brown"))
+                        .cornerRadius(5)
+                }
+                else{
+                    Text("회원가입 완료")
                     .frame(width:300, height: 50)
                     .foregroundColor(.white)
                     .background(Color.gray)
                     .cornerRadius(5)
+                }
             }
             
             Spacer()
         }
         .padding(.horizontal, 30)
+        .navigationBarTitle(Text("회원가입 3/3"), displayMode: .inline)
     }
 }
 

@@ -9,8 +9,24 @@
 import SwiftUI
 
 struct MyRecentCafe: View {
+    var cafeList = ["대구광역시 중구 동덕로1길","대구광역시 중구 동덕로2길","대구광역시 중구 동덕로3길","대구광역시 중구 동덕로4길","대구광역시 중구 동덕로5길","대구광역시 중구 동덕로6길"]
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            ScrollView{
+                ForEach(cafeList, id:\.self){
+                    item in
+                    NavigationLink(destination: DetailView(address: item)){
+                        CardView(address: item, surrounding: false)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
+            }
+        }.frame(minWidth:0,
+        maxWidth: .infinity,
+        minHeight: 0,
+        maxHeight: .infinity,
+        alignment: .top)
+        .navigationBarColor(.white)
     }
 }
 

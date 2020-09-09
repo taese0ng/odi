@@ -28,8 +28,14 @@ struct MyPage: View {
                         }
                     }
                     .foregroundColor(.black)
+                    
                     Text(" / ")
-                    Button("회원가입하기 >"){}
+                    
+                    Button(action:{}){
+                        NavigationLink(destination: SignUpOne()){
+                            Text("회원가입하기 >")
+                        }
+                    }
                     .foregroundColor(.black)
                 }.padding(30)
                 
@@ -54,11 +60,13 @@ struct MyPage: View {
                 }
                 
                 Button(action:{}){
-                    Text("더보기")
-                    .frame(maxWidth:.infinity, alignment:.leading)
-                    .padding(.vertical, 10)
-                    .padding(.horizontal,20)
-                    .foregroundColor(.black)
+                    NavigationLink(destination: MoreDetails()){
+                        Text("더보기")
+                        .frame(maxWidth:.infinity, alignment:.leading)
+                        .padding(.vertical, 10)
+                        .padding(.horizontal,20)
+                        .foregroundColor(.black)
+                    }
                 }
             }.frame(minWidth:0,
             maxWidth: .infinity,
