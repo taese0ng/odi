@@ -76,8 +76,10 @@ struct SignUpOne: View {
                     .frame(maxWidth:.infinity, alignment: .leading)
                     .padding(.vertical, 10)
                     Button(action:{}){
-                        Text("보기")
-                            .foregroundColor(.gray)
+                        NavigationLink(destination: ServiceUse()){
+                            Text("보기")
+                                .foregroundColor(.gray)
+                        }
                     }
                 }
                 
@@ -86,8 +88,10 @@ struct SignUpOne: View {
                     .frame(maxWidth:.infinity, alignment: .leading)
                     .padding(.vertical, 10)
                     Button(action:{}){
-                        Text("보기")
-                            .foregroundColor(.gray)
+                        NavigationLink(destination: PersonalInfo()){
+                            Text("보기")
+                                .foregroundColor(.gray)
+                        }
                     }
                 }
                 
@@ -96,8 +100,10 @@ struct SignUpOne: View {
                     .frame(maxWidth:.infinity, alignment: .leading)
                     .padding(.vertical, 10)
                     Button(action:{}){
-                        Text("보기")
-                            .foregroundColor(.gray)
+                        NavigationLink(destination: LocationUse()){
+                            Text("보기")
+                                .foregroundColor(.gray)
+                        }
                     }
                 }
             }
