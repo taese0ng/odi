@@ -133,7 +133,7 @@ struct SignUpOne: View {
             Spacer()
         }
         .padding(.horizontal, 30)
-        .navigationBarTitle(Text("회원가입 1/3"), displayMode: .inline)
+        .navigationBarTitle(Text("회원가입 1/4"), displayMode: .inline)
     }
 }
 

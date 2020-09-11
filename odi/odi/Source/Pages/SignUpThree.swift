@@ -9,64 +9,90 @@
 import SwiftUI
 
 struct SignUpThree: View {
-    @State private var callNum:String = ""
-    @State private var cerify:String = ""
-    var answer:String = "123"
-    func check()->Bool{
-        if(self.answer == self.cerify){
-            return true
+    @State private var id:String = ""
+    @State private var pw:String = ""
+    @State private var pwConfirm:String = ""
+    @State private var eMail:String = ""
+    @State private var nick:String = ""
+    
+    func check() -> Bool{
+        var answer:Bool = false
+        if(self.id != "" && self.pw != "" && self.pwConfirm == self.pw && eMail != "" && self.nick != ""){
+            answer = true
         }
-        return false
+        else{
+            answer = false
+        }
+        return answer
     }
+    
     var body: some View {
-        VStack{
-            Spacer()
-            
-            Text("본인인증")
-                .padding(.bottom, 50)
-            HStack{
+        ScrollView{
+            VStack{
+                Text("회원정보")
+                .padding(.vertical, 20)
+                
                 VStack{
-                    TextField("휴대폰 번호", text: self.$callNum)
+                    Text("아이디")
+                        .frame(maxWidth:.infinity, alignment: .leading)
+                    TextField("아이디", text: self.$id)
                     Divider()
-                    .background(Color.black)
-                }
+                }.padding(.vertical, 20)
+                
+                VStack{
+                    Text("비밀번호 (최소 8자 이상)")
+                    .frame(maxWidth:.infinity, alignment: .leading)
+                    SecureField("비밀번호", text: self.$pw)
+                    Divider()
+                }.padding(.vertical, 20)
+                
+                VStack{
+                    Text("비밀번호 확인")
+                    .frame(maxWidth:.infinity, alignment: .leading)
+                    SecureField("비밀번호 확인", text: self.$pwConfirm)
+                    Divider()
+                }.padding(.vertical, 20)
+                
+                VStack{
+                    Text("이메일")
+                    .frame(maxWidth:.infinity, alignment: .leading)
+                    TextField("이메일", text: self.$eMail)
+                    Divider()
+                }.padding(.vertical, 20)
+                
+                VStack{
+                    Text("닉네임")
+                    .frame(maxWidth:.infinity, alignment: .leading)
+                    TextField("닉네임", text: self.$nick)
+                    Divider()
+                }.padding(.vertical, 20)
+                
+                
                 Button(action:{}){
-                    Text("인증번호 전송")
-                        .frame(width:120, height: 40)
-                        .foregroundColor(.white)
-                        .background(Color("Brown"))
-                        .cornerRadius(5)
-                }
-            }
-            
-            TextField("인증번호 입력", text:self.$cerify)
-             .keyboardType(.numberPad)
-            Divider()
-            .background(Color.black)
-            
-            Spacer()
-            
-            Button(action:{}){
-                if(self.check()){
-                    Text("회원가입 완료")
+                    if(self.check()){
+                        NavigationLink(destination: SignUpFour()){
+                            Text("다음")
+                                .frame(width:300, height: 50)
+                                .foregroundColor(.white)
+                                .background(Color("Brown"))
+                                .cornerRadius(5)
+                        }
+                    }
+                    else{
+                        Text("다음")
                         .frame(width:300, height: 50)
                         .foregroundColor(.white)
-                        .background(Color("Brown"))
+                        .background(Color.gray)
                         .cornerRadius(5)
-                }
-                else{
-                    Text("회원가입 완료")
-                    .frame(width:300, height: 50)
-                    .foregroundColor(.white)
-                    .background(Color.gray)
-                    .cornerRadius(5)
+                    }
                 }
             }
-            
-            Spacer()
+            .padding(.bottom, 40)
         }
+        .frame(maxHeight:.infinity, alignment: .top)
         .padding(.horizontal, 30)
-        .navigationBarTitle(Text("회원가입 3/3"), displayMode: .inline)
+        .navigationBarTitle(Text("회원가입 3/4"), displayMode: .inline)
+        .navigationBarColor(.white)
     }
 }
 

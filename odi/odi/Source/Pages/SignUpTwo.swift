@@ -8,16 +8,52 @@
 
 import SwiftUI
 
-struct SignUpTwo: View {
-    @State private var id:String = ""
-    @State private var pw:String = ""
-    @State private var pwConfirm:String = ""
-    @State private var eMail:String = ""
-    @State private var nick:String = ""
+enum Gender: String {
+    case male = "남"
+    case female = "여"
+}
+
+struct RadioButtonGroups: View {
+    @Binding var selectedId: String
     
+    var body: some View {
+        HStack {
+            radioMaleMajority
+            radioFemaleMajority
+        }
+    }
+    
+    var radioMaleMajority: some View {
+        RadioButton(
+            id: Gender.male.rawValue,
+            label: Gender.male.rawValue,
+            isMarked: selectedId == Gender.male.rawValue ? true : false,
+            callback: radioGroupCallback
+        )
+    }
+    
+    var radioFemaleMajority: some View {
+        RadioButton(
+            id: Gender.female.rawValue,
+            label: Gender.female.rawValue,
+            isMarked: selectedId == Gender.female.rawValue ? true : false,
+            callback: radioGroupCallback
+        )
+    }
+    
+    func radioGroupCallback(id: String) {
+        selectedId = id
+    }
+}
+
+struct SignUpTwo: View {
+    @State private var name:String = ""
+    @State private var birth:String = ""
+    @State private var sex:String = ""
+
     func check() -> Bool{
         var answer:Bool = false
-        if(self.id != "" && self.pw != "" && self.pwConfirm == self.pw && eMail != "" && self.nick != ""){
+        if(self.name != "" && self.birth != "" && self.sex != ""){
             answer = true
         }
         else{
@@ -27,47 +63,31 @@ struct SignUpTwo: View {
     }
     
     var body: some View {
-        ScrollView{
             VStack{
                 Text("회원정보")
                 .padding(.vertical, 20)
                 
                 VStack{
-                    Text("아이디")
+                    Text("이름")
                         .frame(maxWidth:.infinity, alignment: .leading)
-                    TextField("아이디", text: self.$id)
+                    TextField("이름", text: self.$name)
                     Divider()
                 }.padding(.vertical, 20)
                 
                 VStack{
-                    Text("비밀번호 (최소 8자 이상)")
-                    .frame(maxWidth:.infinity, alignment: .leading)
-                    SecureField("비밀번호", text: self.$pw)
+                    Text("생년월일")
+                        .frame(maxWidth:.infinity, alignment: .leading)
+                    TextField("생년월일", text: self.$birth)
                     Divider()
                 }.padding(.vertical, 20)
                 
                 VStack{
-                    Text("비밀번호 확인")
-                    .frame(maxWidth:.infinity, alignment: .leading)
-                    SecureField("비밀번호 확인", text: self.$pwConfirm)
-                    Divider()
+                    Text("성별")
+                        .frame(maxWidth:.infinity, alignment: .leading)
+                    RadioButtonGroups(selectedId: self.$sex)
                 }.padding(.vertical, 20)
                 
-                VStack{
-                    Text("이메일")
-                    .frame(maxWidth:.infinity, alignment: .leading)
-                    TextField("이메일", text: self.$eMail)
-                    Divider()
-                }.padding(.vertical, 20)
-                
-                VStack{
-                    Text("닉네임")
-                    .frame(maxWidth:.infinity, alignment: .leading)
-                    TextField("닉네임", text: self.$nick)
-                    Divider()
-                }.padding(.vertical, 20)
-                
-                
+                Spacer()
                 Button(action:{}){
                     if(self.check()){
                         NavigationLink(destination: SignUpThree()){
@@ -86,13 +106,10 @@ struct SignUpTwo: View {
                         .cornerRadius(5)
                     }
                 }
+                Spacer()
             }
-            .padding(.bottom, 40)
-        }
-        .frame(maxHeight:.infinity, alignment: .top)
-        .padding(.horizontal, 30)
-        .navigationBarTitle(Text("회원가입 2/3"), displayMode: .inline)
-        .navigationBarColor(.white)
+            .padding(.horizontal, 30)
+            .navigationBarTitle(Text("회원가입 2/4"), displayMode: .inline)
     }
 }
 
