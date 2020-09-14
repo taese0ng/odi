@@ -9,15 +9,16 @@
 import SwiftUI
 
 struct SignUpThree: View {
-    @State private var id:String = ""
-    @State private var pw:String = ""
+    @EnvironmentObject var info:SignUpInfo
+//    @State private var id:String = ""
+//    @State private var pw:String = ""
     @State private var pwConfirm:String = ""
-    @State private var eMail:String = ""
-    @State private var nick:String = ""
+//    @State private var eMail:String = ""
+//    @State private var nick:String = ""
     
     func check() -> Bool{
         var answer:Bool = false
-        if(self.id != "" && self.pw != "" && self.pwConfirm == self.pw && eMail != "" && self.nick != ""){
+        if(self.info.id != "" && self.info.pw != "" && self.pwConfirm == self.info.pw && self.info.eMail != "" && self.info.nick != ""){
             answer = true
         }
         else{
@@ -29,20 +30,20 @@ struct SignUpThree: View {
     var body: some View {
         ScrollView{
             VStack{
-                Text("회원정보")
+                Text("회원정보\(self.info.name)")
                 .padding(.vertical, 20)
                 
                 VStack{
                     Text("아이디")
                         .frame(maxWidth:.infinity, alignment: .leading)
-                    TextField("아이디", text: self.$id)
+                    TextField("아이디", text: self.$info.id)
                     Divider()
                 }.padding(.vertical, 20)
                 
                 VStack{
                     Text("비밀번호 (최소 8자 이상)")
                     .frame(maxWidth:.infinity, alignment: .leading)
-                    SecureField("비밀번호", text: self.$pw)
+                    SecureField("비밀번호", text: self.$info.pw)
                     Divider()
                 }.padding(.vertical, 20)
                 
@@ -56,21 +57,21 @@ struct SignUpThree: View {
                 VStack{
                     Text("이메일")
                     .frame(maxWidth:.infinity, alignment: .leading)
-                    TextField("이메일", text: self.$eMail)
+                    TextField("이메일", text: self.$info.eMail)
                     Divider()
                 }.padding(.vertical, 20)
                 
                 VStack{
                     Text("닉네임")
                     .frame(maxWidth:.infinity, alignment: .leading)
-                    TextField("닉네임", text: self.$nick)
+                    TextField("닉네임", text: self.$info.nick)
                     Divider()
                 }.padding(.vertical, 20)
                 
                 
                 Button(action:{}){
                     if(self.check()){
-                        NavigationLink(destination: SignUpFour()){
+                        NavigationLink(destination: SignUpFour().environmentObject(self.info)){
                             Text("다음")
                                 .frame(width:300, height: 50)
                                 .foregroundColor(.white)

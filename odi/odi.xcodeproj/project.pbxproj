@@ -34,6 +34,7 @@
 		0DAF3C9124C9A3BB008B4B82 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C9024C9A3BB008B4B82 /* Home.swift */; };
 		0DAFF5E524D87D3800569F0C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAFF5E424D87D3800569F0C /* CardView.swift */; };
 		0DD45C0624E007FD006038EA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD45C0524E007FD006038EA /* DetailView.swift */; };
+		0DE44E6A250FA5530069903D /* SignUpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE44E69250FA5530069903D /* SignUpInfo.swift */; };
 		0DECA21124F7A879005ACBC7 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DECA21024F7A879005ACBC7 /* Menu.swift */; };
 		0DEE6E2C2508DB0E0068EAA3 /* SignUpTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEE6E2B2508DB0E0068EAA3 /* SignUpTwo.swift */; };
 		0DEE6E2E2508E0100068EAA3 /* SignUpThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEE6E2D2508E0100068EAA3 /* SignUpThree.swift */; };
@@ -102,6 +103,7 @@
 		0DAF3C9024C9A3BB008B4B82 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		0DAFF5E424D87D3800569F0C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		0DD45C0524E007FD006038EA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		0DE44E69250FA5530069903D /* SignUpInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfo.swift; sourceTree = "<group>"; };
 		0DECA21024F7A879005ACBC7 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		0DEE6E2B2508DB0E0068EAA3 /* SignUpTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTwo.swift; sourceTree = "<group>"; };
 		0DEE6E2D2508E0100068EAA3 /* SignUpThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpThree.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				0D5B1A8C24D6B36800703DC3 /* Modifiers */,
+				0DE44E69250FA5530069903D /* SignUpInfo.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				0DAF3C9124C9A3BB008B4B82 /* Home.swift in Sources */,
 				0DAF3C8F24C9A068008B4B82 /* Surrounding.swift in Sources */,
 				0DEE6FA2250B54AC0068EAA3 /* RadioButton.swift in Sources */,
+				0DE44E6A250FA5530069903D /* SignUpInfo.swift in Sources */,
 				0D34496D24CAAAA000FDF046 /* Location.swift in Sources */,
 				0DAF3C5D24C97DF4008B4B82 /* Main.swift in Sources */,
 				0DEE6F9825096A4D0068EAA3 /* MoreDetails.swift in Sources */,

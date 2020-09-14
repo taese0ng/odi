@@ -57,7 +57,7 @@ struct MainView:View{
 
 struct ContentView: View {
     @State private var isActive:Bool = false
-    
+     
     var body: some View{
         VStack{
             if self.isActive{

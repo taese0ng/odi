@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Combine
 
 enum Gender: String {
     case male = "남"
@@ -47,13 +48,14 @@ struct RadioButtonGroups: View {
 }
 
 struct SignUpTwo: View {
-    @State private var name:String = ""
-    @State private var birth:String = ""
-    @State private var sex:String = ""
+    @EnvironmentObject var info:SignUpInfo
+//    @State private var name:String = ""
+//    @State private var birth:String = ""
+//    @State private var sex:String = ""
 
     func check() -> Bool{
         var answer:Bool = false
-        if(self.name != "" && self.birth != "" && self.sex != ""){
+        if(self.info.name != "" && self.info.birth != "" && self.info.sex != ""){
             answer = true
         }
         else{
@@ -70,27 +72,27 @@ struct SignUpTwo: View {
                 VStack{
                     Text("이름")
                         .frame(maxWidth:.infinity, alignment: .leading)
-                    TextField("이름", text: self.$name)
+                    TextField("이름", text: self.$info.name)
                     Divider()
                 }.padding(.vertical, 20)
                 
                 VStack{
                     Text("생년월일")
                         .frame(maxWidth:.infinity, alignment: .leading)
-                    TextField("생년월일", text: self.$birth)
+                    TextField("생년월일", text: self.$info.birth)
                     Divider()
                 }.padding(.vertical, 20)
                 
                 VStack{
                     Text("성별")
                         .frame(maxWidth:.infinity, alignment: .leading)
-                    RadioButtonGroups(selectedId: self.$sex)
+                    RadioButtonGroups(selectedId: self.$info.sex)
                 }.padding(.vertical, 20)
                 
                 Spacer()
                 Button(action:{}){
                     if(self.check()){
-                        NavigationLink(destination: SignUpThree()){
+                        NavigationLink(destination: SignUpThree().environmentObject(self.info)){
                             Text("다음")
                                 .frame(width:300, height: 50)
                                 .foregroundColor(.white)

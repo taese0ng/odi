@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct SignUpFour: View {
-    @State private var callNum:String = ""
+    @EnvironmentObject var info:SignUpInfo
+//    @State private var callNum:String = ""
     @State private var cerify:String = ""
     var answer:String = "123"
     func check()->Bool{
@@ -26,7 +27,7 @@ struct SignUpFour: View {
                 .padding(.bottom, 50)
             HStack{
                 VStack{
-                    TextField("휴대폰 번호", text: self.$callNum)
+                    TextField("휴대폰 번호", text: self.$info.callNum)
                     Divider()
                     .background(Color.black)
                 }
