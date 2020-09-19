@@ -48,14 +48,14 @@ struct RadioButtonGroups: View {
 }
 
 struct SignUpTwo: View {
-    @EnvironmentObject var info:SignUpInfo
+    @EnvironmentObject var store:Store
 //    @State private var name:String = ""
 //    @State private var birth:String = ""
 //    @State private var sex:String = ""
 
     func check() -> Bool{
         var answer:Bool = false
-        if(self.info.name != "" && self.info.birth != "" && self.info.sex != ""){
+        if(self.store.name != "" && self.store.birth != "" && self.store.sex != ""){
             answer = true
         }
         else{
@@ -72,27 +72,27 @@ struct SignUpTwo: View {
                 VStack{
                     Text("이름")
                         .frame(maxWidth:.infinity, alignment: .leading)
-                    TextField("이름", text: self.$info.name)
+                    TextField("이름", text: self.$store.name)
                     Divider()
                 }.padding(.vertical, 20)
                 
                 VStack{
                     Text("생년월일")
                         .frame(maxWidth:.infinity, alignment: .leading)
-                    TextField("생년월일", text: self.$info.birth)
+                    TextField("생년월일", text: self.$store.birth)
                     Divider()
                 }.padding(.vertical, 20)
                 
                 VStack{
                     Text("성별")
                         .frame(maxWidth:.infinity, alignment: .leading)
-                    RadioButtonGroups(selectedId: self.$info.sex)
+                    RadioButtonGroups(selectedId: self.$store.sex)
                 }.padding(.vertical, 20)
                 
                 Spacer()
                 Button(action:{}){
                     if(self.check()){
-                        NavigationLink(destination: SignUpThree().environmentObject(self.info)){
+                        NavigationLink(destination: SignUpThree().environmentObject(self.store)){
                             Text("다음")
                                 .frame(width:300, height: 50)
                                 .foregroundColor(.white)

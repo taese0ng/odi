@@ -35,6 +35,7 @@ struct SignUpOne: View {
     @State private var service:Bool = false
     @State private var personal:Bool = false
     @State private var location:Bool = false
+    @EnvironmentObject var store:Store
     
     func allToggle(){
         if(self.service && self.personal && self.location){
@@ -115,7 +116,7 @@ struct SignUpOne: View {
             
             Button(action:{}){
                 if(self.service && self.personal){
-                    NavigationLink(destination: SignUpTwo().environmentObject(SignUpInfo())){
+                    NavigationLink(destination: SignUpTwo().environmentObject(self.store)){
                         Text("다음")
                             .frame(width:300, height: 50)
                             .background(Color("Brown"))

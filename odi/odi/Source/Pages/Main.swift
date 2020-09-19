@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MainView:View{
     @State private var Selected:Int = 1
+    @EnvironmentObject var store:Store
     var body: some View{
         TabView(selection: $Selected){
             Home(Selection: $Selected)
@@ -45,6 +46,7 @@ struct MainView:View{
             }.tag(4)
             
             MyPage()
+            .environmentObject(self.store)
             .tabItem{
                 Image(systemName: "person.crop.circle.fill")
                 if(Selected == 5){
@@ -57,11 +59,11 @@ struct MainView:View{
 
 struct ContentView: View {
     @State private var isActive:Bool = false
-     
+    @EnvironmentObject var store:Store
     var body: some View{
         VStack{
             if self.isActive{
-                MainView()
+                MainView().environmentObject(self.store)
             }
             else{
                 Image("SplashImage")

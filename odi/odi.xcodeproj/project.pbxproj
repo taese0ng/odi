@@ -22,6 +22,7 @@
 		0D686F8124EFFCCA001ED6E6 /* CafeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D686F8024EFFCCA001ED6E6 /* CafeCard.swift */; };
 		0D686F8324F006C7001ED6E6 /* CafeBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D686F8224F006C7001ED6E6 /* CafeBanner.swift */; };
 		0D8DF8422501378F009BA5BF /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8DF8412501378F009BA5BF /* Carousel.swift */; };
+		0DAE7ECB25159E4600BCBD06 /* MyInfoModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAE7ECA25159E4600BCBD06 /* MyInfoModify.swift */; };
 		0DAF3C5924C97DF4008B4B82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C5824C97DF4008B4B82 /* AppDelegate.swift */; };
 		0DAF3C5B24C97DF4008B4B82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C5A24C97DF4008B4B82 /* SceneDelegate.swift */; };
 		0DAF3C5D24C97DF4008B4B82 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C5C24C97DF4008B4B82 /* Main.swift */; };
@@ -34,7 +35,7 @@
 		0DAF3C9124C9A3BB008B4B82 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C9024C9A3BB008B4B82 /* Home.swift */; };
 		0DAFF5E524D87D3800569F0C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAFF5E424D87D3800569F0C /* CardView.swift */; };
 		0DD45C0624E007FD006038EA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD45C0524E007FD006038EA /* DetailView.swift */; };
-		0DE44E6A250FA5530069903D /* SignUpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE44E69250FA5530069903D /* SignUpInfo.swift */; };
+		0DE44E6A250FA5530069903D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE44E69250FA5530069903D /* Store.swift */; };
 		0DECA21124F7A879005ACBC7 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DECA21024F7A879005ACBC7 /* Menu.swift */; };
 		0DEE6E2C2508DB0E0068EAA3 /* SignUpTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEE6E2B2508DB0E0068EAA3 /* SignUpTwo.swift */; };
 		0DEE6E2E2508E0100068EAA3 /* SignUpThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEE6E2D2508E0100068EAA3 /* SignUpThree.swift */; };
@@ -85,6 +86,7 @@
 		0D686F8024EFFCCA001ED6E6 /* CafeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeCard.swift; sourceTree = "<group>"; };
 		0D686F8224F006C7001ED6E6 /* CafeBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeBanner.swift; sourceTree = "<group>"; };
 		0D8DF8412501378F009BA5BF /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
+		0DAE7ECA25159E4600BCBD06 /* MyInfoModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoModify.swift; sourceTree = "<group>"; };
 		0DAF3C5524C97DF4008B4B82 /* odi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = odi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DAF3C5824C97DF4008B4B82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DAF3C5A24C97DF4008B4B82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,7 +105,7 @@
 		0DAF3C9024C9A3BB008B4B82 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		0DAFF5E424D87D3800569F0C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		0DD45C0524E007FD006038EA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		0DE44E69250FA5530069903D /* SignUpInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInfo.swift; sourceTree = "<group>"; };
+		0DE44E69250FA5530069903D /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		0DECA21024F7A879005ACBC7 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		0DEE6E2B2508DB0E0068EAA3 /* SignUpTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTwo.swift; sourceTree = "<group>"; };
 		0DEE6E2D2508E0100068EAA3 /* SignUpThree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpThree.swift; sourceTree = "<group>"; };
@@ -151,7 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				0D5B1A8C24D6B36800703DC3 /* Modifiers */,
-				0DE44E69250FA5530069903D /* SignUpInfo.swift */,
+				0DE44E69250FA5530069903D /* Store.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -266,6 +268,7 @@
 				0DEE6E322509569A0068EAA3 /* PersonalInfo.swift */,
 				0DEE6F9B2509D9860068EAA3 /* ServiceUse.swift */,
 				0DEE6F9D2509DE7F0068EAA3 /* LocationUse.swift */,
+				0DAE7ECA25159E4600BCBD06 /* MyInfoModify.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				0D34496F24CAAB5600FDF046 /* TopBar.swift in Sources */,
 				0DF823F424E51C7700525E4F /* Login.swift in Sources */,
 				0DAF3C5924C97DF4008B4B82 /* AppDelegate.swift in Sources */,
+				0DAE7ECB25159E4600BCBD06 /* MyInfoModify.swift in Sources */,
 				0D6315E924FB8DC900BE8922 /* Coupon.swift in Sources */,
 				0DF0E24A24DECB9E0044C547 /* CafeStory.swift in Sources */,
 				0DEE6E2E2508E0100068EAA3 /* SignUpThree.swift in Sources */,
@@ -465,7 +469,7 @@
 				0DAF3C9124C9A3BB008B4B82 /* Home.swift in Sources */,
 				0DAF3C8F24C9A068008B4B82 /* Surrounding.swift in Sources */,
 				0DEE6FA2250B54AC0068EAA3 /* RadioButton.swift in Sources */,
-				0DE44E6A250FA5530069903D /* SignUpInfo.swift in Sources */,
+				0DE44E6A250FA5530069903D /* Store.swift in Sources */,
 				0D34496D24CAAAA000FDF046 /* Location.swift in Sources */,
 				0DAF3C5D24C97DF4008B4B82 /* Main.swift in Sources */,
 				0DEE6F9825096A4D0068EAA3 /* MoreDetails.swift in Sources */,

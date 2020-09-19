@@ -11,6 +11,7 @@ import SwiftUI
 struct Login: View {
     @State private var ID:String = ""
     @State private var PW:String = ""
+    @EnvironmentObject var store:Store
     
     var body: some View {
         VStack{
@@ -23,7 +24,7 @@ struct Login: View {
                 .padding(.horizontal, 50)
             Divider()
                 .padding(.horizontal, 50)
-
+            
             HStack{
                 Button(action:{}){
                     Text("로그인")
@@ -32,7 +33,7 @@ struct Login: View {
                         .frame(width:150)
                 }
                 Button(action: {}){
-                    NavigationLink(destination: SignUpOne()){
+                    NavigationLink(destination: SignUpOne().environmentObject(self.store)){
                         Text("회원가입")
                             .foregroundColor(Color("LightGray"))
                             .font(.custom("signUp", size: 23))
@@ -40,6 +41,8 @@ struct Login: View {
                     }
                 }
             }.padding(.top, 70)
+            
+            
             Spacer()
             Button(action:{}){
                 Text("비밀번호를 잊으셨나요?")

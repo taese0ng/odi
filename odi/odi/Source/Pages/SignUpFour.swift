@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SignUpFour: View {
-    @EnvironmentObject var info:SignUpInfo
+    @EnvironmentObject var store:Store
 //    @State private var callNum:String = ""
     @State private var cerify:String = ""
     var answer:String = "123"
@@ -27,7 +27,7 @@ struct SignUpFour: View {
                 .padding(.bottom, 50)
             HStack{
                 VStack{
-                    TextField("휴대폰 번호", text: self.$info.callNum)
+                    TextField("휴대폰 번호", text: self.$store.callNum)
                     Divider()
                     .background(Color.black)
                 }
@@ -47,22 +47,24 @@ struct SignUpFour: View {
             
             Spacer()
             
-            Button(action:{}){
-                if(self.check()){
+            
+            if(self.check()){
+                Button(action:{self.store.isLogin = true}){
                     Text("회원가입 완료")
                         .frame(width:300, height: 50)
                         .foregroundColor(.white)
                         .background(Color("Brown"))
                         .cornerRadius(5)
                 }
-                else{
-                    Text("회원가입 완료")
-                    .frame(width:300, height: 50)
-                    .foregroundColor(.white)
-                    .background(Color.gray)
-                    .cornerRadius(5)
-                }
             }
+            else{
+                Text("회원가입 완료")
+                .frame(width:300, height: 50)
+                .foregroundColor(.white)
+                .background(Color.gray)
+                .cornerRadius(5)
+            }
+            
             
             Spacer()
         }
