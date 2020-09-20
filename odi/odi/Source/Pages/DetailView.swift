@@ -22,16 +22,32 @@ struct DetailBtns: View{
             }
             
             Button(action:{}){
-                Text("ognimemo")
-                .foregroundColor(Color("Brown"))
+                HStack{
+                    Image("instagram")
+                        .renderingMode(.template)
+                        .resizable()
+                        .frame(width:20, height: 20)
+                        .foregroundColor(Color("Brown"))
+                    
+                    Text("ognimemo")
+                    .foregroundColor(Color("Brown"))
+                }
             }
             
             Button(action:{
                 PhoneNumber(extractFrom: "+1-(800)-123-4567")?.makeACall()
                 //https://stackoverflow.com/questions/40078370/how-to-make-phone-call-in-ios-10-using-swift
             }){
-                Text("전화걸기")
-                .foregroundColor(Color("Brown"))
+                HStack{
+                    Image(systemName: "phone.fill")
+                        .renderingMode(.template)
+                        .resizable()
+                        .frame(width:20, height: 20)
+                        .foregroundColor(Color("Brown"))
+                    
+                    Text("전화걸기")
+                    .foregroundColor(Color("Brown"))
+                }
             }
             
         }
@@ -39,19 +55,22 @@ struct DetailBtns: View{
 }
 
 struct DetailView: View {
+    @Binding var showDetail:Bool
     var address : String
     var body: some View {
-        Main(address: self.address)
+        Main(showDetail:self.$showDetail, address: self.address)
+            .navigationBarHidden(true)
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(address: "대구광역시 중구 동덕로6길 18-13")
-    }
-}
+//struct DetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DetailView(address: "대구광역시 중구 동덕로6길 18-13")
+//    }
+//}
 
 struct Main : View {
+    @Binding var showDetail:Bool
     var address : String
     @State var index = 0
     @State var show = true
@@ -60,12 +79,13 @@ struct Main : View {
     var body : some View{
         ZStack{
             VStack{
-                appBar(address: self.address, index: self.$index,show: self.$show,
+                appBar(showDetail: self.$showDetail, address: self.address, index: self.$index,show: self.$show,
                        modal: self.$modal, modalMenu: self.$modalMenu)
                 
                 ZStack{
                     
                     CafeInfo().opacity(self.index == 0 ? 1 : 0)
+                        .padding(.horizontal, 20)
                     
                     CafeReview(show: self.$show).opacity(self.index == 1 ? 1 : 0)
                     
@@ -97,6 +117,7 @@ struct Main : View {
 }
 
 struct appBar : View {
+    @Binding var showDetail:Bool
     @State private var hashTags = ["#감성", "#연인", "#데이트", "#디저트"]
     var address : String
     var tabs = ["카페정보", "리뷰", "스토리"]
@@ -105,6 +126,20 @@ struct appBar : View {
     @Binding var modal : Bool
     @Binding var modalMenu : String
     @State private var Padding:CGFloat = 0
+    @State private var isLike:Bool = false
+    var screenWidth = UIScreen.main.bounds.size.width
+    
+    func shareURLButton() {
+        let img = UIImage(named: "AppIcon")
+        let avc = UIActivityViewController(
+            activityItems: [img!],
+            applicationActivities: nil)
+    
+        UIApplication.shared.windows.first?
+            .rootViewController?.present(
+            avc, animated: true, completion: nil)
+    }
+    
     var body : some View{
         
         VStack{
@@ -112,15 +147,47 @@ struct appBar : View {
             if self.show{
                 
                 VStack{
-                    Image("cafeImg")
-                     .resizable()
-                     .aspectRatio(contentMode: .fit)
-                     
+                    ZStack{
+                        Image("cafeImg")
+                         .resizable()
+                        .frame(height:300)
+                        
+                        HStack{
+                            Button(action:{self.showDetail=false}){
+                                Image(systemName: "chevron.left")
+                                    .font(.title)
+                                    .foregroundColor(Color.white)
+                            }
+                            
+                            Spacer()
+                            
+                            Button(action:{self.shareURLButton()}){
+                                Image(systemName:"square.and.arrow.up")
+                                    .font(.title)
+                                    .foregroundColor(Color.white)
+                            }
+                            
+                            Button(action:{
+                                self.isLike.toggle()
+                            }){
+                                if(self.isLike){
+                                    Image(systemName: "heart.fill")
+                                }
+                                else{
+                                    Image(systemName: "heart")
+                                }
+                            }
+                            .font(.title)
+                            .foregroundColor(Color.white)
+                            .padding(.leading, 20)
+                        }
+                        .frame(maxHeight:.infinity, alignment:.top)
+                        .padding(10)
+                    }
                      HStack{
                          Text("오그니메모")
                          .font(.title)
                          .frame(maxWidth:.infinity, alignment: .leading)
-                         .padding(.leading, 10.0)
                          
                          Button(action:{
                             self.modalMenu = "coupon"
@@ -135,6 +202,7 @@ struct appBar : View {
                          .background(Color.red)
                          .cornerRadius(8)
                      }
+                     .padding(.horizontal, 10)
                      
                      HStack{
                          ForEach(hashTags, id:\.self){
@@ -143,15 +211,18 @@ struct appBar : View {
                          }
                      }
                      .frame(maxWidth: .infinity, alignment: .leading)
-                     .padding(.leading, 10.0)
+                     .padding(.horizontal, 10)
                      
                      Text("\(address)")
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 10.0)
+                    .padding(.horizontal, 10)
+                    .padding(.bottom, 5)
                      
                     DetailBtns(modal: self.$modal, modalMenu: self.$modalMenu)
                      .frame(maxWidth:.infinity, alignment: .trailing)
+                        .padding(.horizontal, 10)
                 }
+                .padding(.bottom, 5)
                 .frame(maxWidth:.infinity)
                 .onAppear(){
                     self.Padding = 0
