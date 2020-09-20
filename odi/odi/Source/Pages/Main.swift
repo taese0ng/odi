@@ -22,6 +22,7 @@ struct MainView:View{
             }.tag(1)
             
             Surrounding()
+            .environmentObject(self.store)
             .tabItem {
                 Image(systemName:"location.fill")
                 if(Selected == 2){

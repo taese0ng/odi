@@ -126,14 +126,18 @@ struct Home: View{
                     MenuBtns(Selection : $Selection)
                     
                     Text("이번 주 HOT 카페")
+                        .padding(.horizontal, 20)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(.title)
                     HotCafe()
+                        .padding(.horizontal, 12)
                     
                     Text("최근 본 카페")
+                        .padding(.horizontal, 20)
                         .frame(maxWidth:.infinity, alignment: .leading)
                         .font(.title)
                     RecentCafe()
+                        .padding(.horizontal, 12)
                     
                     BannerList()
                 }

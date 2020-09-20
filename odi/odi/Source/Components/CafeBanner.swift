@@ -13,7 +13,7 @@ struct CafeBanner: View {
     var body: some View {
         ZStack{
             Image("cafeImg")
-                .frame(maxWidth: self.screenWidth-16, maxHeight: 250)
+                .frame(maxWidth: self.screenWidth-20, maxHeight: 250)
             VStack{
                 Spacer()
                 Text("배너1")
@@ -24,7 +24,7 @@ struct CafeBanner: View {
             }
         }
         .cornerRadius(20)
-        .frame(maxWidth: self.screenWidth-16, maxHeight: 250)
+        .frame(maxWidth: self.screenWidth-20, maxHeight: 250)
     }
 }
 

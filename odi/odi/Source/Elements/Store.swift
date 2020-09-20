@@ -18,4 +18,5 @@ class Store: ObservableObject{
     @Published var eMail = "더미이메일@더미.더미"
     @Published var nick = "닉네임"
     @Published var callNum = "010-0000-0000"
+    @Published var selectionArea:String="중구(동성로,삼덕동,교동,대봉동)"
 }
