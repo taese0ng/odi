@@ -41,11 +41,12 @@ struct CafeCard: View {
     var body: some View {
         VStack{
             Image("cafeImg")
-                .frame(maxWidth: screenWidth-50)
+                .frame(width:200, height:170)
+                .cornerRadius(radius: 15, corners:[.topLeft, .topRight])
             Text("\(cafeName)")
                 .frame(maxWidth: .infinity, alignment: .leading)
-        }.frame(maxWidth: screenWidth-50)
-            .cornerRadius(radius: 15, corners:[.topLeft, .topRight])
+        }.frame(width:200, height: 200)
+            
     }
 }
 

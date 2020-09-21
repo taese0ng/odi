@@ -29,26 +29,10 @@ struct Story:View{
 }
 
 struct CafeStory: View {
-    @Binding var shows : Bool
     var body: some View {
-        List(0...5, id: \.self){
-            item in
-            if item == 0{
-                Story()
-                    .onAppear{
-                        withAnimation{
-                            self.shows = true
-                        }
-                    }
-                    .onDisappear{
-                        withAnimation{
-                            self.shows = false
-                        }
-                    }
-            }
-            
-            else{
-                Story()
+        VStack{
+            ForEach(0...5, id: \.self){
+                item in Story()
             }
         }
     }

@@ -11,7 +11,6 @@
 		0D04D94824EBAA57007ABDB3 /* MyReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D04D94724EBAA57007ABDB3 /* MyReview.swift */; };
 		0D04D94A24EBAAA9007ABDB3 /* MyRecentCafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D04D94924EBAAA9007ABDB3 /* MyRecentCafe.swift */; };
 		0D09A7D025172B30001BD84B /* SelectArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D09A7CF25172B30001BD84B /* SelectArea.swift */; };
-		0D115A0624DD15DF009025C8 /* CafeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D115A0524DD15DF009025C8 /* CafeDetail.swift */; };
 		0D13F00A24D8F8CD00C109B7 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13F00924D8F8CD00C109B7 /* Like.swift */; };
 		0D34496D24CAAAA000FDF046 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34496C24CAAAA000FDF046 /* Location.swift */; };
 		0D34496F24CAAB5600FDF046 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34496E24CAAB5600FDF046 /* TopBar.swift */; };
@@ -76,7 +75,6 @@
 		0D04D94724EBAA57007ABDB3 /* MyReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReview.swift; sourceTree = "<group>"; };
 		0D04D94924EBAAA9007ABDB3 /* MyRecentCafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecentCafe.swift; sourceTree = "<group>"; };
 		0D09A7CF25172B30001BD84B /* SelectArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectArea.swift; sourceTree = "<group>"; };
-		0D115A0524DD15DF009025C8 /* CafeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeDetail.swift; sourceTree = "<group>"; };
 		0D13F00924D8F8CD00C109B7 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		0D34496C24CAAAA000FDF046 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		0D34496E24CAAB5600FDF046 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
@@ -256,7 +254,6 @@
 				0D34496C24CAAAA000FDF046 /* Location.swift */,
 				0D34497024CAAE0300FDF046 /* MyPage.swift */,
 				0D13F00924D8F8CD00C109B7 /* Like.swift */,
-				0D115A0524DD15DF009025C8 /* CafeDetail.swift */,
 				0DD45C0524E007FD006038EA /* DetailView.swift */,
 				0DF823F324E51C7700525E4F /* Login.swift */,
 				0D04D94524EBA9BA007ABDB3 /* SignUpOne.swift */,
@@ -370,7 +367,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = taese0ng;
 				TargetAttributes = {
 					0DAF3C5424C97DF4008B4B82 = {
@@ -466,7 +463,6 @@
 				0DECA21124F7A879005ACBC7 /* Menu.swift in Sources */,
 				0D04D94824EBAA57007ABDB3 /* MyReview.swift in Sources */,
 				0DF0E24524DEC2560044C547 /* CafeInfo.swift in Sources */,
-				0D115A0624DD15DF009025C8 /* CafeDetail.swift in Sources */,
 				0DEE6FA0250B50090068EAA3 /* SignUpFour.swift in Sources */,
 				0DEE6E332509569A0068EAA3 /* PersonalInfo.swift in Sources */,
 				0DAF3C9124C9A3BB008B4B82 /* Home.swift in Sources */,
@@ -552,6 +548,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -612,6 +609,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

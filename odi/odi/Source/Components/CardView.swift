@@ -23,11 +23,15 @@ struct CardView: View {
                 .foregroundColor(.none)
                 
                 if(surrounding){
+                    
                     Text("DAY OFF")
-                        .frame(width:100, height: 100)
-                        .font(.title)
-                        .background(Color.white)
-                        .position(x:60, y:60)
+                        .fontWeight(.bold)
+                        .font(.custom("dayOff", size: 20))
+                        .frame(width:80, height: 90)
+                        .background(Color.black.opacity(0.6))
+                        .foregroundColor(.white)
+                        .position(x:60, y:45)
+                        
                 }
                 
                 Button(action:{
@@ -35,9 +39,13 @@ struct CardView: View {
                 }){
                     if(self.isLike){
                         Image(systemName: "heart.fill")
+                            .resizable()
+                            .frame(width: 30, height: 30)
                     }
                     else{
                         Image(systemName: "heart")
+                            .resizable()
+                            .frame(width: 30, height: 30)
                     }
                 }
                 .font(.title)
@@ -54,26 +62,27 @@ struct CardView: View {
                 }
                 .background(Color.red)
                 .foregroundColor(.white)
-                .cornerRadius(8)
+                .cornerRadius(10)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, 10.0)
             
             HStack{
                 Text("오그니메모")
-                    .font(.title)
+                    .fontWeight(.bold)
+                    .font(.custom("title", size: 20))
                 
                 Group{
                     Image("rateReview")
                         .resizable()
-                        .frame(width: 20.0, height: 20.0)
+                        .frame(width: 15.0, height: 15.0)
                     Text("3")
                 }
                 
                 Group{
                     Image(systemName: "star")
                         .resizable()
-                        .frame(width:20.0, height:20.0)
+                        .frame(width:15.0, height:15.0)
                         .foregroundColor(.yellow)
                     
                     Text("4.5")
@@ -85,10 +94,11 @@ struct CardView: View {
             HStack{
                 ForEach(hashTags, id:\.self){
                     tag in Text("\(tag)")
+                        .font(.custom("tag", size: 10))
                         .foregroundColor(Color("Brown"))
                 }
             }.frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 10.0)
+            .padding(.leading, 10.0)
             
             Text("\(address)")
                 .frame(maxWidth: .infinity, alignment: .leading)

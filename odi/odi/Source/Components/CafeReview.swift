@@ -16,7 +16,7 @@ struct StarRate : View{
                 i in
                 Image(systemName: "star.fill")
                     .resizable()
-                    .frame(width:20, height: 20)
+                    .frame(width:15, height: 15)
                     .foregroundColor(self.selected >= i ? .yellow : .gray)
                     .onTapGesture {
                         self.selected = i
@@ -26,27 +26,36 @@ struct StarRate : View{
     }
 }
 struct Review : View{
+    var myReview:Bool
     var body : some View{
-        HStack{
-            VStack{
+        VStack{
+            HStack{
                 Image("place")
                     .resizable()
                     .frame(width: 50, height: 50)
-                Spacer()
+                    .background(Color.red)
+                    .cornerRadius(100)
+                VStack{
+                    HStack{
+                        Text("얼죽아")
+                            .frame(maxWidth:.infinity, alignment: .leading)
+                        Spacer()
+                        if(self.myReview){
+                            Text("오그니메모")
+                        }
+                    }
+                    HStack{
+                        StarRate()
+                            .frame(maxWidth:.infinity, alignment: .leading)
+                        Spacer()
+                        if(self.myReview){
+                            Text("2020년 1월 1일")
+                        }
+                    }
+                }
             }
+            
             VStack{
-                HStack{
-                    Text("얼죽아")
-                        .frame(maxWidth:.infinity, alignment: .leading)
-                    Spacer()
-                    Text("오그니메모")
-                }
-                HStack{
-                    StarRate()
-                        .frame(maxWidth:.infinity, alignment: .leading)
-                    Spacer()
-                    Text("2020년 1월 1일")
-                }
                 ScrollView(.horizontal, showsIndicators: false){
                     HStack{
                         ForEach(0...5, id:\.self){
@@ -59,38 +68,19 @@ struct Review : View{
                 }
                 Text("커피 정말 맛있어요!!!")
                     .frame(maxWidth:.infinity, alignment: .leading)
-            }
+            }.padding(.leading, 50)
         }
     }
 }
 
 struct CafeReview: View {
-    @Binding var show : Bool
+    var myReview:Bool
     var body: some View {
-        List(0...5, id:\.self){
-            item in
-            if item == 0{
-                Review()
-                .onAppear {
-                       
-                    withAnimation {
-                        
-                        self.show = true
-                    }
-                    
-                }
-                .onDisappear {
-                    
-                    withAnimation {
-                        
-                        self.show = false
-                    }
-                }
+        VStack{
+            ForEach(0...5, id:\.self){
+                item in Review(myReview:self.myReview)
             }
-            else{
-                Review()
-            }
-        }
+        }.padding(.horizontal, 20)
     }
 }
 

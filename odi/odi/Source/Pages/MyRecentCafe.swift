@@ -27,6 +27,7 @@ struct MyRecentCafe: View {
         minHeight: 0,
         maxHeight: .infinity,
         alignment: .top)
+        .navigationBarTitle(Text("최근 본 카페"), displayMode: .inline)
         .navigationBarColor(.white)
     }
 }

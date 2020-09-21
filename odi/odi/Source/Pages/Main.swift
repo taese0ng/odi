@@ -31,6 +31,7 @@ struct MainView:View{
             }.tag(2)
             
             Location()
+            .environmentObject(self.store)
             .tabItem{
                 Image(systemName: "map.fill")
                 if(Selected == 3){
@@ -68,6 +69,8 @@ struct ContentView: View {
             }
             else{
                 Image("SplashImage")
+                    .resizable()
+                    .frame(width:200, height: 80)
             }
         }
         .onAppear{

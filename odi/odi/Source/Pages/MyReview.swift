@@ -9,11 +9,12 @@
 import SwiftUI
 
 struct MyReview: View {
-    @State private var show:Bool = false
     var body: some View {
-        VStack{
-            CafeReview(show:self.$show)
+        ScrollView{
+            CafeReview(myReview: true)
         }
+        .navigationBarTitle(Text("내가 작성한 리뷰"), displayMode: .inline)
+        .navigationBarColor(.white)
     }
 }
 

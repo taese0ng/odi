@@ -15,7 +15,10 @@ struct Search: View {
     var body: some View{
         VStack{
             HStack{
-                Image(systemName:"magnifyingglass").padding(.trailing).font(.title)
+                Image(systemName:"magnifyingglass")
+                    .resizable()
+                    .frame(width: 20, height: 20)
+                    .padding(.trailing)
                 VStack{
                     TextField("카페명 또는 태그를 입력하세요.", text: $SearchValue)
                         .font(.custom("custom", size: 20))
@@ -24,18 +27,22 @@ struct Search: View {
             }.padding([.horizontal, .bottom])
             
             Text("인기")
+                .fontWeight(.bold)
                 .frame(maxWidth:.infinity, alignment: .leading)
                 .padding(.horizontal)
                 .padding(.bottom, 7.0)
             HStack{
                 ForEach(popularBtnList, id:\.self){
                     item in
-                    Button(item){}
-                    .font(.footnote)
-                    .foregroundColor(.white)
-                    .padding(.all, 6.0)
-                    .background(Color("LightGray"))
-                    .cornerRadius(10)
+                    Button(action:{}){
+                        Text("\(item)")
+                            .font(.footnote)
+                            .foregroundColor(.white)
+                            .padding(.all, 6.0)
+                            .background(Color("LightGray"))
+                            .cornerRadius(10)
+                    }
+                    
                 }
             }
             .frame(maxWidth:.infinity,
@@ -43,6 +50,7 @@ struct Search: View {
                 .padding([.leading, .bottom])
             
             Text("최근")
+                .fontWeight(.bold)
                 .frame(maxWidth:.infinity, alignment: .leading)
                 .padding([.horizontal, .top])
                 .padding(.bottom, 7.0)
@@ -53,6 +61,7 @@ struct Search: View {
         maxHeight: .infinity,
         alignment: .topLeading)
             .padding(.top, 10)
+        .padding(.horizontal, 20)
     }
 }
 

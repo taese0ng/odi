@@ -18,6 +18,7 @@ struct DetailBtns: View{
                 self.modal.toggle()
             }){
                 Text("메뉴보기")
+                    .font(.custom("menu", size: 15))
                 .foregroundColor(Color("Brown"))
             }
             
@@ -26,10 +27,11 @@ struct DetailBtns: View{
                     Image("instagram")
                         .renderingMode(.template)
                         .resizable()
-                        .frame(width:20, height: 20)
+                        .frame(width:10, height: 10)
                         .foregroundColor(Color("Brown"))
                     
                     Text("ognimemo")
+                        .font(.custom("sns", size: 15))
                     .foregroundColor(Color("Brown"))
                 }
             }
@@ -40,12 +42,12 @@ struct DetailBtns: View{
             }){
                 HStack{
                     Image(systemName: "phone.fill")
-                        .renderingMode(.template)
                         .resizable()
-                        .frame(width:20, height: 20)
+                        .frame(width:10, height: 10)
                         .foregroundColor(Color("Brown"))
                     
                     Text("전화걸기")
+                        .font(.custom("call", size: 15))
                     .foregroundColor(Color("Brown"))
                 }
             }
@@ -73,45 +75,51 @@ struct Main : View {
     @Binding var showDetail:Bool
     var address : String
     @State var index = 0
-    @State var show = true
     @State var modal = false
     @State var modalMenu:String = ""
+    var screenHeight = UIScreen.main.bounds.size.height
+    var screenWidth = UIScreen.main.bounds.size.width
+    
     var body : some View{
-        ZStack{
-            VStack{
-                appBar(showDetail: self.$showDetail, address: self.address, index: self.$index,show: self.$show,
-                       modal: self.$modal, modalMenu: self.$modalMenu)
+        ScrollView{
+            ZStack{
+                VStack{
+                    appBar(showDetail: self.$showDetail, address: self.address, index: self.$index,
+                           modal: self.$modal, modalMenu: self.$modalMenu)
+                    
+                    switch self.index{
+                        case (0):
+                            CafeInfo()
+                            .padding(.horizontal, 20)
+                        case (1):
+                            CafeReview(myReview: false)
+                        case (2):
+                            CafeStory()
+                        default:
+                            CafeInfo()
+                    }
+                }
                 
                 ZStack{
+                    Button(action:{self.modal = false}){
+                        Text("")
+                            .frame(maxWidth:.infinity, maxHeight: .infinity)
+                        .background(Color.black.opacity(0.5))
+                    }
                     
-                    CafeInfo().opacity(self.index == 0 ? 1 : 0)
-                        .padding(.horizontal, 20)
+                    if(self.modalMenu == "cafeMenu"){
+                        Menu()
+                        .position(x:screenWidth/2, y:screenHeight/2-80)
+                    }
                     
-                    CafeReview(show: self.$show).opacity(self.index == 1 ? 1 : 0)
+                    else if(self.modalMenu == "coupon"){
+                        Coupon()
+                    }
                     
-                    CafeStory(shows: self.$show).opacity(self.index == 2 ? 1 : 0)
+                    
                 }
+                .opacity(self.modal ? 1 : 0)
             }
-            
-            ZStack{
-                Button(action:{self.modal = false}){
-                    Text("")
-                        .frame(maxWidth:.infinity, maxHeight: .infinity)
-                    .background(Color.black.opacity(0.5))
-                }
-                
-                if(self.modalMenu == "cafeMenu"){
-                    Menu()
-                    .frame(maxWidth:.infinity, maxHeight: .infinity)
-                }
-                
-                else if(self.modalMenu == "coupon"){
-                    Coupon()
-                }
-                
-                
-            }
-            .opacity(self.modal ? 1 : 0)
         }
     }
 }
@@ -122,7 +130,6 @@ struct appBar : View {
     var address : String
     var tabs = ["카페정보", "리뷰", "스토리"]
     @Binding var index : Int
-    @Binding var show : Bool
     @Binding var modal : Bool
     @Binding var modalMenu : String
     @State private var Padding:CGFloat = 0
@@ -141,119 +148,122 @@ struct appBar : View {
     }
     
     var body : some View{
-        
         VStack{
-            
-            if self.show{
-                
-                VStack{
-                    ZStack{
-                        Image("cafeImg")
-                         .resizable()
-                        .frame(height:300)
+            VStack{
+                ZStack{
+                    Image("cafeImg")
+                     .resizable()
+                    .frame(height:300)
+                    
+                    HStack{
+                        Button(action:{self.showDetail=false}){
+                            Image(systemName: "chevron.left")
+                                .font(.title)
+                                .foregroundColor(Color.white)
+                        }
                         
-                        HStack{
-                            Button(action:{self.showDetail=false}){
-                                Image(systemName: "chevron.left")
-                                    .font(.title)
-                                    .foregroundColor(Color.white)
-                            }
-                            
-                            Spacer()
-                            
-                            Button(action:{self.shareURLButton()}){
-                                Image(systemName:"square.and.arrow.up")
-                                    .font(.title)
-                                    .foregroundColor(Color.white)
-                            }
-                            
-                            Button(action:{
-                                self.isLike.toggle()
-                            }){
-                                if(self.isLike){
-                                    Image(systemName: "heart.fill")
-                                }
-                                else{
-                                    Image(systemName: "heart")
-                                }
-                            }
-                            .font(.title)
-                            .foregroundColor(Color.white)
-                            .padding(.leading, 20)
+                        Spacer()
+                        
+                        Button(action:{self.shareURLButton()}){
+                            Image(systemName:"square.and.arrow.up")
+                                .resizable()
+                                .frame(width:24, height: 25)
+                                .foregroundColor(Color.white)
                         }
-                        .frame(maxHeight:.infinity, alignment:.top)
-                        .padding(10)
+                        
+                        Button(action:{
+                            self.isLike.toggle()
+                        }){
+                            if(self.isLike){
+                                Image(systemName: "heart.fill")
+                                    .resizable()
+                                    .frame(width:24, height: 24)
+                                    .foregroundColor(Color.white)
+                            }
+                            else{
+                                Image(systemName: "heart")
+                                    .resizable()
+                                    .frame(width:24, height: 24)
+                                    .foregroundColor(Color.white)
+                            }
+                        }
+                        .padding(.leading, 20)
                     }
-                     HStack{
-                         Text("오그니메모")
-                         .font(.title)
-                         .frame(maxWidth:.infinity, alignment: .leading)
-                         
-                         Button(action:{
-                            self.modalMenu = "coupon"
-                            self.modal.toggle()
-                         }){
-                             Text("10% 할인쿠폰")
-                                 .font(.caption)
-                                 .padding(.vertical, 4)
-                                 .padding(.horizontal, 7)
-                         }
-                         .foregroundColor(.white)
-                         .background(Color.red)
-                         .cornerRadius(8)
-                     }
-                     .padding(.horizontal, 10)
-                     
-                     HStack{
-                         ForEach(hashTags, id:\.self){
-                             tag in Text("\(tag)")
-                                 .foregroundColor(Color("Brown"))
-                         }
-                     }
-                     .frame(maxWidth: .infinity, alignment: .leading)
-                     .padding(.horizontal, 10)
-                     
-                     Text("\(address)")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal, 10)
-                    .padding(.bottom, 5)
-                     
-                    DetailBtns(modal: self.$modal, modalMenu: self.$modalMenu)
-                     .frame(maxWidth:.infinity, alignment: .trailing)
-                        .padding(.horizontal, 10)
+                    .frame(maxHeight:.infinity, alignment:.top)
+                    .padding(10)
                 }
-                .padding(.bottom, 5)
-                .frame(maxWidth:.infinity)
-                .onAppear(){
-                    self.Padding = 0
-                }
-                .onDisappear(){
-                    self.Padding = 45
-                }
-            }
-            
-            HStack{
-                ForEach(0...2, id:\.self){
-                    index in
+                
+                HStack{
+                    Text("오그니메모")
+                    .fontWeight(.bold)
+                    .font(.title)
+                    .frame(maxWidth:.infinity, alignment: .leading)
+                     
                     Button(action:{
-                        self.index = index
-                    }) {
-                        VStack{
-                            
-                            Text("\(self.tabs[index])")
-                                .foregroundColor(Color("Brown"))
-                                .fontWeight(self.index == index ? .bold : .none)
-                            
-                            Capsule().fill(self.index == index ? Color("Brown") : Color.clear)
-                            .frame(height: 2)
-                        }
+                        self.modalMenu = "coupon"
+                        self.modal.toggle()
+                    }){
+                        Text("10% 할인쿠폰")
+                            .font(.caption)
+                            .padding(.vertical, 4)
+                            .padding(.horizontal, 7)
+                    }
+                    .foregroundColor(.white)
+                    .background(Color.red)
+                    .cornerRadius(8)
+                }
+                .padding(.horizontal, 20)
+                 
+                HStack{
+                    ForEach(hashTags, id:\.self){
+                        tag in Text("\(tag)")
+                            .font(.custom("tag", size: 10))
+                            .foregroundColor(Color("Brown"))
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 20)
+                 
+                Text("\(address)")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 5)
+                 
+                DetailBtns(modal: self.$modal, modalMenu: self.$modalMenu)
+                 .frame(maxWidth:.infinity, alignment: .trailing)
+                    .padding(.horizontal, 20)
+            }
+            .padding(.bottom, 20)
+            .frame(maxWidth:.infinity)
+            .onAppear(){
+                self.Padding = 0
+            }
+            .onDisappear(){
+                self.Padding = 45
+            }
+        }
+        
+        HStack{
+            ForEach(0...2, id:\.self){
+                index in
+                Button(action:{
+                    self.index = index
+                }) {
+                    VStack{
+                        
+                        Text("\(self.tabs[index])")
+                            .foregroundColor(Color("Brown"))
+                            .fontWeight(self.index == index ? .bold : .none)
+                        
+                        Capsule().fill(self.index == index ? Color("Brown") : Color.clear)
+                        .frame(height: 2)
                     }
                 }
             }
         }
-//        .padding(.top, (UIApplication.shared.windows.first?.safeAreaInsets.top)! + 10)
     }
 }
+
 
 //struct Chats : View {
 //

@@ -13,18 +13,18 @@ struct CafeBanner: View {
     var body: some View {
         ZStack{
             Image("cafeImg")
-                .frame(maxWidth: self.screenWidth-20, maxHeight: 250)
+                .frame(maxWidth: self.screenWidth-40, maxHeight: 200)
             VStack{
                 Spacer()
                 Text("배너1")
                     .padding(15)
-                    .frame(maxWidth: .infinity, maxHeight: 125, alignment: .topLeading)
+                    .frame(maxWidth: .infinity, maxHeight: 100, alignment: .topLeading)
                     .foregroundColor(.white)
                     .background(Color.black.opacity(0.5))
             }
         }
         .cornerRadius(20)
-        .frame(maxWidth: self.screenWidth-20, maxHeight: 250)
+        .frame(maxWidth: self.screenWidth-40, maxHeight: 200)
     }
 }
 

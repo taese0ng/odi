@@ -10,7 +10,6 @@ import SwiftUI
 
 struct Surrounding: View {
     @EnvironmentObject var store:Store
-    @State private var showArea:Bool = false
     @State private var showDetail:Bool=false
     var cafeList = ["대구광역시 중구 동덕로1길","대구광역시 중구 동덕로2길","대구광역시 중구 동덕로3길","대구광역시 중구 동덕로4길","대구광역시 중구 동덕로5길","대구광역시 중구 동덕로6길"]
     
@@ -21,27 +20,27 @@ struct Surrounding: View {
             VStack{
                 TopBar(title:"내주변")
                 ScrollView{
-                    NavigationLink(destination: SelectArea(showArea:self.$showArea).environmentObject(self.store), isActive:$showArea, label: {
-                        HStack{
-                            Image("place")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                            Text("\(self.store.selectionArea)")
-                                .foregroundColor(.black)
-                        }
-                    })
-                   
+                    HStack{
+                        Image("place")
+                            .resizable()
+                            .frame(width: 10, height: 10)
+                        Text("\(self.store.selectionArea)")
+                            .fontWeight(.bold)
+                            .font(.custom("area", size: 15))
+                            .foregroundColor(.black)
+                    }
                     
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack{
                             ForEach(category, id:\.self){
                                 item in
-                                Button("\(item)"){
-                                    
+                                Button(action:{}){
+                                    Text("\(item)")
+                                        .font(.custom("item", size: 15))
+                                        .padding(.horizontal, 10)
+                                        .padding(.vertical, 10)
+                                        .foregroundColor(.black)
                                 }
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 4)
-                                .foregroundColor(.black)
                             }
                         }
                     }

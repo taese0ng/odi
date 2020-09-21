@@ -27,15 +27,20 @@ struct MenuBtns: View{
                             .renderingMode(.original)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
+                            .padding(.bottom, 5)
                             
                             Text("\(item)")
                             .font(.caption)
                             .foregroundColor(Color.black)
                         }
                     }
-                    .frame(width:self.screenWidth/4.5, height:self.screenWidth/4.5)
+                    .frame(width:self.screenWidth/5, height:80)
+                    .padding(5)
+                    .padding(.vertical, 10)
                 }
             }
+            .padding(.horizontal, 10)
+            
             HStack(spacing: 0){
                 ForEach(menuImg2, id:\.self){item in
                     Button(action:{
@@ -46,17 +51,19 @@ struct MenuBtns: View{
                             .renderingMode(.original)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
+                            .padding(.bottom, 5)
                             
                             Text("\(item)")
                             .font(.caption)
                             .foregroundColor(Color.black)
                         }
                     }
-                    .frame(width:self.screenWidth/4.5, height:self.screenWidth/4.5)
+                    .frame(width:self.screenWidth/5, height:80)
+                    .padding(5)
+                    .padding(.vertical, 10)
                 }
-            }
+            }.padding(.horizontal, 10)
         }
-        .padding(.vertical, 30)
     }
 }
 
@@ -68,7 +75,7 @@ struct HotCafe:View{
                 ForEach((1...5).reversed(), id:\.self){item in
                     CafeCard(cafeName: String(item))
                 }
-            }.padding(.horizontal,8)
+            }.padding(.horizontal,10)
         }
     }
 }
@@ -80,7 +87,7 @@ struct RecentCafe:View{
                 ForEach((1...5).reversed(), id:\.self){item in
                     CafeCard(cafeName: String(item))
                 }
-            }.padding(.horizontal,8)
+            }.padding(.horizontal,10)
         }
     }
 }
@@ -90,8 +97,9 @@ struct BannerList: View{
         ScrollView{
             ForEach((1...5), id:\.self){
                 item in CafeBanner()
+                    .padding(.bottom, 10)
             }
-        }
+        }.padding(.horizontal, 10)
     }
 }
 
@@ -108,38 +116,44 @@ struct Home: View{
                             Image("cafeImg")
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: geometry.size.width, height: geometry.size.height)
+                                .frame(width: geometry.size.width, height: 150)
                                 .clipped()
                             Image("rateReview")
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: geometry.size.width, height: geometry.size.height)
+                                .frame(width: geometry.size.width, height: 150)
                                 .clipped()
                             Image("cafeImg")
                                 .resizable()
                                 .scaledToFill()
-                                .frame(width: geometry.size.width, height: geometry.size.height)
+                                .frame(width: geometry.size.width, height: 150)
                                 .clipped()
                         }
-                    }.frame(width: UIScreen.main.bounds.width, height: 300, alignment: .center)
+                    }.frame(width: UIScreen.main.bounds.width, height: 150, alignment: .center)
                     
                     MenuBtns(Selection : $Selection)
                     
                     Text("이번 주 HOT 카페")
+                        .fontWeight(.bold)
+                        .font(.custom("hot", size: 20))
                         .padding(.horizontal, 20)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(.title)
+                        
                     HotCafe()
-                        .padding(.horizontal, 12)
+                        .padding(.horizontal, 10)
                     
                     Text("최근 본 카페")
+                        .fontWeight(.bold)
+                        .font(.custom("hot", size: 20))
                         .padding(.horizontal, 20)
-                        .frame(maxWidth:.infinity, alignment: .leading)
-                        .font(.title)
-                    RecentCafe()
-                        .padding(.horizontal, 12)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     
+                    RecentCafe()
+                        .padding(.horizontal, 10)
+                        .padding(.bottom, 15)
+
                     BannerList()
+                        .padding(.horizontal, 10)
                 }
             }.frame(minWidth:0,
             maxWidth: .infinity,
