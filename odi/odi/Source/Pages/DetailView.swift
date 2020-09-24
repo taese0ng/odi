@@ -22,7 +22,11 @@ struct DetailBtns: View{
                 .foregroundColor(Color("Brown"))
             }
             
-            Button(action:{}){
+            Button(action:{
+                if let url = URL(string: "https://www.instagram.com") {
+                    UIApplication.shared.open(url, options: [:])
+                }
+            }){
                 HStack{
                     Image("instagram")
                         .renderingMode(.template)
@@ -31,7 +35,7 @@ struct DetailBtns: View{
                         .foregroundColor(Color("Brown"))
                     
                     Text("ognimemo")
-                        .font(.custom("sns", size: 15))
+                    .font(.custom("sns", size: 15))
                     .foregroundColor(Color("Brown"))
                 }
             }

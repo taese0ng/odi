@@ -68,12 +68,15 @@ struct MenuBtns: View{
 }
 
 struct HotCafe:View{
+    @State private var showDetail:Bool = false
     var screenWidth = UIScreen.main.bounds.size.width
     var body: some View{
         ScrollView(.horizontal, showsIndicators: false){
             HStack{
                 ForEach((1...5).reversed(), id:\.self){item in
-                    CafeCard(cafeName: String(item))
+                    NavigationLink(destination: DetailView(showDetail:self.$showDetail, address: String(item)), isActive:self.$showDetail, label:{
+                        CafeCard(cafeName: String(item))
+                    })
                 }
             }.padding(.horizontal,10)
         }
@@ -81,11 +84,14 @@ struct HotCafe:View{
 }
 
 struct RecentCafe:View{
+    @State private var showDetail:Bool = false
     var body: some View{
         ScrollView(.horizontal, showsIndicators: false){
             HStack{
                 ForEach((1...5).reversed(), id:\.self){item in
-                    CafeCard(cafeName: String(item))
+                    NavigationLink(destination: DetailView(showDetail:self.$showDetail, address: String(item)), isActive:self.$showDetail, label:{
+                        CafeCard(cafeName: String(item))
+                    })
                 }
             }.padding(.horizontal,10)
         }
@@ -93,11 +99,16 @@ struct RecentCafe:View{
 }
 
 struct BannerList: View{
+    @State private var showDetail:Bool = false
     var body: some View{
         ScrollView{
             ForEach((1...5), id:\.self){
-                item in CafeBanner()
-                    .padding(.bottom, 10)
+                item in
+                NavigationLink(destination: DetailView(showDetail:self.$showDetail, address: String(item)), isActive:self.$showDetail, label:{
+                    CafeBanner()
+                        .padding(.bottom, 10)
+                })
+                
             }
         }.padding(.horizontal, 10)
     }
@@ -108,7 +119,7 @@ struct Home: View{
     var body: some View{
         NavigationView{
             VStack{
-                TopBar(title:"ODI")
+                TopBar(title:"오디")
                 ScrollView{
                     //자동 가로 배너
                     GeometryReader { geometry in
