@@ -39,15 +39,48 @@ struct CafeInfo: View {
                 Text("편의정보")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 HStack{
-                    Text("와이파이")
-                    Text("주차기능")
-                    Text("노키즈존")
+                    HStack{
+                        Image(systemName: "wifi")
+                        Text("와이파이")
+                    }
+                    .frame(width:90, alignment: .leading)
+                    .padding(.horizontal,8)
+                    
+                    HStack{
+                        Image("parking")
+                        Text("주차기능")
+                    }
+                    .frame(width:90, alignment: .leading)
+                    .padding(.horizontal,8)
+                    
+                    HStack{
+                        Image(systemName: "exclamationmark.triangle.fill")
+                        Text("노키즈존")
+                    }
+                    .frame(width:90, alignment: .leading)
+                    .padding(.horizontal,8)
                 }.padding(.vertical, 5)
                 
                 HStack{
-                    Text("예약가능")
-                    Text("단체가능")
-                    Text("애견동반")
+                    HStack{
+                        Image(systemName: "phone.fill")
+                        Text("예약가능")
+                    }.frame(width:90, alignment: .leading)
+                    .padding(.horizontal,8)
+                    
+                    HStack{
+                        Image(systemName: "person.2.fill")
+                        Text("단체가능")
+                    }
+                    .frame(width:90, alignment: .leading)
+                    .padding(.horizontal,8)
+                    
+                    HStack{
+                        Image("pets")
+                        Text("애견동반")
+                    }
+                    .frame(width:90, alignment: .leading)
+                    .padding(.horizontal,8)
                 }.padding(.vertical, 5)
             }
             

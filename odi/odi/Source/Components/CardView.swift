@@ -71,12 +71,14 @@ struct CardView: View {
                 Text("오그니메모")
                     .fontWeight(.bold)
                     .font(.custom("title", size: 20))
+                    .foregroundColor(.black)
                 
                 Group{
                     Image("rateReview")
                         .resizable()
                         .frame(width: 15.0, height: 15.0)
                     Text("3")
+                        .foregroundColor(.black)
                 }
                 
                 Group{
@@ -86,6 +88,7 @@ struct CardView: View {
                         .foregroundColor(.yellow)
                     
                     Text("4.5")
+                        .foregroundColor(.black)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -103,6 +106,7 @@ struct CardView: View {
             Text("\(address)")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 10.0)
+                .foregroundColor(.black)
         }
     }
 }

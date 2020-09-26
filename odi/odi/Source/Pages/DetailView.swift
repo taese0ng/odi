@@ -14,8 +14,10 @@ struct DetailBtns: View{
     var body: some View{
         HStack{
             Button(action:{
-                self.modalMenu = "cafeMenu"
-                self.modal.toggle()
+                withAnimation{
+                    self.modalMenu = "cafeMenu"
+                    self.modal.toggle()
+                }
             }){
                 Text("메뉴보기")
                     .font(.custom("menu", size: 15))
@@ -61,83 +63,43 @@ struct DetailBtns: View{
 }
 
 struct DetailView: View {
-    @Binding var showDetail:Bool
-    var address : String
-    var body: some View {
-        Main(showDetail:self.$showDetail, address: self.address)
-            .navigationBarHidden(true)
-    }
-}
-
-//struct DetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DetailView(address: "대구광역시 중구 동덕로6길 18-13")
-//    }
-//}
-
-struct Main : View {
-    @Binding var showDetail:Bool
-    var address : String
-    @State var index = 0
     @State var modal = false
     @State var modalMenu:String = ""
-    var screenHeight = UIScreen.main.bounds.size.height
-    var screenWidth = UIScreen.main.bounds.size.width
+    var address : String
     
-    var body : some View{
-        ScrollView{
-            ZStack{
-                VStack{
-                    appBar(showDetail: self.$showDetail, address: self.address, index: self.$index,
-                           modal: self.$modal, modalMenu: self.$modalMenu)
-                    
-                    switch self.index{
-                        case (0):
-                            CafeInfo()
-                            .padding(.horizontal, 20)
-                        case (1):
-                            CafeReview(myReview: false)
-                        case (2):
-                            CafeStory()
-                        default:
-                            CafeInfo()
-                    }
-                }
-                
+    var body: some View {
+        ZStack{
+            Main(address: self.address, modal:self.$modal, modalMenu:self.$modalMenu)
+            
+            if(self.modal){
                 ZStack{
-                    Button(action:{self.modal = false}){
+                    Button(action:{
+                        self.modal.toggle()
+                    }){
                         Text("")
                             .frame(maxWidth:.infinity, maxHeight: .infinity)
-                        .background(Color.black.opacity(0.5))
+                            .background(Color.black.opacity(0.5))
+                            .edgesIgnoringSafeArea(.top)
                     }
                     
-                    if(self.modalMenu == "cafeMenu"){
-                        Menu()
-                        .position(x:screenWidth/2, y:screenHeight/2-80)
+                    switch modalMenu{
+                    case "cafeMenu":Menu()
+                    case "coupon":Coupon()
+                    default:Coupon()
                     }
-                    
-                    else if(self.modalMenu == "coupon"){
-                        Coupon()
-                    }
-                    
-                    
                 }
-                .opacity(self.modal ? 1 : 0)
             }
         }
     }
 }
 
-struct appBar : View {
-    @Binding var showDetail:Bool
-    @State private var hashTags = ["#감성", "#연인", "#데이트", "#디저트"]
+struct Main : View {
     var address : String
-    var tabs = ["카페정보", "리뷰", "스토리"]
-    @Binding var index : Int
-    @Binding var modal : Bool
-    @Binding var modalMenu : String
-    @State private var Padding:CGFloat = 0
     @State private var isLike:Bool = false
+    @State var index = 0
+    @Binding var modal:Bool
+    @Binding var modalMenu:String
+    var screenHeight = UIScreen.main.bounds.size.height
     var screenWidth = UIScreen.main.bounds.size.width
     
     func shareURLButton() {
@@ -152,50 +114,69 @@ struct appBar : View {
     }
     
     var body : some View{
+        ScrollView{
+            ZStack{
+                VStack{
+                    appBar(address: self.address, index: self.$index,
+                           modal: self.$modal, modalMenu: self.$modalMenu)
+                    
+                    switch self.index{
+                        case (0):
+                            CafeInfo()
+                            .padding(.horizontal, 20)
+                        case (1):
+                            CafeReview(myReview: false)
+                        case (2):
+                            CafeStory()
+                        default:
+                            CafeInfo()
+                    }
+                }
+            }
+        }
+        .edgesIgnoringSafeArea(.top)
+        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarItems(trailing: HStack{
+            Button(action:{self.shareURLButton()}){
+                Image(systemName:"square.and.arrow.up")
+                    .foregroundColor(Color.white)
+            }
+            
+            Button(action:{
+                self.isLike.toggle()
+            }){
+                if(self.isLike){
+                    Image(systemName: "heart.fill")
+                        .foregroundColor(Color.white)
+                }
+                else{
+                    Image(systemName: "heart")
+                        .foregroundColor(Color.white)
+                }
+            }
+            .padding(.leading, 20)
+        })
+    }
+}
+
+struct appBar : View {
+    @State private var hashTags = ["#감성", "#연인", "#데이트", "#디저트"]
+    var address : String
+    var tabs = ["카페정보", "리뷰", "스토리"]
+    @Binding var index : Int
+    @Binding var modal : Bool
+    @Binding var modalMenu : String
+    @State private var Padding:CGFloat = 0
+    var screenWidth = UIScreen.main.bounds.size.width
+    
+    
+    
+    var body : some View{
         VStack{
             VStack{
-                ZStack{
-                    Image("cafeImg")
-                     .resizable()
-                    .frame(height:300)
-                    
-                    HStack{
-                        Button(action:{self.showDetail=false}){
-                            Image(systemName: "chevron.left")
-                                .font(.title)
-                                .foregroundColor(Color.white)
-                        }
-                        
-                        Spacer()
-                        
-                        Button(action:{self.shareURLButton()}){
-                            Image(systemName:"square.and.arrow.up")
-                                .resizable()
-                                .frame(width:24, height: 25)
-                                .foregroundColor(Color.white)
-                        }
-                        
-                        Button(action:{
-                            self.isLike.toggle()
-                        }){
-                            if(self.isLike){
-                                Image(systemName: "heart.fill")
-                                    .resizable()
-                                    .frame(width:24, height: 24)
-                                    .foregroundColor(Color.white)
-                            }
-                            else{
-                                Image(systemName: "heart")
-                                    .resizable()
-                                    .frame(width:24, height: 24)
-                                    .foregroundColor(Color.white)
-                            }
-                        }
-                        .padding(.leading, 20)
-                    }
-                    .frame(maxHeight:.infinity, alignment:.top)
-                    .padding(10)
-                }
+                Image("cafeImg")
+                 .resizable()
+                .frame(height:300)
                 
                 HStack{
                     Text("오그니메모")

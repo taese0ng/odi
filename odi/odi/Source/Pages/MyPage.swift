@@ -9,8 +9,6 @@
 import SwiftUI
 
 struct MyPage: View {
-    var screenWidth = UIScreen.main.bounds.size.width
-    var screenHeight = UIScreen.main.bounds.size.height
     @EnvironmentObject var store:Store
     
     var body: some View {
@@ -19,9 +17,9 @@ struct MyPage: View {
                 TopBar(title:"내정보")
                 Image("map")
                     .resizable()
-                    .frame(width: screenWidth/2, height: screenWidth/2)
+                    .frame(width: 200, height: 200)
                     .background(Color.red)
-                    .cornerRadius(100.0)
+                    .clipShape(Circle())
                 
                 if(self.store.isLogin){
                     VStack{
@@ -59,9 +57,11 @@ struct MyPage: View {
                         .foregroundColor(.black)
                     }.padding(30)
                 }
+                
                 Button(action:{}){
                     NavigationLink(destination: MyReview()){
                         Text("내가 작성한 리뷰")
+                        .fontWeight(.bold)
                         .frame(maxWidth:.infinity, alignment:.leading)
                         .padding(.vertical, 10)
                         .foregroundColor(.black)
@@ -71,6 +71,7 @@ struct MyPage: View {
                 Button(action:{}){
                     NavigationLink(destination: MyRecentCafe()){
                         Text("최근 본 카페")
+                        .fontWeight(.bold)
                         .frame(maxWidth:.infinity, alignment:.leading)
                         .padding(.vertical, 10)
                         .foregroundColor(.black)
@@ -80,19 +81,22 @@ struct MyPage: View {
                 Button(action:{}){
                     NavigationLink(destination: MoreDetails()){
                         Text("더보기")
+                        .fontWeight(.bold)
                         .frame(maxWidth:.infinity, alignment:.leading)
                         .padding(.vertical, 10)
                         .foregroundColor(.black)
                     }
                 }
-            }.frame(minWidth:0,
+            }
+            .padding(.horizontal, 30)
+            .frame(minWidth:0,
             maxWidth: .infinity,
             minHeight: 0,
             maxHeight: .infinity,
             alignment: .top)
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarColor(.white)
-            .padding(.horizontal, 30)
+            
         }.navigationViewStyle(StackNavigationViewStyle())
     }
 }

@@ -68,13 +68,12 @@ struct MenuBtns: View{
 }
 
 struct HotCafe:View{
-    @State private var showDetail:Bool = false
     var screenWidth = UIScreen.main.bounds.size.width
     var body: some View{
         ScrollView(.horizontal, showsIndicators: false){
             HStack{
                 ForEach((1...5).reversed(), id:\.self){item in
-                    NavigationLink(destination: DetailView(showDetail:self.$showDetail, address: String(item)), isActive:self.$showDetail, label:{
+                    NavigationLink(destination: DetailView(address: String(item)), label:{
                         CafeCard(cafeName: String(item))
                     })
                 }
@@ -84,12 +83,11 @@ struct HotCafe:View{
 }
 
 struct RecentCafe:View{
-    @State private var showDetail:Bool = false
     var body: some View{
         ScrollView(.horizontal, showsIndicators: false){
             HStack{
                 ForEach((1...5).reversed(), id:\.self){item in
-                    NavigationLink(destination: DetailView(showDetail:self.$showDetail, address: String(item)), isActive:self.$showDetail, label:{
+                    NavigationLink(destination: DetailView(address: String(item)), label:{
                         CafeCard(cafeName: String(item))
                     })
                 }
@@ -99,12 +97,11 @@ struct RecentCafe:View{
 }
 
 struct BannerList: View{
-    @State private var showDetail:Bool = false
     var body: some View{
         ScrollView{
             ForEach((1...5), id:\.self){
                 item in
-                NavigationLink(destination: DetailView(showDetail:self.$showDetail, address: String(item)), isActive:self.$showDetail, label:{
+                NavigationLink(destination: DetailView(address: String(item)), label:{
                     CafeBanner()
                         .padding(.bottom, 10)
                 })

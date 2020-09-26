@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct Like: View {
-    @State private var showDetail:Bool = false
     var cafeList = ["대구광역시 중구 동덕로1길","대구광역시 중구 동덕로2길","대구광역시 중구 동덕로3길","대구광역시 중구 동덕로4길","대구광역시 중구 동덕로5길","대구광역시 중구 동덕로6길"]
        
    var category = ["디저트", "베이커리", "브런치", "애견동반", "주택개조/한옥", "루프탑", "뷰", "포토존"]
@@ -23,10 +22,9 @@ struct Like: View {
                 ScrollView{
                     ForEach(cafeList, id:\.self){
                         item in
-                        NavigationLink(destination: DetailView(showDetail:self.$showDetail, address: item), isActive:$showDetail, label:{
+                        NavigationLink(destination: DetailView(address: item), label:{
                             CardView(address: item, surrounding: false)
                         })
-                        .buttonStyle(PlainButtonStyle())
                     }
                 }
             }.frame(minWidth:0,

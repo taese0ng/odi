@@ -20,25 +20,28 @@ struct Login: View {
                 .padding(.horizontal, 50)
             Divider()
                 .padding(.horizontal, 50)
+                .padding(.bottom, 5)
+            
             SecureField("비밀번호 (최소 8자 이상)", text: self.$PW)
                 .padding(.horizontal, 50)
             Divider()
                 .padding(.horizontal, 50)
             
             HStack{
-                Button(action:{}){
+                Button(action:{
+                    self.store.isLogin = true
+                }){
                     Text("로그인")
                         .foregroundColor(Color("LightGray"))
                         .font(.custom("login", size: 23))
                         .frame(width:150)
                 }
-                Button(action: {}){
-                    NavigationLink(destination: SignUpOne().environmentObject(self.store)){
-                        Text("회원가입")
-                            .foregroundColor(Color("LightGray"))
-                            .font(.custom("signUp", size: 23))
-                            .frame(width: 150)
-                    }
+                
+                NavigationLink(destination: SignUpOne().environmentObject(self.store)){
+                    Text("회원가입")
+                        .foregroundColor(Color("LightGray"))
+                        .font(.custom("signUp", size: 23))
+                        .frame(width: 150)
                 }
             }.padding(.top, 70)
             

@@ -9,14 +9,13 @@
 import SwiftUI
 
 struct MyRecentCafe: View {
-    @State private var showDetail:Bool=false
     var cafeList = ["대구광역시 중구 동덕로1길","대구광역시 중구 동덕로2길","대구광역시 중구 동덕로3길","대구광역시 중구 동덕로4길","대구광역시 중구 동덕로5길","대구광역시 중구 동덕로6길"]
     var body: some View {
         VStack{
             ScrollView{
                 ForEach(cafeList, id:\.self){
                     item in
-                    NavigationLink(destination: DetailView(showDetail:self.$showDetail, address: item), isActive:$showDetail, label:{
+                    NavigationLink(destination: DetailView(address: item), label:{
                         CardView(address: item, surrounding: false)
                     })
                     .buttonStyle(PlainButtonStyle())
