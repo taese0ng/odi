@@ -60,6 +60,7 @@ struct MainView:View{
 }
 
 struct ContentView: View {
+    @State private var bounce:Bool=false
     @State private var isActive:Bool = false
     @EnvironmentObject var store:Store
     
@@ -69,9 +70,16 @@ struct ContentView: View {
                 MainView().environmentObject(self.store)
             }
             else{
-                Image("SplashImage")
-                    .resizable()
-                    .frame(width:200, height: 80)
+                HStack{
+                    Image("SplashImage")
+                
+                    Image("SplashImage2")
+                        .offset(y:self.bounce ? 0 : -100)
+                        .animation(Animation.interpolatingSpring(stiffness:150, damping:5))
+                        .onAppear(){
+                            self.bounce.toggle()
+                        }
+                }
             }
         }
         .onAppear{
