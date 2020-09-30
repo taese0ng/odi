@@ -45,6 +45,7 @@ struct CafeCard: View {
                 .cornerRadius(radius: 15, corners:[.topLeft, .topRight])
             Text("\(cafeName)")
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundColor(.black)
         }.frame(width:200, height: 200)
             
     }

@@ -40,20 +40,18 @@ struct MyPage: View {
                 
                 else{
                     HStack{
-                        Button(action:{}){
-                            NavigationLink(destination: Login().environmentObject(self.store)){
-                                Text("로그인")
-                            }
+                        NavigationLink(destination: Login().environmentObject(self.store)){
+                            Text("로그인")
                         }
                         .foregroundColor(.black)
                         
                         Text(" / ")
                         
-                        Button(action:{}){
-                            NavigationLink(destination: SignUpOne().environmentObject(self.store)){
-                                Text("회원가입하기 >")
-                            }
-                        }
+                        NavigationLink(destination: SignUpOne().environmentObject(self.store),
+                        isActive: $store.MyPage_root,label:{
+                            Text("회원가입하기 >")
+                        })
+                        
                         .foregroundColor(.black)
                     }.padding(30)
                 }

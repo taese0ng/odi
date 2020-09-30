@@ -11,6 +11,7 @@
 		0D04D94824EBAA57007ABDB3 /* MyReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D04D94724EBAA57007ABDB3 /* MyReview.swift */; };
 		0D04D94A24EBAAA9007ABDB3 /* MyRecentCafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D04D94924EBAAA9007ABDB3 /* MyRecentCafe.swift */; };
 		0D09A7D025172B30001BD84B /* SelectArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D09A7CF25172B30001BD84B /* SelectArea.swift */; };
+		0D0BA5BF2524E43100928BE8 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BA5BE2524E43100928BE8 /* SignUp.swift */; };
 		0D13F00A24D8F8CD00C109B7 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13F00924D8F8CD00C109B7 /* Like.swift */; };
 		0D34496D24CAAAA000FDF046 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34496C24CAAAA000FDF046 /* Location.swift */; };
 		0D34496F24CAAB5600FDF046 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34496E24CAAB5600FDF046 /* TopBar.swift */; };
@@ -21,6 +22,7 @@
 		0D686F7F24EFF4FB001ED6E6 /* LocationProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 0D686F7E24EFF4FB001ED6E6 /* LocationProvider */; };
 		0D686F8124EFFCCA001ED6E6 /* CafeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D686F8024EFFCCA001ED6E6 /* CafeCard.swift */; };
 		0D686F8324F006C7001ED6E6 /* CafeBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D686F8224F006C7001ED6E6 /* CafeBanner.swift */; };
+		0D6A47C8252216FB00BCA883 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0D6A47C7252216FB00BCA883 /* Alamofire */; };
 		0D8DF8422501378F009BA5BF /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8DF8412501378F009BA5BF /* Carousel.swift */; };
 		0DAE7ECB25159E4600BCBD06 /* MyInfoModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAE7ECA25159E4600BCBD06 /* MyInfoModify.swift */; };
 		0DAF3C5924C97DF4008B4B82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C5824C97DF4008B4B82 /* AppDelegate.swift */; };
@@ -75,6 +77,7 @@
 		0D04D94724EBAA57007ABDB3 /* MyReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReview.swift; sourceTree = "<group>"; };
 		0D04D94924EBAAA9007ABDB3 /* MyRecentCafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecentCafe.swift; sourceTree = "<group>"; };
 		0D09A7CF25172B30001BD84B /* SelectArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectArea.swift; sourceTree = "<group>"; };
+		0D0BA5BE2524E43100928BE8 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		0D13F00924D8F8CD00C109B7 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		0D34496C24CAAAA000FDF046 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		0D34496E24CAAB5600FDF046 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D6A47C8252216FB00BCA883 /* Alamofire in Frameworks */,
 				0D686F7F24EFF4FB001ED6E6 /* LocationProvider in Frameworks */,
 				0DF0E24324DEA6E90044C547 /* SlidingTabView in Frameworks */,
 			);
@@ -149,6 +153,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D0BA5BD2524E42100928BE8 /* Dispatch */ = {
+			isa = PBXGroup;
+			children = (
+				0D0BA5BE2524E43100928BE8 /* SignUp.swift */,
+			);
+			path = Dispatch;
+			sourceTree = "<group>";
+		};
 		0D5B1A8B24D6B35700703DC3 /* Elements */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +240,7 @@
 		0DAF3C8A24C984FB008B4B82 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				0D0BA5BD2524E42100928BE8 /* Dispatch */,
 				0D5B1A8B24D6B35700703DC3 /* Elements */,
 				0DAF3C9224C9A485008B4B82 /* Components */,
 				0DAF3C8C24C9851C008B4B82 /* Pages */,
@@ -319,6 +332,7 @@
 			packageProductDependencies = (
 				0DF0E24224DEA6E90044C547 /* SlidingTabView */,
 				0D686F7E24EFF4FB001ED6E6 /* LocationProvider */,
+				0D6A47C7252216FB00BCA883 /* Alamofire */,
 			);
 			productName = odi;
 			productReference = 0DAF3C5524C97DF4008B4B82 /* odi.app */;
@@ -395,6 +409,7 @@
 			packageReferences = (
 				0DF0E24124DEA6E90044C547 /* XCRemoteSwiftPackageReference "SlidingTabView" */,
 				0D686F7D24EFF4FB001ED6E6 /* XCRemoteSwiftPackageReference "LocationProvider" */,
+				0D6A47C6252216FB00BCA883 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 0DAF3C5624C97DF4008B4B82 /* Products */;
 			projectDirPath = "";
@@ -449,6 +464,7 @@
 				0DEE6E2E2508E0100068EAA3 /* SignUpThree.swift in Sources */,
 				0D5B1A8E24D6B37A00703DC3 /* NavigationBarModifier.swift in Sources */,
 				0D34497124CAAE0300FDF046 /* MyPage.swift in Sources */,
+				0D0BA5BF2524E43100928BE8 /* SignUp.swift in Sources */,
 				0DAFF5E524D87D3800569F0C /* CardView.swift in Sources */,
 				0D04D94624EBA9BA007ABDB3 /* SignUpOne.swift in Sources */,
 				0D686F8324F006C7001ED6E6 /* CafeBanner.swift in Sources */,
@@ -814,6 +830,14 @@
 				minimumVersion = 1.2.0;
 			};
 		};
+		0D6A47C6252216FB00BCA883 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.2;
+			};
+		};
 		0DF0E24124DEA6E90044C547 /* XCRemoteSwiftPackageReference "SlidingTabView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/QuynhNguyen/SlidingTabView.git";
@@ -829,6 +853,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0D686F7D24EFF4FB001ED6E6 /* XCRemoteSwiftPackageReference "LocationProvider" */;
 			productName = LocationProvider;
+		};
+		0D6A47C7252216FB00BCA883 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0D6A47C6252216FB00BCA883 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		0DF0E24224DEA6E90044C547 /* SlidingTabView */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -10,8 +10,8 @@ import SwiftUI
 import Combine
 
 enum Gender: String {
-    case male = "남"
-    case female = "여"
+    case male = "M"
+    case female = "G"
 }
 
 struct RadioButtonGroups: View {
@@ -27,7 +27,7 @@ struct RadioButtonGroups: View {
     var radioMaleMajority: some View {
         RadioButton(
             id: Gender.male.rawValue,
-            label: Gender.male.rawValue,
+            label: "남",
             isMarked: selectedId == Gender.male.rawValue ? true : false,
             callback: radioGroupCallback
         )
@@ -36,7 +36,7 @@ struct RadioButtonGroups: View {
     var radioFemaleMajority: some View {
         RadioButton(
             id: Gender.female.rawValue,
-            label: Gender.female.rawValue,
+            label: "여",
             isMarked: selectedId == Gender.female.rawValue ? true : false,
             callback: radioGroupCallback
         )
@@ -79,7 +79,8 @@ struct SignUpTwo: View {
                 VStack{
                     Text("생년월일")
                         .frame(maxWidth:.infinity, alignment: .leading)
-                    TextField("생년월일", text: self.$store.birth)
+                    TextField("ex)20180101", text: self.$store.birth)
+                        .keyboardType(.numberPad)
                     Divider()
                 }.padding(.vertical, 20)
                 

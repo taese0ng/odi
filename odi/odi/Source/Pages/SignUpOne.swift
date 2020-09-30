@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct CheckView: View {
+    @EnvironmentObject var store:Store
     @Binding var isChecked:Bool
     var title:String
     var necessary:Bool
@@ -16,6 +17,14 @@ struct CheckView: View {
     var body: some View {
         Button(action: {
             self.isChecked.toggle()
+            if(self.title == "위치정보약관 동의"){
+                if(store.location_agree == "N"){
+                    store.location_agree = "Y"
+                }
+                else{
+                    store.location_agree = "N"
+                }
+            }
         }){
             HStack{
                 Image(systemName: isChecked ? "checkmark.square": "square")
@@ -57,14 +66,16 @@ struct SignUpOne: View {
             
             Button(action: {
                 self.allToggle()
+                if(store.location_agree == "N"){
+                    store.location_agree = "Y"
+                }
+                else{
+                    store.location_agree = "N"
+                }
             }){
                 HStack{
-                    if(self.service && self.personal && self.location){
-                        Image(systemName: "checkmark.square")
-                    }
-                    else{
-                        Image(systemName: "square")
-                    }
+                    Image(systemName: (self.service && self.personal && self.location) ? "checkmark.square" : "square")
+                    
                     Text("전체동의")
                 }
             }
@@ -75,37 +86,38 @@ struct SignUpOne: View {
             VStack{
                 HStack{
                     CheckView(isChecked: self.$service, title:"서비스 이용약관 동의", necessary: true)
+                    .environmentObject(self.store)
                     .frame(maxWidth:.infinity, alignment: .leading)
                     .padding(.vertical, 10)
-                    Button(action:{}){
-                        NavigationLink(destination: ServiceUse()){
-                            Text("보기")
-                                .foregroundColor(.gray)
-                        }
+                    
+                    NavigationLink(destination: ServiceUse()){
+                        Text("보기")
+                            .foregroundColor(.gray)
                     }
                 }
                 
                 HStack{
                     CheckView(isChecked: self.$personal, title:"개인정보 처리방침 동의", necessary: true)
+                    .environmentObject(self.store)
                     .frame(maxWidth:.infinity, alignment: .leading)
                     .padding(.vertical, 10)
-                    Button(action:{}){
-                        NavigationLink(destination: PersonalInfo()){
-                            Text("보기")
-                                .foregroundColor(.gray)
-                        }
+                    
+                    
+                    NavigationLink(destination: PersonalInfo()){
+                        Text("보기")
+                            .foregroundColor(.gray)
                     }
                 }
                 
                 HStack{
                     CheckView(isChecked: self.$location, title:"위치정보약관 동의", necessary: false)
+                    .environmentObject(self.store)
                     .frame(maxWidth:.infinity, alignment: .leading)
                     .padding(.vertical, 10)
-                    Button(action:{}){
-                        NavigationLink(destination: LocationUse()){
-                            Text("보기")
-                                .foregroundColor(.gray)
-                        }
+                    
+                    NavigationLink(destination: LocationUse()){
+                        Text("보기")
+                            .foregroundColor(.gray)
                     }
                 }
             }

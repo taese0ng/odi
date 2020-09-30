@@ -12,13 +12,18 @@ struct SignUpFour: View {
     @EnvironmentObject var store:Store
 //    @State private var callNum:String = ""
     @State private var cerify:String = ""
+    @State private var showingAlert:Bool=false
+    @State private var signUp_success:Bool=false
+    
     var answer:String = "123"
+    
     func check()->Bool{
         if(self.answer == self.cerify){
             return true
         }
         return false
     }
+    
     var body: some View {
         VStack{
             Spacer()
@@ -28,6 +33,7 @@ struct SignUpFour: View {
             HStack{
                 VStack{
                     TextField("휴대폰 번호", text: self.$store.callNum)
+                        .keyboardType(.numberPad)
                     Divider()
                     .background(Color.black)
                 }
@@ -49,12 +55,33 @@ struct SignUpFour: View {
             
             
             if(self.check()){
-                Button(action:{self.store.isLogin = true}){
+                Button(action:{
+//                    self.store.isLogin = true
+                    self.signUp_success = SignUp_dispatch(store: store)
+                    self.showingAlert = true
+                }){
                     Text("회원가입 완료")
                         .frame(width:300, height: 50)
                         .foregroundColor(.white)
                         .background(Color("Brown"))
                         .cornerRadius(5)
+                }.alert(isPresented: $showingAlert) {
+                    switch self.signUp_success{
+                    case true:
+                        return
+                            Alert(title: Text("회원가입"),
+                                  message: Text("회원가입에 성공하였습니다."),
+                                  dismissButton: .default(Text("ok"), action: {
+                                    store.MyPage_root = false
+                                  })
+                            )
+                    case false:
+                        return
+                            Alert(title: Text("회원가입"),
+                                  message: Text("회원가입에 실패하였습니다."),
+                                  dismissButton: .default(Text("ok"))
+                            )
+                    }
                 }
             }
             else{
@@ -69,7 +96,8 @@ struct SignUpFour: View {
             Spacer()
         }
         .padding(.horizontal, 30)
-        .navigationBarTitle(Text("회원가입 3/4"), displayMode: .inline)
+        .navigationBarTitle(Text("회원가입 4/4"), displayMode: .inline)
+        .navigationBarColor(.white)
     }
 }
 
