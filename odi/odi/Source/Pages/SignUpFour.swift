@@ -7,10 +7,10 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct SignUpFour: View {
     @EnvironmentObject var store:Store
-//    @State private var callNum:String = ""
     @State private var cerify:String = ""
     @State private var showingAlert:Bool=false
     @State private var signUp_success:Bool=false
@@ -56,9 +56,7 @@ struct SignUpFour: View {
             
             if(self.check()){
                 Button(action:{
-//                    self.store.isLogin = true
-                    self.signUp_success = SignUp_dispatch(store: store)
-                    self.showingAlert = true
+                    SignUp_dispatch(signUp_success: $signUp_success,showingAlert:$showingAlert).dispatch(store:store)
                 }){
                     Text("회원가입 완료")
                         .frame(width:300, height: 50)

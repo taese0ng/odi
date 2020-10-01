@@ -98,7 +98,7 @@ struct RecentCafe:View{
 
 struct BannerList: View{
     var body: some View{
-        ScrollView{
+        ScrollView(.vertical, showsIndicators:false){
             ForEach((1...5), id:\.self){
                 item in
                 NavigationLink(destination: DetailView(address: String(item)), label:{

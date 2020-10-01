@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MyReview: View {
     var body: some View {
-        ScrollView{
+        ScrollView(.vertical, showsIndicators:false){
             CafeReview(myReview: true)
         }
         .navigationBarTitle(Text("내가 작성한 리뷰"), displayMode: .inline)

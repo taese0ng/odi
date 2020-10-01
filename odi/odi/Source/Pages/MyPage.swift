@@ -51,7 +51,6 @@ struct MyPage: View {
                         isActive: $store.MyPage_root,label:{
                             Text("회원가입하기 >")
                         })
-                        
                         .foregroundColor(.black)
                     }.padding(30)
                 }

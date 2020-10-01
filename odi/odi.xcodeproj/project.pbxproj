@@ -11,8 +11,11 @@
 		0D04D94824EBAA57007ABDB3 /* MyReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D04D94724EBAA57007ABDB3 /* MyReview.swift */; };
 		0D04D94A24EBAAA9007ABDB3 /* MyRecentCafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D04D94924EBAAA9007ABDB3 /* MyRecentCafe.swift */; };
 		0D09A7D025172B30001BD84B /* SelectArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D09A7CF25172B30001BD84B /* SelectArea.swift */; };
-		0D0BA5BF2524E43100928BE8 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BA5BE2524E43100928BE8 /* SignUp.swift */; };
+		0D0BA5BF2524E43100928BE8 /* SignUp_dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0BA5BE2524E43100928BE8 /* SignUp_dispatch.swift */; };
 		0D13F00A24D8F8CD00C109B7 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D13F00924D8F8CD00C109B7 /* Like.swift */; };
+		0D2510C42525B25A00AD7E84 /* Login_dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2510C32525B25A00AD7E84 /* Login_dispatch.swift */; };
+		0D2510D32525C93100AD7E84 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0D2510D22525C93100AD7E84 /* SwiftyJSON */; };
+		0D2510D8252624B600AD7E84 /* CafeList_dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2510D7252624B600AD7E84 /* CafeList_dispatch.swift */; };
 		0D34496D24CAAAA000FDF046 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34496C24CAAAA000FDF046 /* Location.swift */; };
 		0D34496F24CAAB5600FDF046 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34496E24CAAB5600FDF046 /* TopBar.swift */; };
 		0D34497124CAAE0300FDF046 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34497024CAAE0300FDF046 /* MyPage.swift */; };
@@ -77,8 +80,10 @@
 		0D04D94724EBAA57007ABDB3 /* MyReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReview.swift; sourceTree = "<group>"; };
 		0D04D94924EBAAA9007ABDB3 /* MyRecentCafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecentCafe.swift; sourceTree = "<group>"; };
 		0D09A7CF25172B30001BD84B /* SelectArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectArea.swift; sourceTree = "<group>"; };
-		0D0BA5BE2524E43100928BE8 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		0D0BA5BE2524E43100928BE8 /* SignUp_dispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp_dispatch.swift; sourceTree = "<group>"; };
 		0D13F00924D8F8CD00C109B7 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
+		0D2510C32525B25A00AD7E84 /* Login_dispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_dispatch.swift; sourceTree = "<group>"; };
+		0D2510D7252624B600AD7E84 /* CafeList_dispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeList_dispatch.swift; sourceTree = "<group>"; };
 		0D34496C24CAAAA000FDF046 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		0D34496E24CAAB5600FDF046 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		0D34497024CAAE0300FDF046 /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
@@ -132,6 +137,7 @@
 			files = (
 				0D6A47C8252216FB00BCA883 /* Alamofire in Frameworks */,
 				0D686F7F24EFF4FB001ED6E6 /* LocationProvider in Frameworks */,
+				0D2510D32525C93100AD7E84 /* SwiftyJSON in Frameworks */,
 				0DF0E24324DEA6E90044C547 /* SlidingTabView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,7 +162,9 @@
 		0D0BA5BD2524E42100928BE8 /* Dispatch */ = {
 			isa = PBXGroup;
 			children = (
-				0D0BA5BE2524E43100928BE8 /* SignUp.swift */,
+				0D0BA5BE2524E43100928BE8 /* SignUp_dispatch.swift */,
+				0D2510C32525B25A00AD7E84 /* Login_dispatch.swift */,
+				0D2510D7252624B600AD7E84 /* CafeList_dispatch.swift */,
 			);
 			path = Dispatch;
 			sourceTree = "<group>";
@@ -333,6 +341,7 @@
 				0DF0E24224DEA6E90044C547 /* SlidingTabView */,
 				0D686F7E24EFF4FB001ED6E6 /* LocationProvider */,
 				0D6A47C7252216FB00BCA883 /* Alamofire */,
+				0D2510D22525C93100AD7E84 /* SwiftyJSON */,
 			);
 			productName = odi;
 			productReference = 0DAF3C5524C97DF4008B4B82 /* odi.app */;
@@ -410,6 +419,7 @@
 				0DF0E24124DEA6E90044C547 /* XCRemoteSwiftPackageReference "SlidingTabView" */,
 				0D686F7D24EFF4FB001ED6E6 /* XCRemoteSwiftPackageReference "LocationProvider" */,
 				0D6A47C6252216FB00BCA883 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				0D2510D12525C93100AD7E84 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 0DAF3C5624C97DF4008B4B82 /* Products */;
 			projectDirPath = "";
@@ -456,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D34496F24CAAB5600FDF046 /* TopBar.swift in Sources */,
+				0D2510C42525B25A00AD7E84 /* Login_dispatch.swift in Sources */,
 				0DF823F424E51C7700525E4F /* Login.swift in Sources */,
 				0DAF3C5924C97DF4008B4B82 /* AppDelegate.swift in Sources */,
 				0DAE7ECB25159E4600BCBD06 /* MyInfoModify.swift in Sources */,
@@ -464,7 +475,8 @@
 				0DEE6E2E2508E0100068EAA3 /* SignUpThree.swift in Sources */,
 				0D5B1A8E24D6B37A00703DC3 /* NavigationBarModifier.swift in Sources */,
 				0D34497124CAAE0300FDF046 /* MyPage.swift in Sources */,
-				0D0BA5BF2524E43100928BE8 /* SignUp.swift in Sources */,
+				0D0BA5BF2524E43100928BE8 /* SignUp_dispatch.swift in Sources */,
+				0D2510D8252624B600AD7E84 /* CafeList_dispatch.swift in Sources */,
 				0DAFF5E524D87D3800569F0C /* CardView.swift in Sources */,
 				0D04D94624EBA9BA007ABDB3 /* SignUpOne.swift in Sources */,
 				0D686F8324F006C7001ED6E6 /* CafeBanner.swift in Sources */,
@@ -822,6 +834,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0D2510D12525C93100AD7E84 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		0D686F7D24EFF4FB001ED6E6 /* XCRemoteSwiftPackageReference "LocationProvider" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/himbeles/LocationProvider.git";
@@ -849,6 +869,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0D2510D22525C93100AD7E84 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0D2510D12525C93100AD7E84 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
 		0D686F7E24EFF4FB001ED6E6 /* LocationProvider */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0D686F7D24EFF4FB001ED6E6 /* XCRemoteSwiftPackageReference "LocationProvider" */;

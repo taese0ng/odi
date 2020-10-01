@@ -12,7 +12,7 @@ struct MyRecentCafe: View {
     var cafeList = ["대구광역시 중구 동덕로1길","대구광역시 중구 동덕로2길","대구광역시 중구 동덕로3길","대구광역시 중구 동덕로4길","대구광역시 중구 동덕로5길","대구광역시 중구 동덕로6길"]
     var body: some View {
         VStack{
-            ScrollView{
+            ScrollView(.vertical, showsIndicators:false){
                 ForEach(cafeList, id:\.self){
                     item in
                     NavigationLink(destination: DetailView(address: item), label:{

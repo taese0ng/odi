@@ -12,6 +12,7 @@ struct Login: View {
     @State private var ID:String = ""
     @State private var PW:String = ""
     @EnvironmentObject var store:Store
+    @State private var showingAlert:Bool = false
     
     var body: some View {
         VStack{
@@ -29,20 +30,26 @@ struct Login: View {
             
             HStack{
                 Button(action:{
-                    self.store.isLogin = true
+                    Login_dispatch(showingAlert:$showingAlert).dispatch(store:store, id:self.ID, pw:self.PW)
                 }){
                     Text("로그인")
                         .foregroundColor(Color("LightGray"))
                         .font(.custom("login", size: 23))
                         .frame(width:150)
+                }.alert(isPresented: $showingAlert) {
+                    Alert(title: Text("로그인"),
+                          message: Text("로그인에 실패하였습니다."),
+                          dismissButton: .default(Text("ok"))
+                    )
                 }
                 
-                NavigationLink(destination: SignUpOne().environmentObject(self.store)){
+                NavigationLink(destination: SignUpOne().environmentObject(self.store),
+                               isActive: $store.MyPage_root, label:{
                     Text("회원가입")
                         .foregroundColor(Color("LightGray"))
                         .font(.custom("signUp", size: 23))
                         .frame(width: 150)
-                }
+                })
             }.padding(.top, 70)
             
             

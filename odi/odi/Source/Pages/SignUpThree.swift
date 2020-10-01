@@ -28,7 +28,7 @@ struct SignUpThree: View {
     }
     
     var body: some View {
-        ScrollView{
+        ScrollView(.vertical, showsIndicators:false){
             VStack{
                 Text("회원정보")
                 .padding(.vertical, 20)

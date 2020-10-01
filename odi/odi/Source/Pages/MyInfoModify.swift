@@ -53,6 +53,15 @@ struct Info:View{
     @State private var newPW:String=""
     @State private var newPWConfirm:String=""
     
+    func gender_check()->String{
+        if(store.sex == "M"){
+            return "남"
+        }
+        else{
+            return "여"
+        }
+    }
+    
     var body:some View{
         VStack{
             VStack{
@@ -87,7 +96,7 @@ struct Info:View{
                 HStack{
                     Text("성별")
                         .frame(width:70, alignment: .leading)
-                    Text("\(self.store.sex)")
+                    Text("\(self.gender_check())")
                     Spacer()
                 }
                 Spacer()
@@ -288,7 +297,7 @@ struct Modify:View{
     @State private var nickModify:Bool=false
     @State private var nickName:String=""
     var body:some View{
-        ScrollView{
+        ScrollView(.vertical, showsIndicators:false){
             VStack{
                 Spacer()
                 Image("map")

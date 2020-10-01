@@ -114,7 +114,7 @@ struct Main : View {
     }
     
     var body : some View{
-        ScrollView{
+        ScrollView(.vertical, showsIndicators:false){
             ZStack{
                 VStack{
                     appBar(address: self.address, index: self.$index,
