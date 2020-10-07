@@ -52,6 +52,8 @@ struct Info:View{
     @State private var nowPW:String=""
     @State private var newPW:String=""
     @State private var newPWConfirm:String=""
+    @State private var showingAlert:Bool=false
+    @State private var alertMsg:String=""
     
     func gender_check()->String{
         if(store.sex == "M"){
@@ -234,7 +236,7 @@ struct Info:View{
                 HStack{
                     Text("비밀번호")
                         .frame(width:70, alignment: .leading)
-                    Text("************")
+                    Text("*********")
                     Spacer()
                     Button(action:{
                         self.passModify.toggle()
@@ -248,22 +250,22 @@ struct Info:View{
                 }
                 if(self.passModify){
                     VStack{
-                        TextField("현재 비밀번호 입력", text:self.$nowPW)
+                        SecureField("현재 비밀번호 입력", text:self.$nowPW)
                         Divider()
                     }
                     VStack{
-                        TextField("새 비밀번호 입력 (최소 8자)", text:self.$newPW)
+                        SecureField("새 비밀번호 입력 (최소 8자)", text:self.$newPW)
                         Divider()
                     }
                     HStack{
                         VStack{
-                            TextField("새 비밀번호 확인", text:self.$newPWConfirm)
+                            SecureField("새 비밀번호 확인", text:self.$newPWConfirm)
                             Divider()
                         }
                         if(self.newPW != "" && self.newPW == self.newPWConfirm){
                             Button(action:{
                                 if(self.nowPW == self.store.pw){
-                                    self.store.pw = self.newPW
+                                    ChangePassword_dispatch(showingAlert: $showingAlert, alertMsg: $alertMsg).dispatch(store:self.store, pw:newPW)
                                     self.passModify.toggle()
                                     self.nowPW=""
                                     self.newPW=""
@@ -286,6 +288,11 @@ struct Info:View{
                         }
                     }
                 }
+            }.alert(isPresented: $showingAlert) {
+                Alert(title: Text("비밀번호"),
+                      message: Text("\(alertMsg)"),
+                      dismissButton: .default(Text("ok"))
+                )
             }
         }.frame(maxWidth:.infinity, alignment:.leading)
     }

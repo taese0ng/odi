@@ -26,6 +26,8 @@
 		0D686F8124EFFCCA001ED6E6 /* CafeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D686F8024EFFCCA001ED6E6 /* CafeCard.swift */; };
 		0D686F8324F006C7001ED6E6 /* CafeBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D686F8224F006C7001ED6E6 /* CafeBanner.swift */; };
 		0D6A47C8252216FB00BCA883 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0D6A47C7252216FB00BCA883 /* Alamofire */; };
+		0D83AB75252E039E00D0CBAA /* ChangePassword_dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83AB74252E039E00D0CBAA /* ChangePassword_dispatch.swift */; };
+		0D83AB7A252E08FB00D0CBAA /* ModifyUser_dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83AB79252E08FB00D0CBAA /* ModifyUser_dispatch.swift */; };
 		0D8DF8422501378F009BA5BF /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8DF8412501378F009BA5BF /* Carousel.swift */; };
 		0DAE7ECB25159E4600BCBD06 /* MyInfoModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAE7ECA25159E4600BCBD06 /* MyInfoModify.swift */; };
 		0DAF3C5924C97DF4008B4B82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C5824C97DF4008B4B82 /* AppDelegate.swift */; };
@@ -93,6 +95,8 @@
 		0D6315E824FB8DC900BE8922 /* Coupon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coupon.swift; sourceTree = "<group>"; };
 		0D686F8024EFFCCA001ED6E6 /* CafeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeCard.swift; sourceTree = "<group>"; };
 		0D686F8224F006C7001ED6E6 /* CafeBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeBanner.swift; sourceTree = "<group>"; };
+		0D83AB74252E039E00D0CBAA /* ChangePassword_dispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassword_dispatch.swift; sourceTree = "<group>"; };
+		0D83AB79252E08FB00D0CBAA /* ModifyUser_dispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyUser_dispatch.swift; sourceTree = "<group>"; };
 		0D8DF8412501378F009BA5BF /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
 		0DAE7ECA25159E4600BCBD06 /* MyInfoModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoModify.swift; sourceTree = "<group>"; };
 		0DAF3C5524C97DF4008B4B82 /* odi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = odi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +169,8 @@
 				0D0BA5BE2524E43100928BE8 /* SignUp_dispatch.swift */,
 				0D2510C32525B25A00AD7E84 /* Login_dispatch.swift */,
 				0D2510D7252624B600AD7E84 /* CafeList_dispatch.swift */,
+				0D83AB74252E039E00D0CBAA /* ChangePassword_dispatch.swift */,
+				0D83AB79252E08FB00D0CBAA /* ModifyUser_dispatch.swift */,
 			);
 			path = Dispatch;
 			sourceTree = "<group>";
@@ -475,6 +481,7 @@
 				0DEE6E2E2508E0100068EAA3 /* SignUpThree.swift in Sources */,
 				0D5B1A8E24D6B37A00703DC3 /* NavigationBarModifier.swift in Sources */,
 				0D34497124CAAE0300FDF046 /* MyPage.swift in Sources */,
+				0D83AB7A252E08FB00D0CBAA /* ModifyUser_dispatch.swift in Sources */,
 				0D0BA5BF2524E43100928BE8 /* SignUp_dispatch.swift in Sources */,
 				0D2510D8252624B600AD7E84 /* CafeList_dispatch.swift in Sources */,
 				0DAFF5E524D87D3800569F0C /* CardView.swift in Sources */,
@@ -489,6 +496,7 @@
 				0DD45C0624E007FD006038EA /* DetailView.swift in Sources */,
 				0DEE6F9E2509DE7F0068EAA3 /* LocationUse.swift in Sources */,
 				0DECA21124F7A879005ACBC7 /* Menu.swift in Sources */,
+				0D83AB75252E039E00D0CBAA /* ChangePassword_dispatch.swift in Sources */,
 				0D04D94824EBAA57007ABDB3 /* MyReview.swift in Sources */,
 				0DF0E24524DEC2560044C547 /* CafeInfo.swift in Sources */,
 				0DEE6FA0250B50090068EAA3 /* SignUpFour.swift in Sources */,
