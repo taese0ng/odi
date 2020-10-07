@@ -52,8 +52,8 @@ struct Info:View{
     @State private var nowPW:String=""
     @State private var newPW:String=""
     @State private var newPWConfirm:String=""
-    @State private var showingAlert:Bool=false
-    @State private var alertMsg:String=""
+    @Binding var showingAlert:Bool
+    @Binding var alertMsg:String
     
     func gender_check()->String{
         if(store.sex == "M"){
@@ -136,7 +136,7 @@ struct Info:View{
                         }
                         if(self.eMail != ""){
                             Button(action:{
-                                self.store.eMail = self.eMail
+                                ModifyUser_dispatch(showingAlert: $showingAlert, alertMsg: $alertMsg).eMail_dispatch(store: store, eMail: eMail)
                                 self.eMailModify.toggle()
                                 self.eMail = ""
                             }){
@@ -207,7 +207,7 @@ struct Info:View{
                         if(self.callNumConfirm != ""){
                             Button(action:{
                                 if(self.callNumConfirm == "123"){
-                                    self.store.callNum = self.callNum
+                                    ModifyUser_dispatch(showingAlert:$showingAlert, alertMsg:$alertMsg).phoneNum_dispatch(store: store, phoneNum: callNum)
                                     self.callModify.toggle()
                                     self.callNum = ""
                                     self.callNumConfirm=""
@@ -288,11 +288,6 @@ struct Info:View{
                         }
                     }
                 }
-            }.alert(isPresented: $showingAlert) {
-                Alert(title: Text("비밀번호"),
-                      message: Text("\(alertMsg)"),
-                      dismissButton: .default(Text("ok"))
-                )
             }
         }.frame(maxWidth:.infinity, alignment:.leading)
     }
@@ -303,6 +298,9 @@ struct Modify:View{
     @EnvironmentObject var store:Store
     @State private var nickModify:Bool=false
     @State private var nickName:String=""
+    @State private var showingAlert:Bool=false
+    @State private var alertMsg:String=""
+    
     var body:some View{
         ScrollView(.vertical, showsIndicators:false){
             VStack{
@@ -331,7 +329,7 @@ struct Modify:View{
                         }
                         if(self.nickName != ""){
                             Button(action:{
-                                self.store.nick = self.nickName
+                                ModifyUser_dispatch(showingAlert: self.$showingAlert, alertMsg: self.$alertMsg).nickName_dispatch(store:self.store, nickName: self.nickName)
                                 self.nickModify.toggle()
                                 self.nickName = ""
                             }){
@@ -353,8 +351,13 @@ struct Modify:View{
                 }
                 
                 Spacer()
-                Info().environmentObject(self.store)
+                Info(showingAlert:$showingAlert, alertMsg:$alertMsg).environmentObject(self.store)
                 Spacer()
+            }.alert(isPresented: $showingAlert) {
+                Alert(title: Text("비밀번호"),
+                      message: Text("\(alertMsg)"),
+                      dismissButton: .default(Text("ok"))
+                )
             }
         }
     }

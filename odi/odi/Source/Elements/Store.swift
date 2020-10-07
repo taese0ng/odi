@@ -10,15 +10,16 @@ import SwiftUI
 
 class Store: ObservableObject{
     @Published var isLogin:Bool = false
-    @Published var id = ""
-    @Published var pw = ""
-    @Published var eMail = ""
-    @Published var nick = ""
-    @Published var location_agree = "N"
-    @Published var callNum = ""
-    @Published var birth = ""
-    @Published var sex = ""
-    @Published var name = ""
+    @Published var token:String = ""
+    @Published var id:String = ""
+    @Published var pw:String = ""
+    @Published var eMail:String = ""
+    @Published var nick:String = ""
+    @Published var location_agree:String = "N"
+    @Published var callNum:String = ""
+    @Published var birth:String = ""
+    @Published var sex:String = ""
+    @Published var name:String = ""
     @Published var selectionArea:String="중구(동성로,삼덕동,교동,대봉동)"
     @Published var MyPage_root:Bool = false
 }

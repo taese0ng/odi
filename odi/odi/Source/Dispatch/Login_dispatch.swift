@@ -29,6 +29,7 @@ struct Login_dispatch{
             case .success(let value):
                 print("user : \(value)")
                 let json = JSON(value)
+                store.token = token
                 store.id = json["user_id"].stringValue
                 store.pw = pw
                 store.name = json["user_name"].stringValue
