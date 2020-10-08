@@ -50,6 +50,8 @@ struct ChangePassword_dispatch{
             //통신실패
             case .failure(let error):
                 print("error: \(String(describing: error.errorDescription))")
+                self.alertMsg="비밀번호변경을 실패하였습니다."
+                self.showingAlert = true
             }
         }
     }

@@ -61,6 +61,8 @@ struct SignUp_dispatch{
             //통신실패
             case .failure(let error):
                 print("error: \(String(describing: error.errorDescription))")
+                self.signUp_success = false
+                self.showingAlert = true
                 break
             }
         }

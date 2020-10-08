@@ -7,16 +7,16 @@
 //
 
 import SwiftUI
+import SwiftyJSON
 
 struct Surrounding: View {
     @EnvironmentObject var store:Store
-    var cafeList = ["대구광역시 중구 동덕로1길","대구광역시 중구 동덕로2길","대구광역시 중구 동덕로3길","대구광역시 중구 동덕로4길","대구광역시 중구 동덕로5길","대구광역시 중구 동덕로6길"]
+    
+//    var cafeList = ["대구광역시 중구 동덕로1길","대구광역시 중구 동덕로2길","대구광역시 중구 동덕로3길","대구광역시 중구 동덕로4길","대구광역시 중구 동덕로5길","대구광역시 중구 동덕로6길"]
     
     var category = ["디저트", "베이커리", "브런치", "애견동반", "주택개조/한옥", "루프탑", "뷰", "포토존"]
-    
-    init() {
-        CafeList_dispatch().region_dispatch()
-    }
+    @State private var selectCategory:String = "firstSelect"
+    @State private var cafeList:Array<CafeList_dispatch.cafe_info> = []
     
     var body: some View {
         NavigationView{
@@ -37,7 +37,10 @@ struct Surrounding: View {
                     HStack{
                         ForEach(category, id:\.self){
                             item in
-                            Button(action:{}){
+                            Button(action:{
+                                self.selectCategory=item
+                                CafeList_dispatch(cafeList:self.$cafeList).search_dispatch(store:self.store, search_type: "category", search_value: item)
+                            }){
                                 Text("\(item)")
                                     .font(.custom("item", size: 15))
                                     .padding(.horizontal, 10)
@@ -50,8 +53,8 @@ struct Surrounding: View {
                 ScrollView(.vertical, showsIndicators:false){
                     ForEach(cafeList, id:\.self){
                         item in
-                        NavigationLink(destination: DetailView(address: item), label:{
-                            CardView(address: item, surrounding: true)
+                        NavigationLink(destination: DetailView(address: item.cafe_address), label:{
+                            CardView(info: item, surrounding: true)
                         })
                     }
                 }
@@ -63,6 +66,11 @@ struct Surrounding: View {
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarColor(.white)
         }.navigationViewStyle(StackNavigationViewStyle())
+        .onAppear(){
+            if(self.selectCategory == "firstSelect"){
+                CafeList_dispatch(cafeList:self.$cafeList).search_dispatch(store:self.store, search_type: "category", search_value: "디저트")
+            }
+        }
     }
 }
 

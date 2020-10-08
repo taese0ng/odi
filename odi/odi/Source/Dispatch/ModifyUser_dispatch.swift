@@ -53,6 +53,8 @@ struct ModifyUser_dispatch{
             //통신실패
             case .failure(let error):
                 print("error: \(String(describing: error.errorDescription))")
+                self.alertMsg="닉네임변경을 실패하였습니다."
+                self.showingAlert = true
             }
         }
     }
@@ -94,6 +96,8 @@ struct ModifyUser_dispatch{
             //통신실패
             case .failure(let error):
                 print("error: \(String(describing: error.errorDescription))")
+                self.alertMsg="이메일변경을 실패하였습니다."
+                self.showingAlert = true
             }
         }
     }
@@ -135,6 +139,8 @@ struct ModifyUser_dispatch{
             //통신실패
             case .failure(let error):
                 print("error: \(String(describing: error.errorDescription))")
+                self.alertMsg="전화번호변경을 실패하였습니다."
+                self.showingAlert = true
             }
         }
     }

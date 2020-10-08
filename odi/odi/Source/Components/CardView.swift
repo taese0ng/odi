@@ -9,9 +9,10 @@
 import SwiftUI
 
 struct CardView: View {
-    @State private var hashTags = ["#감성", "#연인", "#데이트", "#디저트"]
-    @State private var isLike:Bool = false
-    var address:String
+//    @State private var hashTags = ["#감성", "#연인", "#데이트", "#디저트"]
+//    @State private var isLike:Bool = false
+//    var address:String
+    var info:CafeList_dispatch.cafe_info
     var screenWidth = UIScreen.main.bounds.size.width
     var surrounding:Bool
     
@@ -35,9 +36,9 @@ struct CardView: View {
                 }
                 
                 Button(action:{
-                    self.isLike.toggle()
+//                    self.isLike.toggle()
                 }){
-                    if(self.isLike){
+                    if(info.is_like == "Y"){
                         Image(systemName: "heart.fill")
                             .resizable()
                             .frame(width: 30, height: 30)
@@ -54,21 +55,19 @@ struct CardView: View {
             }
             
             HStack{
-                Button(action:{}){
-                    Text("10% 할인쿠폰")
-                        .font(.caption)
-                        .padding(.vertical, 4.0)
-                        .padding(.horizontal, 7.0)
-                }
-                .background(Color.red)
-                .foregroundColor(.white)
-                .cornerRadius(10)
+                Text("\(info.cafe_coupon!)% 할인쿠폰")
+                    .font(.caption)
+                    .padding(.vertical, 4.0)
+                    .padding(.horizontal, 7.0)
+                    .background(Color.red)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, 10.0)
             
             HStack{
-                Text("오그니메모")
+                Text("\(info.cafe_name)")
                     .fontWeight(.bold)
                     .font(.custom("title", size: 20))
                     .foregroundColor(.black)
@@ -95,7 +94,7 @@ struct CardView: View {
             .padding(.leading, 10.0)
             
             HStack{
-                ForEach(hashTags, id:\.self){
+                ForEach(info.cafe_tag, id:\.self){
                     tag in Text("\(tag)")
                         .font(.custom("tag", size: 10))
                         .foregroundColor(Color("Brown"))
@@ -103,16 +102,10 @@ struct CardView: View {
             }.frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, 10.0)
             
-            Text("\(address)")
+            Text("\(info.cafe_address)")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 10.0)
                 .foregroundColor(.black)
         }
-    }
-}
-
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView(address:"대구광역시 중구 동덕로6길", surrounding: true)
     }
 }

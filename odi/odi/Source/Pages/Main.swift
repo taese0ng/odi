@@ -11,6 +11,7 @@ import SwiftUI
 struct MainView:View{
     @State private var Selected:Int = 1
     @EnvironmentObject var store:Store
+    
     var body: some View{
         TabView(selection: $Selected){
             Home(Selection: $Selected)
