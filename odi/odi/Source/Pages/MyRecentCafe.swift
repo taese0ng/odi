@@ -16,7 +16,7 @@ struct MyRecentCafe: View {
             ScrollView(.vertical, showsIndicators:false){
                 ForEach(cafeList, id:\.self){
                     item in
-                    NavigationLink(destination: DetailView(address: item.cafe_address), label:{
+                    NavigationLink(destination: DetailView(info: item), label:{
                         CardView(info: item, surrounding: false)
                     })
                     .buttonStyle(PlainButtonStyle())

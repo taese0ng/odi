@@ -67,49 +67,49 @@ struct MenuBtns: View{
     }
 }
 
-struct HotCafe:View{
-    var screenWidth = UIScreen.main.bounds.size.width
-    var body: some View{
-        ScrollView(.horizontal, showsIndicators: false){
-            HStack{
-                ForEach((1...5).reversed(), id:\.self){item in
-                    NavigationLink(destination: DetailView(address: String(item)), label:{
-                        CafeCard(cafeName: String(item))
-                    })
-                }
-            }.padding(.horizontal,10)
-        }
-    }
-}
-
-struct RecentCafe:View{
-    var body: some View{
-        ScrollView(.horizontal, showsIndicators: false){
-            HStack{
-                ForEach((1...5).reversed(), id:\.self){item in
-                    NavigationLink(destination: DetailView(address: String(item)), label:{
-                        CafeCard(cafeName: String(item))
-                    })
-                }
-            }.padding(.horizontal,10)
-        }
-    }
-}
-
-struct BannerList: View{
-    var body: some View{
-        ScrollView(.vertical, showsIndicators:false){
-            ForEach((1...5), id:\.self){
-                item in
-                NavigationLink(destination: DetailView(address: String(item)), label:{
-                    CafeBanner()
-                        .padding(.bottom, 10)
-                })
-                
-            }
-        }.padding(.horizontal, 10)
-    }
-}
+//struct HotCafe:View{
+//    var screenWidth = UIScreen.main.bounds.size.width
+//    var body: some View{
+//        ScrollView(.horizontal, showsIndicators: false){
+//            HStack{
+//                ForEach((1...5).reversed(), id:\.self){item in
+//                    NavigationLink(destination: DetailView(address: String(item)), label:{
+//                        CafeCard(cafeName: String(item))
+//                    })
+//                }
+//            }.padding(.horizontal,10)
+//        }
+//    }
+//}
+//
+//struct RecentCafe:View{
+//    var body: some View{
+//        ScrollView(.horizontal, showsIndicators: false){
+//            HStack{
+//                ForEach((1...5).reversed(), id:\.self){item in
+//                    NavigationLink(destination: DetailView(address: String(item)), label:{
+//                        CafeCard(cafeName: String(item))
+//                    })
+//                }
+//            }.padding(.horizontal,10)
+//        }
+//    }
+//}
+//
+//struct BannerList: View{
+//    var body: some View{
+//        ScrollView(.vertical, showsIndicators:false){
+//            ForEach((1...5), id:\.self){
+//                item in
+//                NavigationLink(destination: DetailView(address: String(item)), label:{
+//                    CafeBanner()
+//                        .padding(.bottom, 10)
+//                })
+//                
+//            }
+//        }.padding(.horizontal, 10)
+//    }
+//}
 
 struct Home: View{
     @Binding var Selection:Int
@@ -147,21 +147,21 @@ struct Home: View{
                         .padding(.horizontal, 20)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         
-                    HotCafe()
-                        .padding(.horizontal, 10)
-                    
-                    Text("최근 본 카페")
-                        .fontWeight(.bold)
-                        .font(.custom("hot", size: 20))
-                        .padding(.horizontal, 20)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    
-                    RecentCafe()
-                        .padding(.horizontal, 10)
-                        .padding(.bottom, 15)
-
-                    BannerList()
-                        .padding(.horizontal, 10)
+//                    HotCafe()
+//                        .padding(.horizontal, 10)
+//
+//                    Text("최근 본 카페")
+//                        .fontWeight(.bold)
+//                        .font(.custom("hot", size: 20))
+//                        .padding(.horizontal, 20)
+//                        .frame(maxWidth: .infinity, alignment: .leading)
+//
+//                    RecentCafe()
+//                        .padding(.horizontal, 10)
+//                        .padding(.bottom, 15)
+//
+//                    BannerList()
+//                        .padding(.horizontal, 10)
                 }
             }.frame(minWidth:0,
             maxWidth: .infinity,

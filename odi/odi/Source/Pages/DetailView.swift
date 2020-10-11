@@ -9,8 +9,10 @@
 import SwiftUI
 
 struct DetailBtns: View{
+    var info : CafeList_dispatch.cafe_info
     @Binding var modal:Bool
     @Binding var modalMenu:String
+    
     var body: some View{
         HStack{
             Button(action:{
@@ -65,11 +67,11 @@ struct DetailBtns: View{
 struct DetailView: View {
     @State var modal = false
     @State var modalMenu:String = ""
-    var address : String
+    var info:CafeList_dispatch.cafe_info
     
     var body: some View {
         ZStack{
-            Main(address: self.address, modal:self.$modal, modalMenu:self.$modalMenu)
+            Main(info: self.info, modal:self.$modal, modalMenu:self.$modalMenu)
             
             if(self.modal){
                 ZStack{
@@ -94,7 +96,7 @@ struct DetailView: View {
 }
 
 struct Main : View {
-    var address : String
+    var info :CafeList_dispatch.cafe_info
     @State private var isLike:Bool = false
     @State var index = 0
     @Binding var modal:Bool
@@ -117,7 +119,7 @@ struct Main : View {
         ScrollView(.vertical, showsIndicators:false){
             ZStack{
                 VStack{
-                    appBar(address: self.address, index: self.$index,
+                    appBar(info: self.info, index: self.$index,
                            modal: self.$modal, modalMenu: self.$modalMenu)
                     
                     switch self.index{
@@ -143,9 +145,9 @@ struct Main : View {
             }
             
             Button(action:{
-                self.isLike.toggle()
+//                self.isLike.toggle()
             }){
-                if(self.isLike){
+                if(info.is_like == "Y"){
                     Image(systemName: "heart.fill")
                         .foregroundColor(Color.white)
                 }
@@ -160,8 +162,8 @@ struct Main : View {
 }
 
 struct appBar : View {
-    @State private var hashTags = ["#감성", "#연인", "#데이트", "#디저트"]
-    var address : String
+//    @State private var hashTags = ["#감성", "#연인", "#데이트", "#디저트"]
+    var info : CafeList_dispatch.cafe_info
     var tabs = ["카페정보", "리뷰", "스토리"]
     @Binding var index : Int
     @Binding var modal : Bool
@@ -179,7 +181,7 @@ struct appBar : View {
                 .frame(height:300)
                 
                 HStack{
-                    Text("오그니메모")
+                    Text("\(info.cafe_name)")
                     .fontWeight(.bold)
                     .font(.title)
                     .frame(maxWidth:.infinity, alignment: .leading)
@@ -188,7 +190,7 @@ struct appBar : View {
                         self.modalMenu = "coupon"
                         self.modal.toggle()
                     }){
-                        Text("10% 할인쿠폰")
+                        Text("\(info.cafe_coupon)% 할인쿠폰")
                             .font(.caption)
                             .padding(.vertical, 4)
                             .padding(.horizontal, 7)
@@ -200,7 +202,7 @@ struct appBar : View {
                 .padding(.horizontal, 20)
                  
                 HStack{
-                    ForEach(hashTags, id:\.self){
+                    ForEach(info.cafe_tag, id:\.self){
                         tag in Text("\(tag)")
                             .font(.custom("tag", size: 10))
                             .foregroundColor(Color("Brown"))
@@ -209,12 +211,12 @@ struct appBar : View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)
                  
-                Text("\(address)")
+                Text("\(info.cafe_address)")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 20)
                     .padding(.bottom, 5)
                  
-                DetailBtns(modal: self.$modal, modalMenu: self.$modalMenu)
+                DetailBtns(info: self.info, modal: self.$modal, modalMenu: self.$modalMenu)
                  .frame(maxWidth:.infinity, alignment: .trailing)
                     .padding(.horizontal, 20)
             }

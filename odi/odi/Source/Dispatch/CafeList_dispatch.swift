@@ -19,7 +19,7 @@ struct CafeList_dispatch{
         var cafe_review_score_avg:Int?
         var cafe_review_count:Int?
         var cafe_address:String
-        var cafe_coupon:String?
+        var cafe_coupon:String
         var cafe_closed_date:String?
         var cafe_image_count:Int
         var cafe_tag:Array<String>
@@ -108,10 +108,6 @@ struct CafeList_dispatch{
                                   is_coupon_use:i["is_coupon_use"].stringValue,
                                   distance:i["distance"].floatValue)
                     cafeList.append(one)
-                }
-                print("시이바아아아아아아아아아아아알")
-                for i in cafeList{
-                    print(i.cafe_name, i.is_like, i.cafe_coupon!)
                 }
                 
             //통신실패

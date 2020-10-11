@@ -55,7 +55,7 @@ struct CardView: View {
             }
             
             HStack{
-                Text("\(info.cafe_coupon!)% 할인쿠폰")
+                Text("\(info.cafe_coupon)% 할인쿠폰")
                     .font(.caption)
                     .padding(.vertical, 4.0)
                     .padding(.horizontal, 7.0)
