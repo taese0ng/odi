@@ -26,6 +26,7 @@ struct CafeList_dispatch{
         var is_like:String
         var is_coupon_use:String
         var distance:Float
+        var cafe_srl:Int
     }
     
     var userLatitude: String {
@@ -45,7 +46,8 @@ struct CafeList_dispatch{
             "list_type":"region",
             "region_type":"review",
             "region_value":"구미",
-            "user_latitude":"\(userLatitude),\(userLongitude)"
+            "user_latitude":"36.145519,128.392291"
+//            "user_latitude":"\(userLatitude),\(userLongitude)"
         ]
 
         //위의 URL와 파라미터를 담아서 POST 방식으로 통신하며, statusCode가 200번대(정상적인 통신) 인지 유효성 검사 진행
@@ -77,8 +79,10 @@ struct CafeList_dispatch{
         //전송할 파라미터 정보
         let PARAM:Parameters = [
             "list_type":"search",
-            "search_type":"\(search_type)",
-            "search_value":"\(search_value)",
+//            "search_type":"\(search_type)",
+//            "search_value":"\(search_value)",
+            "search_type":"cafe_name",
+            "search_value":"테스트",
             "user_latitude":"36.145519,128.392291"
 //            "user_latitude":"\(userLatitude),\(userLongitude)"
         ]
@@ -103,10 +107,11 @@ struct CafeList_dispatch{
                                   cafe_coupon:i["cafe_coupon"].stringValue,
                                   cafe_closed_date:i["cafe_close_date"].stringValue,
                                   cafe_image_count:i["cafe_image_count"].intValue,
-                                  cafe_tag:i["cafe_tag"].arrayValue.map { $0.stringValue},
+                                  cafe_tag:i["cafe_tag"].arrayValue.map { $0["tag_content"].stringValue},
                                   is_like:i["is_like"].stringValue,
                                   is_coupon_use:i["is_coupon_use"].stringValue,
-                                  distance:i["distance"].floatValue)
+                                  distance:i["distance"].floatValue,
+                                  cafe_srl: i["cafe_srl"].intValue)
                     cafeList.append(one)
                 }
                 

@@ -54,18 +54,28 @@ struct CardView: View {
                 .position(x:screenWidth-30, y:30)
             }
             
+            
             HStack{
-                Text("\(info.cafe_coupon)% 할인쿠폰")
-                    .font(.caption)
-                    .padding(.vertical, 4.0)
-                    .padding(.horizontal, 7.0)
-                    .background(Color.red)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+                if(info.cafe_coupon == ""){
+                    Text("")
+                        .font(.caption)
+                        .padding(.vertical, 4.0)
+                        .padding(.horizontal, 7.0)
+                }
+                else{
+                    Text("\(info.cafe_coupon) 할인쿠폰")
+                        .font(.caption)
+                        .padding(.vertical, 4.0)
+                        .padding(.horizontal, 7.0)
+                        .background(Color.red)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, 10.0)
             
+                
             HStack{
                 Text("\(info.cafe_name)")
                     .fontWeight(.bold)
@@ -76,7 +86,7 @@ struct CardView: View {
                     Image("rateReview")
                         .resizable()
                         .frame(width: 15.0, height: 15.0)
-                    Text("3")
+                    Text("\(info.cafe_review_count ?? 0)")
                         .foregroundColor(.black)
                 }
                 
@@ -86,7 +96,7 @@ struct CardView: View {
                         .frame(width:15.0, height:15.0)
                         .foregroundColor(.yellow)
                     
-                    Text("4.5")
+                    Text("\(info.cafe_review_score_avg ?? 0)")
                         .foregroundColor(.black)
                 }
             }
@@ -95,8 +105,8 @@ struct CardView: View {
             
             HStack{
                 ForEach(info.cafe_tag, id:\.self){
-                    tag in Text("\(tag)")
-                        .font(.custom("tag", size: 10))
+                    tag in Text("#\(tag)")
+                        .font(.custom("tag", size: 12))
                         .foregroundColor(Color("Brown"))
                 }
             }.frame(maxWidth: .infinity, alignment: .leading)

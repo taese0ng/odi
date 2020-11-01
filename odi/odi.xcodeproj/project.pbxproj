@@ -43,6 +43,7 @@
 		0DAF3C9124C9A3BB008B4B82 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C9024C9A3BB008B4B82 /* Home.swift */; };
 		0DAFF5E524D87D3800569F0C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAFF5E424D87D3800569F0C /* CardView.swift */; };
 		0DD45C0624E007FD006038EA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD45C0524E007FD006038EA /* DetailView.swift */; };
+		0DE3E6D3254EFEEA00130F5F /* CafeDetail_dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE3E6D2254EFEEA00130F5F /* CafeDetail_dispatch.swift */; };
 		0DE44E6A250FA5530069903D /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE44E69250FA5530069903D /* Store.swift */; };
 		0DECA21124F7A879005ACBC7 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DECA21024F7A879005ACBC7 /* Menu.swift */; };
 		0DEE6E2C2508DB0E0068EAA3 /* SignUpTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEE6E2B2508DB0E0068EAA3 /* SignUpTwo.swift */; };
@@ -119,6 +120,7 @@
 		0DAF3C9024C9A3BB008B4B82 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		0DAFF5E424D87D3800569F0C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		0DD45C0524E007FD006038EA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		0DE3E6D2254EFEEA00130F5F /* CafeDetail_dispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeDetail_dispatch.swift; sourceTree = "<group>"; };
 		0DE44E69250FA5530069903D /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		0DECA21024F7A879005ACBC7 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		0DEE6E2B2508DB0E0068EAA3 /* SignUpTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTwo.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				0D2510D7252624B600AD7E84 /* CafeList_dispatch.swift */,
 				0D83AB74252E039E00D0CBAA /* ChangePassword_dispatch.swift */,
 				0D83AB79252E08FB00D0CBAA /* ModifyUser_dispatch.swift */,
+				0DE3E6D2254EFEEA00130F5F /* CafeDetail_dispatch.swift */,
 			);
 			path = Dispatch;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				0DEE6F9E2509DE7F0068EAA3 /* LocationUse.swift in Sources */,
 				0DECA21124F7A879005ACBC7 /* Menu.swift in Sources */,
 				0D83AB75252E039E00D0CBAA /* ChangePassword_dispatch.swift in Sources */,
+				0DE3E6D3254EFEEA00130F5F /* CafeDetail_dispatch.swift in Sources */,
 				0D04D94824EBAA57007ABDB3 /* MyReview.swift in Sources */,
 				0DF0E24524DEC2560044C547 /* CafeInfo.swift in Sources */,
 				0DEE6FA0250B50090068EAA3 /* SignUpFour.swift in Sources */,
