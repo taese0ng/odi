@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct CafeInfo: View {
+    var info:Cafe_srl_info
     var body: some View {
         VStack{
             Group{
@@ -31,7 +32,7 @@ struct CafeInfo: View {
                 HStack{
                     Text("CALL")
                         .fontWeight(.bold)
-                    Text("010-1234-1234")
+                    Text("\(info.cafe_phone ?? "번호가 없습니다.")")
                 }.padding(.vertical, 5)
             }
             
@@ -88,7 +89,7 @@ struct CafeInfo: View {
                 Text("카페안내")
                     .padding(.vertical, 5)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text("달달한 디저트 맛집 오그니메모! 많이 찾아주세요!")
+                Text("\(info.cafe_info)")
                     .padding(.vertical, 5)
             }
             
@@ -98,11 +99,5 @@ struct CafeInfo: View {
                     .padding(.vertical, 5)
             }
         }
-    }
-}
-
-struct CafeInfo_Previews: PreviewProvider {
-    static var previews: some View {
-        CafeInfo()
     }
 }

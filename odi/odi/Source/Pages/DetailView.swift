@@ -114,16 +114,15 @@ struct DetailView: View {
                     }
                     
                     switch modalMenu{
-                    case "cafeMenu":Menu()
-                    case "coupon":Coupon()
+                    case "cafeMenu":Menu(menus:cafe_srl_info.menu)
+                        case "coupon":Coupon()
                     default:Coupon()
                     }
                 }
             }
         }.onAppear(){
-            //디테일 통신 해야함.
             CafeDetail_dispatch(cafe_srl_info:$cafe_srl_info).dispatch(store: store, srl: cafe_srl)
-//            print("cafe_srl_info:\(cafe_srl_info)")
+            CafeReview_dispatch().search_dispatch(store: store, srl: cafe_srl)
         }
     }
 }
@@ -157,14 +156,15 @@ struct Main : View {
                     
                     switch self.index{
                         case (0):
-                            CafeInfo()
+                            CafeInfo(info: self.info)
                             .padding(.horizontal, 20)
                         case (1):
                             CafeReview(myReview: false)
                         case (2):
                             CafeStory()
                         default:
-                            CafeInfo()
+                            CafeInfo(info: self.info)
+                            .padding(.horizontal, 20)
                     }
                 }
             }

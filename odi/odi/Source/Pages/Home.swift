@@ -67,52 +67,60 @@ struct MenuBtns: View{
     }
 }
 
-//struct HotCafe:View{
-//    var screenWidth = UIScreen.main.bounds.size.width
-//    var body: some View{
-//        ScrollView(.horizontal, showsIndicators: false){
-//            HStack{
-//                ForEach((1...5).reversed(), id:\.self){item in
-//                    NavigationLink(destination: DetailView(address: String(item)), label:{
-//                        CafeCard(cafeName: String(item))
-//                    })
-//                }
-//            }.padding(.horizontal,10)
-//        }
-//    }
-//}
-//
-//struct RecentCafe:View{
-//    var body: some View{
-//        ScrollView(.horizontal, showsIndicators: false){
-//            HStack{
-//                ForEach((1...5).reversed(), id:\.self){item in
-//                    NavigationLink(destination: DetailView(address: String(item)), label:{
-//                        CafeCard(cafeName: String(item))
-//                    })
-//                }
-//            }.padding(.horizontal,10)
-//        }
-//    }
-//}
-//
-//struct BannerList: View{
-//    var body: some View{
-//        ScrollView(.vertical, showsIndicators:false){
-//            ForEach((1...5), id:\.self){
-//                item in
-//                NavigationLink(destination: DetailView(address: String(item)), label:{
-//                    CafeBanner()
-//                        .padding(.bottom, 10)
-//                })
-//                
-//            }
-//        }.padding(.horizontal, 10)
-//    }
-//}
+struct HotCafe:View{
+    @EnvironmentObject var store:Store
+    var screenWidth = UIScreen.main.bounds.size.width
+    var body: some View{
+        ScrollView(.horizontal, showsIndicators: false){
+            HStack{
+                ForEach((1...5).reversed(), id:\.self){item in
+                    //cafe_srl 임시로 30 준거임. 제대로 받아와서 줘야함.
+                    NavigationLink(destination: DetailView(cafe_srl: 30).environmentObject(self.store), label:{
+                        CafeCard(cafeName: String(item))
+                    })
+                }
+            }.padding(.horizontal,10)
+        }
+    }
+}
+
+struct RecentCafe:View{
+    @EnvironmentObject var store:Store
+    var body: some View{
+        ScrollView(.horizontal, showsIndicators: false){
+            HStack{
+                ForEach((1...5).reversed(), id:\.self){item in
+                    //cafe_srl 임시로 30 준거임. 제대로 받아와서 줘야함.
+                    NavigationLink(destination: DetailView(cafe_srl: 30).environmentObject(self.store), label:{
+                        CafeCard(cafeName: String(item))
+                    })
+                }
+            }.padding(.horizontal,10)
+        }
+    }
+}
+
+struct BannerList: View{
+    @EnvironmentObject var store:Store
+    var body: some View{
+        ScrollView(.vertical, showsIndicators:false){
+            ForEach((1...5), id:\.self){
+                item in
+                //cafe_srl 임시로 30 준거임. 제대로 받아와서 줘야함.
+                NavigationLink(destination: DetailView(cafe_srl: 30).environmentObject(self.store), label:{
+                    CafeBanner()
+                        .padding(.bottom, 10)
+                })
+                
+            }
+        }.padding(.horizontal, 10)
+    }
+}
 
 struct Home: View{
     @Binding var Selection:Int
+    @EnvironmentObject var store:Store
+    
     var body: some View{
         NavigationView{
             VStack{
@@ -147,21 +155,27 @@ struct Home: View{
                         .padding(.horizontal, 20)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         
-//                    HotCafe()
-//                        .padding(.horizontal, 10)
-//
-//                    Text("최근 본 카페")
-//                        .fontWeight(.bold)
-//                        .font(.custom("hot", size: 20))
-//                        .padding(.horizontal, 20)
-//                        .frame(maxWidth: .infinity, alignment: .leading)
-//
-//                    RecentCafe()
-//                        .padding(.horizontal, 10)
-//                        .padding(.bottom, 15)
-//
-//                    BannerList()
-//                        .padding(.horizontal, 10)
+                    // HotCafe 어떻게 얻어와야할까요
+                    HotCafe()
+                        .environmentObject(self.store)
+                        .padding(.horizontal, 10)
+
+                    Text("최근 본 카페")
+                        .fontWeight(.bold)
+                        .font(.custom("hot", size: 20))
+                        .padding(.horizontal, 20)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    // 쿠키를 이용해서 받아오면된다고함.
+                    RecentCafe()
+                        .environmentObject(self.store)
+                        .padding(.horizontal, 10)
+                        .padding(.bottom, 15)
+                    
+                    // 이놈도 받아올 방법이없음.
+                    BannerList()
+                        .environmentObject(self.store)
+                        .padding(.horizontal, 10)
                 }
             }.frame(minWidth:0,
             maxWidth: .infinity,

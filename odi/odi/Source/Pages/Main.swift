@@ -15,6 +15,7 @@ struct MainView:View{
     var body: some View{
         TabView(selection: $Selected){
             Home(Selection: $Selected)
+            .environmentObject(self.store)
             .tabItem {
                 Image(systemName: "house.fill")
                 if(Selected == 1){

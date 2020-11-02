@@ -67,6 +67,8 @@ struct Surrounding: View {
             .navigationBarColor(.white)
         }.navigationViewStyle(StackNavigationViewStyle())
         .onAppear(){
+            // 첫 로딩시 실행되는데 무조건 로그인 후에 받아와야해서 로그인전에 못불러옴.
+            // 로그인 후 한번 더 탭을 활성화시켜줘야함. -> 로그인안해도 내주변에있는건 불러와야하지않나..?
             if(self.selectCategory == "firstSelect"){
                 CafeList_dispatch(cafeList:self.$cafeList).search_dispatch(store:self.store, search_type: "category", search_value: "디저트")
             }

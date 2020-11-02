@@ -46,8 +46,8 @@ struct CafeList_dispatch{
             "list_type":"region",
             "region_type":"review",
             "region_value":"구미",
-            "user_latitude":"36.145519,128.392291"
-//            "user_latitude":"\(userLatitude),\(userLongitude)"
+//            "user_latitude":"36.145519,128.392291"
+            "user_latitude":"\(userLatitude),\(userLongitude)"
         ]
 
         //위의 URL와 파라미터를 담아서 POST 방식으로 통신하며, statusCode가 200번대(정상적인 통신) 인지 유효성 검사 진행
@@ -79,12 +79,12 @@ struct CafeList_dispatch{
         //전송할 파라미터 정보
         let PARAM:Parameters = [
             "list_type":"search",
-//            "search_type":"\(search_type)",
-//            "search_value":"\(search_value)",
-            "search_type":"cafe_name",
-            "search_value":"테스트",
-            "user_latitude":"36.145519,128.392291"
-//            "user_latitude":"\(userLatitude),\(userLongitude)"
+            "search_type":"\(search_type)",
+            "search_value":"\(search_value)",
+            "user_latitude":"\(userLatitude),\(userLongitude)",
+            //            "search_type":"cafe_name",
+            //            "search_value":"테스트",
+            //            "user_latitude":"36.145519,128.392291"
         ]
 
         //위의 URL와 파라미터를 담아서 POST 방식으로 통신하며, statusCode가 200번대(정상적인 통신) 인지 유효성 검사 진행

@@ -42,7 +42,7 @@ struct CafeDetail_dispatch {
                                   menu_price: item["menu_price"].stringValue)
                     menu_list.append(mn)
                 }
-                print("array:\(menu_list)")
+//                print("array:\(menu_list)")
                 let detail_info = Cafe_srl_info(cafe_name:json[0]["cafe_name"].stringValue,
                                                 cafe_category:json[0]["cafe_category"].stringValue,
                                                 cafe_review_score_avg:json[0]["cafe_review_score_avg"].intValue,

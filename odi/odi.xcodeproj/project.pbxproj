@@ -30,6 +30,7 @@
 		0D83AB7A252E08FB00D0CBAA /* ModifyUser_dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83AB79252E08FB00D0CBAA /* ModifyUser_dispatch.swift */; };
 		0D83AB7F252F540F00D0CBAA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D83AB7E252F540F00D0CBAA /* LocationManager.swift */; };
 		0D8DF8422501378F009BA5BF /* Carousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8DF8412501378F009BA5BF /* Carousel.swift */; };
+		0DA098D6255046CE00F53F4E /* CafeReview_dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA098D5255046CE00F53F4E /* CafeReview_dispatch.swift */; };
 		0DAE7ECB25159E4600BCBD06 /* MyInfoModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAE7ECA25159E4600BCBD06 /* MyInfoModify.swift */; };
 		0DAF3C5924C97DF4008B4B82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C5824C97DF4008B4B82 /* AppDelegate.swift */; };
 		0DAF3C5B24C97DF4008B4B82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAF3C5A24C97DF4008B4B82 /* SceneDelegate.swift */; };
@@ -101,6 +102,7 @@
 		0D83AB79252E08FB00D0CBAA /* ModifyUser_dispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyUser_dispatch.swift; sourceTree = "<group>"; };
 		0D83AB7E252F540F00D0CBAA /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0D8DF8412501378F009BA5BF /* Carousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carousel.swift; sourceTree = "<group>"; };
+		0DA098D5255046CE00F53F4E /* CafeReview_dispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeReview_dispatch.swift; sourceTree = "<group>"; };
 		0DAE7ECA25159E4600BCBD06 /* MyInfoModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoModify.swift; sourceTree = "<group>"; };
 		0DAF3C5524C97DF4008B4B82 /* odi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = odi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DAF3C5824C97DF4008B4B82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				0D83AB74252E039E00D0CBAA /* ChangePassword_dispatch.swift */,
 				0D83AB79252E08FB00D0CBAA /* ModifyUser_dispatch.swift */,
 				0DE3E6D2254EFEEA00130F5F /* CafeDetail_dispatch.swift */,
+				0DA098D5255046CE00F53F4E /* CafeReview_dispatch.swift */,
 			);
 			path = Dispatch;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				0D6315E924FB8DC900BE8922 /* Coupon.swift in Sources */,
 				0DF0E24A24DECB9E0044C547 /* CafeStory.swift in Sources */,
 				0DEE6E2E2508E0100068EAA3 /* SignUpThree.swift in Sources */,
+				0DA098D6255046CE00F53F4E /* CafeReview_dispatch.swift in Sources */,
 				0D5B1A8E24D6B37A00703DC3 /* NavigationBarModifier.swift in Sources */,
 				0D83AB7F252F540F00D0CBAA /* LocationManager.swift in Sources */,
 				0D34497124CAAE0300FDF046 /* MyPage.swift in Sources */,
