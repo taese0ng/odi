@@ -97,6 +97,12 @@ struct CafeInfo: View {
                 Text("위치안내")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.vertical, 5)
+                
+                GoogleMapsView()
+                    .frame(height: 250)
+                    .onAppear(){
+                        GoogleMapsView().getAddress(address: "경상북도 구미시 옥계동 옥계북로90") //self.info.cafe_address
+                    }
             }
         }
     }

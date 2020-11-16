@@ -113,6 +113,7 @@ struct CafeList_dispatch{
                                   distance:i["distance"].floatValue,
                                   cafe_srl: i["cafe_srl"].intValue)
                     cafeList.append(one)
+                    print(one)
                 }
                 
             //통신실패

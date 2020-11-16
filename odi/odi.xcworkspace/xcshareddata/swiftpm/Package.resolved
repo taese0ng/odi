@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire.git",
+        "state": {
+          "branch": null,
+          "revision": "9e0328127dfb801cefe8ac53a13c0c90a7770448",
+          "version": "5.4.0"
+        }
+      },
+      {
+        "package": "LocationProvider",
+        "repositoryURL": "https://github.com/himbeles/LocationProvider.git",
+        "state": {
+          "branch": null,
+          "revision": "970f00b5f7294f2af0bb55dadd160a2eba9b8890",
+          "version": "1.5.0"
+        }
+      },
+      {
+        "package": "SlidingTabView",
+        "repositoryURL": "https://github.com/QuynhNguyen/SlidingTabView.git",
+        "state": {
+          "branch": null,
+          "revision": "b0f0662977418824d50546b2850a523dcd793bb0",
+          "version": "1.0.2"
+        }
+      },
+      {
+        "package": "SwiftyJSON",
+        "repositoryURL": "https://github.com/SwiftyJSON/SwiftyJSON.git",
+        "state": {
+          "branch": null,
+          "revision": "2b6054efa051565954e1d2b9da831680026cd768",
+          "version": "5.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

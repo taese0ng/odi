@@ -16,6 +16,7 @@
 		0D2510C42525B25A00AD7E84 /* Login_dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2510C32525B25A00AD7E84 /* Login_dispatch.swift */; };
 		0D2510D32525C93100AD7E84 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 0D2510D22525C93100AD7E84 /* SwiftyJSON */; };
 		0D2510D8252624B600AD7E84 /* CafeList_dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2510D7252624B600AD7E84 /* CafeList_dispatch.swift */; };
+		0D328B1F2562EC100098C777 /* GoogleMapsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D328B1E2562EC100098C777 /* GoogleMapsView.swift */; };
 		0D34496D24CAAAA000FDF046 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34496C24CAAAA000FDF046 /* Location.swift */; };
 		0D34496F24CAAB5600FDF046 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34496E24CAAB5600FDF046 /* TopBar.swift */; };
 		0D34497124CAAE0300FDF046 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D34497024CAAE0300FDF046 /* MyPage.swift */; };
@@ -61,6 +62,7 @@
 		0DF0E24724DEC4A70044C547 /* CafeReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0E24624DEC4A70044C547 /* CafeReview.swift */; };
 		0DF0E24A24DECB9E0044C547 /* CafeStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF0E24924DECB9E0044C547 /* CafeStory.swift */; };
 		0DF823F424E51C7700525E4F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF823F324E51C7700525E4F /* Login.swift */; };
+		B0691C7B9D1E7E72E52A826B /* libPods-odi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 394D8ADC1F6FC57524F207E9 /* libPods-odi.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,7 @@
 		0D13F00924D8F8CD00C109B7 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		0D2510C32525B25A00AD7E84 /* Login_dispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login_dispatch.swift; sourceTree = "<group>"; };
 		0D2510D7252624B600AD7E84 /* CafeList_dispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeList_dispatch.swift; sourceTree = "<group>"; };
+		0D328B1E2562EC100098C777 /* GoogleMapsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsView.swift; sourceTree = "<group>"; };
 		0D34496C24CAAAA000FDF046 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		0D34496E24CAAB5600FDF046 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
 		0D34497024CAAE0300FDF046 /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
@@ -138,6 +141,9 @@
 		0DF0E24624DEC4A70044C547 /* CafeReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeReview.swift; sourceTree = "<group>"; };
 		0DF0E24924DECB9E0044C547 /* CafeStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeStory.swift; sourceTree = "<group>"; };
 		0DF823F324E51C7700525E4F /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		394D8ADC1F6FC57524F207E9 /* libPods-odi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-odi.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		86EAD6D7C900B43570FA4CAD /* Pods-odi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-odi.release.xcconfig"; path = "Target Support Files/Pods-odi/Pods-odi.release.xcconfig"; sourceTree = "<group>"; };
+		8BFE393AE7517277B8F12F77 /* Pods-odi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-odi.debug.xcconfig"; path = "Target Support Files/Pods-odi/Pods-odi.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +155,7 @@
 				0D686F7F24EFF4FB001ED6E6 /* LocationProvider in Frameworks */,
 				0D2510D32525C93100AD7E84 /* SwiftyJSON in Frameworks */,
 				0DF0E24324DEA6E90044C547 /* SlidingTabView in Frameworks */,
+				B0691C7B9D1E7E72E52A826B /* libPods-odi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +215,8 @@
 				0DAF3C6E24C97DF8008B4B82 /* odiTests */,
 				0DAF3C7924C97DF8008B4B82 /* odiUITests */,
 				0DAF3C5624C97DF4008B4B82 /* Products */,
+				2F7FB1E9DA4CF515DF5C30C8 /* Pods */,
+				41543F9B44635787D86B37BD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -332,8 +341,26 @@
 				0D6315E824FB8DC900BE8922 /* Coupon.swift */,
 				0D8DF8412501378F009BA5BF /* Carousel.swift */,
 				0DEE6FA1250B54AC0068EAA3 /* RadioButton.swift */,
+				0D328B1E2562EC100098C777 /* GoogleMapsView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		2F7FB1E9DA4CF515DF5C30C8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8BFE393AE7517277B8F12F77 /* Pods-odi.debug.xcconfig */,
+				86EAD6D7C900B43570FA4CAD /* Pods-odi.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		41543F9B44635787D86B37BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				394D8ADC1F6FC57524F207E9 /* libPods-odi.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,9 +370,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0DAF3C7F24C97DF8008B4B82 /* Build configuration list for PBXNativeTarget "odi" */;
 			buildPhases = (
+				88A8329EAAAA2D143841035A /* [CP] Check Pods Manifest.lock */,
 				0DAF3C5124C97DF4008B4B82 /* Sources */,
 				0DAF3C5224C97DF4008B4B82 /* Frameworks */,
 				0DAF3C5324C97DF4008B4B82 /* Resources */,
+				FDE134A9D385D2031B89188D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -475,6 +504,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		88A8329EAAAA2D143841035A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-odi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDE134A9D385D2031B89188D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-odi/Pods-odi-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-odi/Pods-odi-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-odi/Pods-odi-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0DAF3C5124C97DF4008B4B82 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -501,6 +572,7 @@
 				0DAF3C5B24C97DF4008B4B82 /* SceneDelegate.swift in Sources */,
 				0DF0E24724DEC4A70044C547 /* CafeReview.swift in Sources */,
 				0D13F00A24D8F8CD00C109B7 /* Like.swift in Sources */,
+				0D328B1F2562EC100098C777 /* GoogleMapsView.swift in Sources */,
 				0D686F8124EFFCCA001ED6E6 /* CafeCard.swift in Sources */,
 				0DEE6F9A250970410068EAA3 /* Notice.swift in Sources */,
 				0DEE6E2C2508DB0E0068EAA3 /* SignUpTwo.swift in Sources */,
@@ -688,6 +760,7 @@
 		};
 		0DAF3C8024C97DF8008B4B82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8BFE393AE7517277B8F12F77 /* Pods-odi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = odi/odi.entitlements;
@@ -711,6 +784,7 @@
 		};
 		0DAF3C8124C97DF8008B4B82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86EAD6D7C900B43570FA4CAD /* Pods-odi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = odi/odi.entitlements;
