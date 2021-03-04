@@ -15,7 +15,6 @@ struct Location: View {
     var screenHeight = UIScreen.main.bounds.size.height
     
     var body: some View {
-        NavigationView{
             VStack{
                 TopBar(title:"지역")
 //                Spacer().frame(height:40)
@@ -45,9 +44,6 @@ struct Location: View {
                     minHeight: 0,
                     maxHeight: .infinity,
                     alignment: .top)
-            .navigationBarTitle("", displayMode: .inline)
-            .navigationBarColor(.white)
-        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

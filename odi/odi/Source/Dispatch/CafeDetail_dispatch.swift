@@ -33,7 +33,7 @@ struct CafeDetail_dispatch {
             //통신성공
             case .success(let value):
                 let json = JSON(value)
-                print("value: \(json)")
+//                print("value: \(json)")
                 
                 var menu_list = [Cafe_srl_info.Menu]();
                 for item in json[0]["menu"].arrayValue{
@@ -63,12 +63,50 @@ struct CafeDetail_dispatch {
                                                 is_like:json[0]["is_like"].stringValue,
                                                 is_coupon_use:json[0]["is_coupon"].stringValue)
                 cafe_srl_info = detail_info
+            
 //                print("detail_info:\(detail_info)")
 //                print("cafe_srl_info:\(cafe_srl_info)")
                 
             //통신실패
             case .failure(let error):
                 print("error: \(String(describing: error.errorDescription))")
+            }
+        }
+    }
+    
+    func isLike(store:Store, srl:Int, state:String){
+        let URL = "https://cafeodi.co.kr/api/normal/user_like"
+        print("srl: \(srl), state \(state), token")
+        let headers: HTTPHeaders = [
+            "Authorization": store.token,
+            "Content-Type": "application/json"
+        ]
+        
+        let PARAM:Parameters = [
+            "cafe_srl":srl,
+            "like_type":state
+        ]
+        
+        let alamo = AF.request(URL, method: .post, parameters: PARAM, encoding: JSONEncoding.default, headers: headers).validate(statusCode: 200..<300)
+        
+        alamo.responseJSON() { response in
+            switch response.result
+            {
+            //통신성공
+            case .success(let value):
+                let json = JSON(value)
+                if(json["result"].stringValue == "success"){
+                    if(state == "like"){
+                        cafe_srl_info.is_like = "N"
+                    } else {
+                        cafe_srl_info.is_like = "Y"
+                    }
+                }
+                print("isLike value: \(json)")
+            //통신실패
+            case .failure(let error):
+                print("error: \(String(describing: error.errorDescription))")
+                
             }
         }
     }

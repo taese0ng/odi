@@ -11,53 +11,62 @@ import SwiftUI
 struct MainView:View{
     @State private var Selected:Int = 1
     @EnvironmentObject var store:Store
+    @State private var title = ["오디","내주변","지역","좋아요", "My"]
     
     var body: some View{
-        TabView(selection: $Selected){
-            Home(Selection: $Selected)
-            .environmentObject(self.store)
-            .tabItem {
-                Image(systemName: "house.fill")
-                if(Selected == 1){
-                    Text("Home")
-                }
-            }.tag(1)
-            
-            Surrounding()
-            .environmentObject(self.store)
-            .tabItem {
-                Image(systemName:"location.fill")
-                if(Selected == 2){
-                    Text("내주변")
-                }
-            }.tag(2)
-            
-            Location()
-            .environmentObject(self.store)
-            .tabItem{
-                Image(systemName: "map.fill")
-                if(Selected == 3){
-                    Text("지역")
-                }
-            }.tag(3)
-            
-            Like()
-            .tabItem{
-                Image(systemName: "heart.fill")
-                if(Selected == 4){
-                    Text("좋아요")
-                }
-            }.tag(4)
-            
-            MyPage()
-            .environmentObject(self.store)
-            .tabItem{
-                Image(systemName: "person.crop.circle.fill")
-                if(Selected == 5){
-                    Text("My")
-                }
-            }.tag(5)
-        }.accentColor(Color("Brown"))
+        NavigationView{
+            VStack{
+                TopBar(title: self.title[self.Selected-1])
+                TabView(selection: $Selected){
+                    Home(Selection: $Selected)
+                    .environmentObject(self.store)
+                    .tabItem {
+                        Image(systemName: "house.fill")
+                        if(Selected == 1){
+                            Text("Home")
+                        }
+                    }.tag(1)
+                    
+                    Surrounding()
+                    .environmentObject(self.store)
+                    .tabItem {
+                        Image(systemName:"location.fill")
+                        if(Selected == 2){
+                            Text("내주변")
+                        }
+                    }.tag(2)
+                    
+                    Location()
+                    .environmentObject(self.store)
+                    .tabItem{
+                        Image(systemName: "map.fill")
+                        if(Selected == 3){
+                            Text("지역")
+                        }
+                    }.tag(3)
+                    
+                    Like()
+                    .environmentObject(self.store)
+                    .tabItem{
+                        Image(systemName: "heart.fill")
+                        if(Selected == 4){
+                            Text("좋아요")
+                        }
+                    }.tag(4)
+                    
+                    MyPage()
+                    .environmentObject(self.store)
+                    .tabItem{
+                        Image(systemName: "person.crop.circle.fill")
+                        if(Selected == 5){
+                            Text("My")
+                        }
+                    }.tag(5)
+                }.accentColor(Color("Brown"))
+            }
+            .navigationBarTitle("", displayMode: .inline)
+            .navigationBarColor(.white)
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

@@ -9,12 +9,22 @@
 import SwiftUI
 
 struct MyReview: View {
+    @EnvironmentObject var store:Store
+    @State private var reviewList:Array<myReview_dispatch.cafe_review_interface> = []
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators:false){
-            CafeReview(myReview: true)
+            VStack{
+                ForEach(reviewList, id:\.self){
+                    item in Review(myReview: true, data: item)
+                }
+            }.padding(.horizontal, 20)
         }
         .navigationBarTitle(Text("내가 작성한 리뷰"), displayMode: .inline)
         .navigationBarColor(.white)
+        .onAppear{
+            myReview_dispatch(reviewList:$reviewList).myReviewList_dispatch(store: store)
+        }
     }
 }
 

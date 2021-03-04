@@ -54,7 +54,7 @@ struct DetailBtns: View{
             }
             
             Button(action:{
-                if let url = URL(string: "https://www.instagram.com") {
+                if let url = URL(string: info.cafe_sns_account!) {
                     UIApplication.shared.open(url, options: [:])
                 }
             }){
@@ -72,7 +72,8 @@ struct DetailBtns: View{
             }
             
             Button(action:{
-                PhoneNumber(extractFrom: "+1-(800)-123-4567")?.makeACall()
+                PhoneNumber(extractFrom: info.cafe_phone!)?.makeACall()
+//                PhoneNumber(extractFrom: "+1-(800)-123-4567")?.makeACall()
                 //https://stackoverflow.com/questions/40078370/how-to-make-phone-call-in-ios-10-using-swift
             }){
                 HStack{
@@ -100,7 +101,7 @@ struct DetailView: View {
     
     var body: some View {
         ZStack{
-            Main(info: cafe_srl_info, modal:self.$modal, modalMenu:self.$modalMenu)
+            Main(info: $cafe_srl_info, cafe_srl:self.cafe_srl, modal:self.$modal, modalMenu:self.$modalMenu).environmentObject(self.store)
             
             if(self.modal){
                 ZStack{
@@ -122,13 +123,18 @@ struct DetailView: View {
             }
         }.onAppear(){
             CafeDetail_dispatch(cafe_srl_info:$cafe_srl_info).dispatch(store: store, srl: cafe_srl)
-            CafeReview_dispatch().search_dispatch(store: store, srl: cafe_srl)
+//            CafeReview_dispatch().search_dispatch(store: store, srl: cafe_srl)
+        }.onDisappear(){
+            //페이지를 나갈때 최근 본 카페 리스트에 추가.
+            LocalDataStorage().setData(srl: cafe_srl, name: cafe_srl_info.cafe_name)
         }
     }
 }
 
 struct Main : View {
-    var info :Cafe_srl_info
+    @EnvironmentObject var store:Store
+    @Binding var info :Cafe_srl_info
+    var cafe_srl:Int
     @State private var isLike:Bool = false
     @State var index = 0
     @Binding var modal:Bool
@@ -152,14 +158,14 @@ struct Main : View {
             ZStack{
                 VStack{
                     appBar(info: self.info, index: self.$index,
-                           modal: self.$modal, modalMenu: self.$modalMenu)
+                           modal: self.$modal, modalMenu: self.$modalMenu, cafeSrl: self.cafe_srl)
                     
                     switch self.index{
                         case (0):
                             CafeInfo(info: self.info)
                             .padding(.horizontal, 20)
                         case (1):
-                            CafeReview(myReview: false)
+                            CafeReview(myReview: false, srl: self.cafe_srl).environmentObject(self.store)
                         case (2):
                             CafeStory()
                         default:
@@ -179,6 +185,11 @@ struct Main : View {
             
             Button(action:{
 //                self.isLike.toggle()
+                if(info.is_like != "Y"){
+                    CafeDetail_dispatch(cafe_srl_info:$info).isLike(store: store, srl: cafe_srl, state:"like")
+                } else {
+                    CafeDetail_dispatch(cafe_srl_info:$info).isLike(store: store, srl: cafe_srl, state:"delete")
+                }
             }){
                 if(info.is_like == "Y"){
                     Image(systemName: "heart.fill")
@@ -203,13 +214,14 @@ struct appBar : View {
     @Binding var modalMenu : String
     @State private var Padding:CGFloat = 0
     var screenWidth = UIScreen.main.bounds.size.width
-    
+    var cafeSrl:Int
     
     
     var body : some View{
         VStack{
             VStack{
                 Image("cafeImg")
+                    .data(url:URL(string:"https://cafeodi.co.kr/api/normal/get_image?image_category_1=cafe&image_category_2=\(cafeSrl)&image_count=1")!)
                  .resizable()
                 .frame(height:300)
                 
@@ -219,18 +231,21 @@ struct appBar : View {
                     .font(.title)
                     .frame(maxWidth:.infinity, alignment: .leading)
                      
-                    Button(action:{
-                        self.modalMenu = "coupon"
-                        self.modal.toggle()
-                    }){
-                        Text("\(info.cafe_coupon) 할인쿠폰")
-                            .font(.caption)
-                            .padding(.vertical, 4)
-                            .padding(.horizontal, 7)
+                    
+                    if(info.cafe_coupon != ""){
+                        Button(action:{
+                            self.modalMenu = "coupon"
+                            self.modal.toggle()
+                        }){
+                            Text("\(info.cafe_coupon) 할인쿠폰")
+                                .font(.caption)
+                                .padding(.vertical, 4)
+                                .padding(.horizontal, 7)
+                        }
+                        .foregroundColor(.white)
+                        .background(Color.red)
+                        .cornerRadius(8)
                     }
-                    .foregroundColor(.white)
-                    .background(Color.red)
-                    .cornerRadius(8)
                 }
                 .padding(.horizontal, 20)
                  

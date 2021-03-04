@@ -19,7 +19,6 @@ struct Surrounding: View {
     @State private var cafeList:Array<CafeList_dispatch.cafe_info> = []
     
     var body: some View {
-        NavigationView{
             VStack{
                 TopBar(title:"내주변")
                 
@@ -41,11 +40,19 @@ struct Surrounding: View {
                                 self.selectCategory=item
                                 CafeList_dispatch(cafeList:self.$cafeList).search_dispatch(store:self.store, search_type: "category", search_value: item)
                             }){
-                                Text("\(item)")
-                                    .font(.custom("item", size: 15))
-                                    .padding(.horizontal, 10)
-                                    .padding(.vertical, 10)
-                                    .foregroundColor(.black)
+                                if(item == self.selectCategory){
+                                    Text("\(item)")
+                                        .font(.custom("item", size: 15))
+                                        .padding(.horizontal, 10)
+                                        .padding(.vertical, 10)
+                                        .foregroundColor(Color("Brown"))
+                                } else {
+                                    Text("\(item)")
+                                        .font(.custom("item", size: 15))
+                                        .padding(.horizontal, 10)
+                                        .padding(.vertical, 10)
+                                        .foregroundColor(.black)
+                                }
                             }
                         }
                     }
@@ -63,9 +70,6 @@ struct Surrounding: View {
                     minHeight: 0,
                     maxHeight: .infinity,
                     alignment: .topLeading)
-            .navigationBarTitle("", displayMode: .inline)
-            .navigationBarColor(.white)
-        }.navigationViewStyle(StackNavigationViewStyle())
         .onAppear(){
             // 첫 로딩시 실행되는데 무조건 로그인 후에 받아와야해서 로그인전에 못불러옴.
             // 로그인 후 한번 더 탭을 활성화시켜줘야함. -> 로그인안해도 내주변에있는건 불러와야하지않나..?

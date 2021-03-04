@@ -89,10 +89,10 @@ struct RecentCafe:View{
     var body: some View{
         ScrollView(.horizontal, showsIndicators: false){
             HStack{
-                ForEach((1...5).reversed(), id:\.self){item in
+                ForEach(LocalDataStorage().getData(), id:\.self){item in
                     //cafe_srl 임시로 30 준거임. 제대로 받아와서 줘야함.
-                    NavigationLink(destination: DetailView(cafe_srl: 30).environmentObject(self.store), label:{
-                        CafeCard(cafeName: String(item))
+                    NavigationLink(destination: DetailView(cafe_srl: item.srl).environmentObject(self.store), label:{
+                        CafeCard(cafeName: item.name)
                     })
                 }
             }.padding(.horizontal,10)
@@ -122,9 +122,7 @@ struct Home: View{
     @EnvironmentObject var store:Store
     
     var body: some View{
-        NavigationView{
             VStack{
-                TopBar(title:"오디")
                 ScrollView{
                     //자동 가로 배너
                     GeometryReader { geometry in
@@ -182,8 +180,7 @@ struct Home: View{
             minHeight: 0,
             maxHeight: .infinity,
             alignment: .topLeading)
-            .navigationBarTitle("", displayMode: .inline)
-            .navigationBarColor(.white)
+            
 
 //            .navigationBarTitle("")
 //            .navigationBarHidden(self.store.isNavigationBarHidden)
@@ -193,7 +190,6 @@ struct Home: View{
 //            .onDisappear(){
 //                self.store.isNavigationBarHidden=false
 //            }
-        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

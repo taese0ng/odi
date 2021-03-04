@@ -19,7 +19,10 @@ struct CardView: View {
     var body: some View {
         VStack{
             ZStack{
-                Image("cafeImg").resizable()
+                // "https://cafeodi.co.kr/api/normal/get_image?image_category_1=cafe&image_category_2=\(info.cafe_srl)&image_count=1"
+                Image("cafeImg")
+                    .data(url:URL(string:"https://cafeodi.co.kr/api/normal/get_image?image_category_1=cafe&image_category_2=\(info.cafe_srl)&image_count=1")!)
+                    .resizable()
                 .aspectRatio(contentMode: .fit)
                 .foregroundColor(.none)
                 

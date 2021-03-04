@@ -7,15 +7,26 @@
 //
 
 import SwiftUI
+extension Image {
+    func data(url:URL) -> Self {
+        if let data = try? Data(contentsOf: url){
+            return Image(uiImage: UIImage(data: data)!)
+                .resizable()
+        }
+        return self
+            .resizable()
+    }
+}
 
 struct MyPage: View {
     @EnvironmentObject var store:Store
     
     var body: some View {
-        NavigationView{
             VStack{
                 TopBar(title:"내정보")
                 Image("map")
+//                    .data(url:URL(string:"https://cafeodi.co.kr/api/normal/get_image?image_category_1=user&image_category_2=\(self.store.nick)&image_count=1"
+//                    )!)
                     .resizable()
                     .frame(width: 200, height: 200)
                     .background(Color.red)
@@ -41,22 +52,15 @@ struct MyPage: View {
                 else{
                     HStack{
                         NavigationLink(destination: Login().environmentObject(self.store)){
-                            Text("로그인")
+                            Text("로그인 / 회원가입하기 >")
                         }
                         .foregroundColor(.black)
                         
-                        Text(" / ")
-                        
-                        NavigationLink(destination: SignUpOne().environmentObject(self.store),
-                        isActive: $store.MyPage_root,label:{
-                            Text("회원가입하기 >")
-                        })
-                        .foregroundColor(.black)
                     }.padding(30)
                 }
                 
                 Button(action:{}){
-                    NavigationLink(destination: MyReview()){
+                    NavigationLink(destination: MyReview().environmentObject(self.store)){
                         Text("내가 작성한 리뷰")
                         .fontWeight(.bold)
                         .frame(maxWidth:.infinity, alignment:.leading)
@@ -91,10 +95,6 @@ struct MyPage: View {
             minHeight: 0,
             maxHeight: .infinity,
             alignment: .top)
-            .navigationBarTitle("", displayMode: .inline)
-            .navigationBarColor(.white)
-            
-        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

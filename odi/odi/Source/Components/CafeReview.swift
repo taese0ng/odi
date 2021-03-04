@@ -10,9 +10,11 @@ import SwiftUI
 
 struct StarRate : View{
     @State private var selected = -1
+    var rate:Int
+    
     var body: some View{
         HStack(spacing:10, content:{
-            ForEach(0..<5){
+            ForEach(0..<rate){
                 i in
                 Image(systemName: "star.fill")
                     .resizable()
@@ -27,6 +29,8 @@ struct StarRate : View{
 }
 struct Review : View{
     var myReview:Bool
+    var data: myReview_dispatch.cafe_review_interface
+    
     var body : some View{
         VStack{
             HStack{
@@ -37,7 +41,7 @@ struct Review : View{
                     .cornerRadius(100)
                 VStack{
                     HStack{
-                        Text("얼죽아")
+                        Text("\(data.user_nick_name)")
                             .frame(maxWidth:.infinity, alignment: .leading)
                         Spacer()
                         if(self.myReview){
@@ -45,11 +49,11 @@ struct Review : View{
                         }
                     }
                     HStack{
-                        StarRate()
+                        StarRate(rate:data.review_score)
                             .frame(maxWidth:.infinity, alignment: .leading)
                         Spacer()
                         if(self.myReview){
-                            Text("2020년 1월 1일")
+                            Text("\(data.review_reg_date)")
                         }
                     }
                 }
@@ -66,7 +70,7 @@ struct Review : View{
                         }
                     }
                 }
-                Text("커피 정말 맛있어요!!!")
+                Text("\(data.review_content)")
                     .frame(maxWidth:.infinity, alignment: .leading)
             }.padding(.leading, 50)
         }
@@ -74,13 +78,20 @@ struct Review : View{
 }
 
 struct CafeReview: View {
+    @EnvironmentObject var store:Store
     var myReview:Bool
+    var srl:Int
+//    @State private var reviewList:Array<CafeReview_dispatch.cafe_reviews_interface> = []
+    @State private var reviewList:Array<myReview_dispatch.cafe_review_interface>=[]
     var body: some View {
         VStack{
-            ForEach(0...5, id:\.self){
-                item in Review(myReview:self.myReview)
+            ForEach(reviewList, id:\.self){
+                item in Review(myReview: true, data: item)
             }
         }.padding(.horizontal, 20)
+        .onAppear{
+            CafeReview_dispatch(reviewList:$reviewList).search_dispatch(store: store, srl: srl)
+        }
     }
 }
 
